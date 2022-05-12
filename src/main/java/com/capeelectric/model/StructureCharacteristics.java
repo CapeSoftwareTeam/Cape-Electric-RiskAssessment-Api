@@ -151,6 +151,10 @@ public class StructureCharacteristics implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<StructureAttributes> structureAttributes;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Losses> losses;
 
 	public Integer getStructureCharacteristicsId() {
 		return structureCharacteristicsId;
@@ -475,4 +479,13 @@ public class StructureCharacteristics implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public List<Losses> getLosses() {
+		return losses;
+	}
+
+	public void setLosses(List<Losses> losses) {
+		this.losses = losses;
+	}
+	
 }

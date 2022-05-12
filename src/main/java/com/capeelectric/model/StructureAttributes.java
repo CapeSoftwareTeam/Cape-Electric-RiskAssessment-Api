@@ -24,54 +24,73 @@ public class StructureAttributes implements Serializable {
 	@Column(name = "STRUCTURE_ATTRIBUTES_ID")
 	private Integer structureAttributesId;
 
-	
-	// Loss of Human Life
-	@Column(name = "HL_HAZARD_CLASSIFICATION")
-	private String hazardClassification;
+//	Structure's Attributes
+	@Column(name = "ST_TYPE_FLOOR_SURFACE")
+	private String stTypeOfFloorSurface;
 
-	@Column(name = "HL_PHYSICAL_DAMAGE")
-	private String humanLossOfphysicalDamage;
+	@Column(name = "ST_ADDITIONAL_PROTECTION")
+	private String stAdditionalProtection;
 
-	@Column(name = "HL_FAILURE_INTERNAL_SYSTEM")
-	private String humanLossOffailureOfInternalSystem;
+	@Column(name = "ST_RISK_OF_FIRE")
+	private String stRiskOfFire;
 
-	@Column(name = "HL_INJURY_ELECTRIC_SHOCK")
-	private String humanLossOfInjuryOfElectricShock;
+	@Column(name = "ST_FIRE_PROTECTION_MEASURES")
+	private String stFireProtectionMeasure;
 
-	@Column(name = "HL_PHYSICAL_DAMAGE_L1")
-	private String humanLossOfPhysicalDamageL1;
+	@Column(name = "ST_TYPE_INTERNAL_WIRING")
+	private String stTypeOfInternalWiring;
 
-	
-	// Loss Of Service To Public
-	@Column(name = "SP_PHYSICAL_DAMAGE")
-	private String SerToPubPhysicalDamage;
+	// Lines
+	@Column(name = "TOTAL_NO_OF_LINES")
+	private String totalNoOfLines;
 
-	@Column(name = "SP_FAILURE_INTERNAL_SYSTEM")
-	private String serToPubfailureOfInternalSystem;
+	@Column(name = "NUMBER_POWER_LINES")
+	private String noOfPowerLines;
 
-	
-	// Loss Of Cultural Heritage
-	@Column(name = "CH_PHYSICAL_DAMAGE")
-	private String culHerOfPhysicalDamage;
+	@Column(name = "TYPE_POWER_LINES")
+	private String typeOfPowerLines;
 
-	
-	// Loss Of Economic Loss
-	@Column(name = "EL_PHYSICAL_DAMAGE")
-	private String ecoLossOfPhysicalDamage;
+	@Column(name = "LENGTH_POWER_LINES")
+	private String lengthOfPowerLines;
 
-	@Column(name = "EL_FAILURE_INTERNAL_SYSTEM")
-	private String ecoLossOfFailureOfInternalSystem;
+	@Column(name = "SHIELD_GROUND_ISOLA")
+	private String shieldingGroundingIsolation;
 
-	@Column(name = "EL_INJURY_ELECTRIC_SHOCK")
-	private String ecoLossOfInjuryOfElectricShock;
+	@Column(name = "COLL_AREA_POWER_LINES")
+	private String collAreaOfPowerLines;
 
-	
-	// Loss Of Protection
-	@Column(name = "PROTEC_CLASS_LPS")
-	private String classOfLPS;
+	@Column(name = "COLL_AREA_NEAR_LINES")
+	private String collAreaOfNearLines;
 
-	@Column(name = "PROTEC_CLASS_SPD")
-	private String classOfSPD;
+	@Column(name = "EVENT_NEAR_POWER_LINES")
+	private String eventNearThePowerLines;
+
+	@Column(name = "EVENT_ON_POWER_LINES")
+	private String eventOnThePowerLines;
+
+	@Column(name = "NO_OF_TELECOM_LINES")
+	private String noOfTelecomLines;
+
+	@Column(name = "TYPE_OF_TELECOM_LINES")
+	private String typeOfTelecomLines;
+
+	@Column(name = "LENGTH_TELECOM_LINES")
+	private String lengthOfTelecomLines;
+
+	@Column(name = "SHIELD_GROUND_ISOLA_L1")
+	private String shieldingGroundingIsolationL1;
+
+	@Column(name = "COLL_AREA_TELECOM_LINES")
+	private String collAreaOfTelecomLines;
+
+	@Column(name = "COLL_NEAR_TELECOM_LINES")
+	private String collNearOfTelecomLines;
+
+	@Column(name = "EVENT_NEAR_TELECOM_LINES")
+	private String eventNearTheTelecomeLines;
+
+	@Column(name = "EVENT_ON_TELECOM_LINES")
+	private String eventOnTheTelecomLines;
 
 	@JsonBackReference
 	@ManyToOne
@@ -86,108 +105,180 @@ public class StructureAttributes implements Serializable {
 		this.structureAttributesId = structureAttributesId;
 	}
 
-	public String getHazardClassification() {
-		return hazardClassification;
+	public String getStTypeOfFloorSurface() {
+		return stTypeOfFloorSurface;
 	}
 
-	public void setHazardClassification(String hazardClassification) {
-		this.hazardClassification = hazardClassification;
+	public void setStTypeOfFloorSurface(String stTypeOfFloorSurface) {
+		this.stTypeOfFloorSurface = stTypeOfFloorSurface;
 	}
 
-	public String getHumanLossOfphysicalDamage() {
-		return humanLossOfphysicalDamage;
+	public String getStAdditionalProtection() {
+		return stAdditionalProtection;
 	}
 
-	public void setHumanLossOfphysicalDamage(String humanLossOfphysicalDamage) {
-		this.humanLossOfphysicalDamage = humanLossOfphysicalDamage;
+	public void setStAdditionalProtection(String stAdditionalProtection) {
+		this.stAdditionalProtection = stAdditionalProtection;
 	}
 
-	public String getHumanLossOffailureOfInternalSystem() {
-		return humanLossOffailureOfInternalSystem;
+	public String getStRiskOfFire() {
+		return stRiskOfFire;
 	}
 
-	public void setHumanLossOffailureOfInternalSystem(String humanLossOffailureOfInternalSystem) {
-		this.humanLossOffailureOfInternalSystem = humanLossOffailureOfInternalSystem;
+	public void setStRiskOfFire(String stRiskOfFire) {
+		this.stRiskOfFire = stRiskOfFire;
 	}
 
-	public String getHumanLossOfInjuryOfElectricShock() {
-		return humanLossOfInjuryOfElectricShock;
+	public String getStFireProtectionMeasure() {
+		return stFireProtectionMeasure;
 	}
 
-	public void setHumanLossOfInjuryOfElectricShock(String humanLossOfInjuryOfElectricShock) {
-		this.humanLossOfInjuryOfElectricShock = humanLossOfInjuryOfElectricShock;
+	public void setStFireProtectionMeasure(String stFireProtectionMeasure) {
+		this.stFireProtectionMeasure = stFireProtectionMeasure;
 	}
 
-	public String getHumanLossOfPhysicalDamageL1() {
-		return humanLossOfPhysicalDamageL1;
+	public String getStTypeOfInternalWiring() {
+		return stTypeOfInternalWiring;
 	}
 
-	public void setHumanLossOfPhysicalDamageL1(String humanLossOfPhysicalDamageL1) {
-		this.humanLossOfPhysicalDamageL1 = humanLossOfPhysicalDamageL1;
+	public void setStTypeOfInternalWiring(String stTypeOfInternalWiring) {
+		this.stTypeOfInternalWiring = stTypeOfInternalWiring;
 	}
 
-	public String getSerToPubPhysicalDamage() {
-		return SerToPubPhysicalDamage;
+	public String getTotalNoOfLines() {
+		return totalNoOfLines;
 	}
 
-	public void setSerToPubPhysicalDamage(String serToPubPhysicalDamage) {
-		SerToPubPhysicalDamage = serToPubPhysicalDamage;
+	public void setTotalNoOfLines(String totalNoOfLines) {
+		this.totalNoOfLines = totalNoOfLines;
 	}
 
-	public String getSerToPubfailureOfInternalSystem() {
-		return serToPubfailureOfInternalSystem;
+	public String getNoOfPowerLines() {
+		return noOfPowerLines;
 	}
 
-	public void setSerToPubfailureOfInternalSystem(String serToPubfailureOfInternalSystem) {
-		this.serToPubfailureOfInternalSystem = serToPubfailureOfInternalSystem;
+	public void setNoOfPowerLines(String noOfPowerLines) {
+		this.noOfPowerLines = noOfPowerLines;
 	}
 
-	public String getCulHerOfPhysicalDamage() {
-		return culHerOfPhysicalDamage;
+	public String getTypeOfPowerLines() {
+		return typeOfPowerLines;
 	}
 
-	public void setCulHerOfPhysicalDamage(String culHerOfPhysicalDamage) {
-		this.culHerOfPhysicalDamage = culHerOfPhysicalDamage;
+	public void setTypeOfPowerLines(String typeOfPowerLines) {
+		this.typeOfPowerLines = typeOfPowerLines;
 	}
 
-	public String getEcoLossOfPhysicalDamage() {
-		return ecoLossOfPhysicalDamage;
+	public String getLengthOfPowerLines() {
+		return lengthOfPowerLines;
 	}
 
-	public void setEcoLossOfPhysicalDamage(String ecoLossOfPhysicalDamage) {
-		this.ecoLossOfPhysicalDamage = ecoLossOfPhysicalDamage;
+	public void setLengthOfPowerLines(String lengthOfPowerLines) {
+		this.lengthOfPowerLines = lengthOfPowerLines;
 	}
 
-	public String getEcoLossOfFailureOfInternalSystem() {
-		return ecoLossOfFailureOfInternalSystem;
+	public String getShieldingGroundingIsolation() {
+		return shieldingGroundingIsolation;
 	}
 
-	public void setEcoLossOfFailureOfInternalSystem(String ecoLossOfFailureOfInternalSystem) {
-		this.ecoLossOfFailureOfInternalSystem = ecoLossOfFailureOfInternalSystem;
+	public void setShieldingGroundingIsolation(String shieldingGroundingIsolation) {
+		this.shieldingGroundingIsolation = shieldingGroundingIsolation;
 	}
 
-	public String getEcoLossOfInjuryOfElectricShock() {
-		return ecoLossOfInjuryOfElectricShock;
+	public String getCollAreaOfPowerLines() {
+		return collAreaOfPowerLines;
 	}
 
-	public void setEcoLossOfInjuryOfElectricShock(String ecoLossOfInjuryOfElectricShock) {
-		this.ecoLossOfInjuryOfElectricShock = ecoLossOfInjuryOfElectricShock;
+	public void setCollAreaOfPowerLines(String collAreaOfPowerLines) {
+		this.collAreaOfPowerLines = collAreaOfPowerLines;
 	}
 
-	public String getClassOfLPS() {
-		return classOfLPS;
+	public String getCollAreaOfNearLines() {
+		return collAreaOfNearLines;
 	}
 
-	public void setClassOfLPS(String classOfLPS) {
-		this.classOfLPS = classOfLPS;
+	public void setCollAreaOfNearLines(String collAreaOfNearLines) {
+		this.collAreaOfNearLines = collAreaOfNearLines;
 	}
 
-	public String getClassOfSPD() {
-		return classOfSPD;
+	public String getEventNearThePowerLines() {
+		return eventNearThePowerLines;
 	}
 
-	public void setClassOfSPD(String classOfSPD) {
-		this.classOfSPD = classOfSPD;
+	public void setEventNearThePowerLines(String eventNearThePowerLines) {
+		this.eventNearThePowerLines = eventNearThePowerLines;
+	}
+
+	public String getEventOnThePowerLines() {
+		return eventOnThePowerLines;
+	}
+
+	public void setEventOnThePowerLines(String eventOnThePowerLines) {
+		this.eventOnThePowerLines = eventOnThePowerLines;
+	}
+
+	public String getNoOfTelecomLines() {
+		return noOfTelecomLines;
+	}
+
+	public void setNoOfTelecomLines(String noOfTelecomLines) {
+		this.noOfTelecomLines = noOfTelecomLines;
+	}
+
+	public String getTypeOfTelecomLines() {
+		return typeOfTelecomLines;
+	}
+
+	public void setTypeOfTelecomLines(String typeOfTelecomLines) {
+		this.typeOfTelecomLines = typeOfTelecomLines;
+	}
+
+	public String getLengthOfTelecomLines() {
+		return lengthOfTelecomLines;
+	}
+
+	public void setLengthOfTelecomLines(String lengthOfTelecomLines) {
+		this.lengthOfTelecomLines = lengthOfTelecomLines;
+	}
+
+	public String getShieldingGroundingIsolationL1() {
+		return shieldingGroundingIsolationL1;
+	}
+
+	public void setShieldingGroundingIsolationL1(String shieldingGroundingIsolationL1) {
+		this.shieldingGroundingIsolationL1 = shieldingGroundingIsolationL1;
+	}
+
+	public String getCollAreaOfTelecomLines() {
+		return collAreaOfTelecomLines;
+	}
+
+	public void setCollAreaOfTelecomLines(String collAreaOfTelecomLines) {
+		this.collAreaOfTelecomLines = collAreaOfTelecomLines;
+	}
+
+	public String getCollNearOfTelecomLines() {
+		return collNearOfTelecomLines;
+	}
+
+	public void setCollNearOfTelecomLines(String collNearOfTelecomLines) {
+		this.collNearOfTelecomLines = collNearOfTelecomLines;
+	}
+
+	public String getEventNearTheTelecomeLines() {
+		return eventNearTheTelecomeLines;
+	}
+
+	public void setEventNearTheTelecomeLines(String eventNearTheTelecomeLines) {
+		this.eventNearTheTelecomeLines = eventNearTheTelecomeLines;
+	}
+
+	public String getEventOnTheTelecomLines() {
+		return eventOnTheTelecomLines;
+	}
+
+	public void setEventOnTheTelecomLines(String eventOnTheTelecomLines) {
+		this.eventOnTheTelecomLines = eventOnTheTelecomLines;
 	}
 
 	public StructureCharacteristics getStructureCharacteristics() {
@@ -202,5 +293,5 @@ public class StructureAttributes implements Serializable {
 		return serialVersionUID;
 	}
 
-	
+
 }
