@@ -70,7 +70,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 		} else {
 			logger.error("Invalid Inputs");
-			throw new CustomerDetailsException("Invalid inputs");
+			throw new CustomerDetailsException("Invalid Inputs");
 		}
 
 	}

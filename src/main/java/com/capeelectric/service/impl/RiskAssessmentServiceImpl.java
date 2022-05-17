@@ -46,8 +46,8 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService{
 				}
 
 			} else {
-				logger.error("Given RISK Id is is Not Registered in Customer Details");
-				throw new RiskAssessmentException("Given RISK Id is is Not Registered in Customer Details");
+				logger.error("Given Risk Id is is Not Registered in Customer Details");
+				throw new RiskAssessmentException("Given Risk Id is is Not Registered in Customer Details");
 			}
 		} else {
 			logger.error("Invalid Inputs");

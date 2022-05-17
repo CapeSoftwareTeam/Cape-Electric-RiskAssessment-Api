@@ -40,7 +40,7 @@ public class StructureAttributes implements Serializable {
 	@Column(name = "ST_TYPE_INTERNAL_WIRING")
 	private String stTypeOfInternalWiring;
 
-	// Lines
+//  Lines
 	@Column(name = "TOTAL_NO_OF_LINES")
 	private String totalNoOfLines;
 
