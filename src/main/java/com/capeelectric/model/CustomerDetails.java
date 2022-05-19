@@ -41,8 +41,8 @@ public class CustomerDetails {
 	@Column(name = "PROJECT_DESC")
 	private String projectDescription;
 	
-	@Column(name = "CONTACT_NO")
-	private String contactNo;
+	@Column(name = "CONTACT_PERSON_NAME")
+	private String contactPersonName;
 	
 	@Column(name = "CONTACT_DETAILS")
 	private String contactDetails;
@@ -113,12 +113,16 @@ public class CustomerDetails {
 		this.projectDescription = projectDescription;
 	}
 
-	public String getContactNo() {
-		return contactNo;
+	public String getContactPersonName() {
+		return contactPersonName;
 	}
 
-	public void setContactNo(String contactNo) {
-		this.contactNo = contactNo;
+	public void setContactPersonName(String contactPersonName) {
+		this.contactPersonName = contactPersonName;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public String getContactDetails() {

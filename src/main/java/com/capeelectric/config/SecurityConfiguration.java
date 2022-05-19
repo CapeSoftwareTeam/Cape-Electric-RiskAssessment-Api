@@ -68,7 +68,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// dont authenticate this particular request
 				.authorizeRequests().antMatchers(
 						"/api/v2/authenticate",
-//						"/api/v2/addRegistration",
+						"/api/risk/v2/printRiskAssessmentDetails/**",
 //						"/api/v2/forgotPassword/**", 
 //						"/api/v2/updatePassword/**",
 //						"/api/v2/createPassword/**",
