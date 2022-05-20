@@ -18,41 +18,44 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "customer_details_table")
 public class CustomerDetails {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "RISK_ID")
 	private Integer riskId;
-	
+
 	@Column(name = "USER_NAME")
 	private String userName;
-	
+
+	@Column(name = "EMAIL")
+	private String email;
+
 	@Column(name = "ORGANISATION_NAME")
 	private String organisationName;
 
 	@Column(name = "ADDRESS")
 	private String address;
-	
+
 	@Column(name = "PROJECT_NAME")
 	private String projectName;
-	
+
 	@Column(name = "PROJECT_DESC")
 	private String projectDescription;
-	
+
 	@Column(name = "CONTACT_PERSON_NAME")
 	private String contactPersonName;
-	
-	@Column(name = "CONTACT_DETAILS")
-	private String contactDetails;
-	
+
+	@Column(name = "CONTACT_NO")
+	private String contactNumber;
+
 	@Column(name = "PREPARED_BY")
-	private String preparedBy;	
-	
+	private String preparedBy;
+
 	@Column(name = "VERIFIED_BY")
 	private String verifiedBy;
-	
+
 	@Column(name = "CREATED_BY")
 	private String createdBy;
 
@@ -105,6 +108,14 @@ public class CustomerDetails {
 		this.projectName = projectName;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getProjectDescription() {
 		return projectDescription;
 	}
@@ -125,12 +136,12 @@ public class CustomerDetails {
 		return serialVersionUID;
 	}
 
-	public String getContactDetails() {
-		return contactDetails;
+	public String getContactNumber() {
+		return contactNumber;
 	}
 
-	public void setContactDetails(String contactDetails) {
-		this.contactDetails = contactDetails;
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
 	}
 
 	public String getPreparedBy() {
@@ -180,6 +191,5 @@ public class CustomerDetails {
 	public void setUpdatedDate(LocalDateTime updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-	
 
 }
