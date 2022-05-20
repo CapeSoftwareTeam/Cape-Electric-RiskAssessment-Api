@@ -20,7 +20,7 @@ use lv_safety_verification;
 			        UPDATED_BY VARCHAR(255),
 			        UPDATED_DATE datetime,
 			        CONSTRAINT PK_RISK_ID  PRIMARY KEY(RISK_ID)
-			        )
+			        );
 			        
 			        
 -----------> STRUCTURE DETAILS <----------	
