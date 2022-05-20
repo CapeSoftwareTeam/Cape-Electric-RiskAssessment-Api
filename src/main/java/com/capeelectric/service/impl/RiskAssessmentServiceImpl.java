@@ -11,31 +11,38 @@ import org.springframework.stereotype.Service;
 
 import com.capeelectric.exception.RiskAssessmentException;
 import com.capeelectric.model.CustomerDetails;
+import com.capeelectric.model.GroundFlashDensity;
 import com.capeelectric.model.StructureCharacteristics;
 import com.capeelectric.repository.CustomerDetailsRepository;
+import com.capeelectric.repository.GroundFlashDensityRepositary;
 import com.capeelectric.repository.RiskAssessmentRepository;
 import com.capeelectric.service.RiskAssessmentService;
 
-
 @Service
-public class RiskAssessmentServiceImpl implements RiskAssessmentService{
+public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 
 	private static final Logger logger = LoggerFactory.getLogger(RiskAssessmentServiceImpl.class);
 
 	@Autowired
-	private RiskAssessmentRepository  riskAssessmentRepository;
+	private RiskAssessmentRepository riskAssessmentRepository;
+
+	@Autowired
+	private GroundFlashDensityRepositary groundFlashDensityRepositary;
 
 	@Autowired
 	private CustomerDetailsRepository customerDetailsRepository;
 
 	@Override
-	public void addRiskAssessmentDetails(StructureCharacteristics structureCharacteristics) throws RiskAssessmentException {
+	public void addRiskAssessmentDetails(StructureCharacteristics structureCharacteristics)
+			throws RiskAssessmentException {
 		if (structureCharacteristics != null && structureCharacteristics.getUserName() != null) {
-			Optional<StructureCharacteristics> riskAssessmentDataRepo = riskAssessmentRepository.findByRiskId(structureCharacteristics.getRiskId());
+			Optional<StructureCharacteristics> riskAssessmentDataRepo = riskAssessmentRepository
+					.findByRiskId(structureCharacteristics.getRiskId());
 
-			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository
-					.findByUserNameAndRiskId(structureCharacteristics.getUserName(), structureCharacteristics.getRiskId());
-			if (customerDetailsRepo.isPresent() && customerDetailsRepo.get().getRiskId().equals(structureCharacteristics.getRiskId())) {
+			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByUserNameAndRiskId(
+					structureCharacteristics.getUserName(), structureCharacteristics.getRiskId());
+			if (customerDetailsRepo.isPresent()
+					&& customerDetailsRepo.get().getRiskId().equals(structureCharacteristics.getRiskId())) {
 				if (!riskAssessmentDataRepo.isPresent()) {
 					structureCharacteristics.setCreatedDate(LocalDateTime.now());
 					structureCharacteristics.setCreatedBy(structureCharacteristics.getUserName());
@@ -57,9 +64,11 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService{
 	}
 
 	@Override
-	public List<StructureCharacteristics> retrieveRiskAssessmentDetails(String userName, Integer riskId) throws RiskAssessmentException {
+	public List<StructureCharacteristics> retrieveRiskAssessmentDetails(String userName, Integer riskId)
+			throws RiskAssessmentException {
 		if (userName != null && !userName.isEmpty() && riskId != null) {
-			List<StructureCharacteristics> riskAssessmentDetailsRepo = riskAssessmentRepository.findByUserNameAndRiskId(userName, riskId);
+			List<StructureCharacteristics> riskAssessmentDetailsRepo = riskAssessmentRepository
+					.findByUserNameAndRiskId(userName, riskId);
 			if (riskAssessmentDetailsRepo != null && !riskAssessmentDetailsRepo.isEmpty()) {
 				return riskAssessmentDetailsRepo;
 			} else {
@@ -73,10 +82,14 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService{
 	}
 
 	@Override
-	public void updateRiskAssessmentDetails(StructureCharacteristics structureCharacteristics) throws RiskAssessmentException {
-		if (structureCharacteristics != null && structureCharacteristics.getRiskId() != null && structureCharacteristics.getUserName() != null) {
-			Optional<StructureCharacteristics> riskAssessmentDetailsRepo = riskAssessmentRepository.findByRiskId(structureCharacteristics.getRiskId());
-			if (riskAssessmentDetailsRepo.isPresent() && riskAssessmentDetailsRepo.get().getRiskId().equals(structureCharacteristics.getRiskId())) {
+	public void updateRiskAssessmentDetails(StructureCharacteristics structureCharacteristics)
+			throws RiskAssessmentException {
+		if (structureCharacteristics != null && structureCharacteristics.getRiskId() != null
+				&& structureCharacteristics.getUserName() != null) {
+			Optional<StructureCharacteristics> riskAssessmentDetailsRepo = riskAssessmentRepository
+					.findByRiskId(structureCharacteristics.getRiskId());
+			if (riskAssessmentDetailsRepo.isPresent()
+					&& riskAssessmentDetailsRepo.get().getRiskId().equals(structureCharacteristics.getRiskId())) {
 				structureCharacteristics.setUpdatedDate(LocalDateTime.now());
 				structureCharacteristics.setUpdatedBy(structureCharacteristics.getUserName());
 				riskAssessmentRepository.save(structureCharacteristics);
@@ -89,6 +102,28 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService{
 			logger.error("Invalid Inputs");
 			throw new RiskAssessmentException("Invalid inputs");
 		}
-
 	}
+
+	public List<GroundFlashDensity> fetchLocations() {
+		List<GroundFlashDensity> locations = (List<GroundFlashDensity>) groundFlashDensityRepositary.findAll();
+		locations.sort((o1, o2) -> o1.getLocation().compareTo(o2.getLocation()));
+		return locations;
+	}
+
+	@Override
+	public GroundFlashDensity retriveGroundFlashDensity(String location) throws RiskAssessmentException {
+		if (location != null && !location.isEmpty()) {
+			GroundFlashDensity groundFlashDensityRepo = groundFlashDensityRepositary.findByGroundDensity(location);
+			if (groundFlashDensityRepo != null) {
+				return groundFlashDensityRepo;
+			} else {
+				logger.error("Given location doesn't exist in GroundFlashDensity List");
+				throw new RiskAssessmentException("Given location doesn't exist in GroundFlashDensity List");
+			}
+		} else {
+			logger.error("Invalid Inputs");
+			throw new RiskAssessmentException("Invalid Inputs");
+		}
+	}
+
 }

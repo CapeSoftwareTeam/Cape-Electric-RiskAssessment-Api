@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capeelectric.exception.RiskAssessmentException;
+import com.capeelectric.model.GroundFlashDensity;
 import com.capeelectric.model.StructureCharacteristics;
 import com.capeelectric.service.RiskAssessmentService;
 
@@ -29,10 +30,10 @@ public class RiskAssessmentController {
 	private RiskAssessmentService riskAssessmentService;
 
 	@PostMapping("/saveRiskAssessmentDetails")
-	public ResponseEntity<String> saveRiskAssessmentDetails(@RequestBody StructureCharacteristics structureCharacteristics)
-			throws RiskAssessmentException {
-		logger.debug("started addRiskAssessmentDetails function userName: {},riskId : {}", structureCharacteristics.getUserName(),
-				structureCharacteristics.getRiskId());
+	public ResponseEntity<String> saveRiskAssessmentDetails(
+			@RequestBody StructureCharacteristics structureCharacteristics) throws RiskAssessmentException {
+		logger.debug("started addRiskAssessmentDetails function userName: {},riskId : {}",
+				structureCharacteristics.getUserName(), structureCharacteristics.getRiskId());
 		riskAssessmentService.addRiskAssessmentDetails(structureCharacteristics);
 		logger.debug("ended saveRiskAssessmentDetails function");
 		return new ResponseEntity<String>("RiskAssessmentDetails  Details Saved Successfully", HttpStatus.CREATED);
@@ -42,16 +43,30 @@ public class RiskAssessmentController {
 	public ResponseEntity<List<StructureCharacteristics>> retrieveRiskAssessmentDetails(@PathVariable String userName,
 			@PathVariable Integer riskId) throws RiskAssessmentException {
 		logger.info("called retrieveRiskAssessmentDetails function UserName: {}, riskId : {}", userName, riskId);
-		return new ResponseEntity<List<StructureCharacteristics>>(riskAssessmentService.retrieveRiskAssessmentDetails(userName, riskId),
-				HttpStatus.OK);
+		return new ResponseEntity<List<StructureCharacteristics>>(
+				riskAssessmentService.retrieveRiskAssessmentDetails(userName, riskId), HttpStatus.OK);
 	}
- 
+
 	@PutMapping("/updateRiskAssessmentDetails")
-	public ResponseEntity<String> updateRiskAssessmentDetails(@RequestBody StructureCharacteristics structureCharacteristics)
-			throws RiskAssessmentException {
-		logger.info("called updateRiskAssessmentDetails function UserName : {},getRiskId : {}", structureCharacteristics.getUserName());
+	public ResponseEntity<String> updateRiskAssessmentDetails(
+			@RequestBody StructureCharacteristics structureCharacteristics) throws RiskAssessmentException {
+		logger.info("called updateRiskAssessmentDetails function UserName : {},getRiskId : {}",
+				structureCharacteristics.getUserName());
 		riskAssessmentService.updateRiskAssessmentDetails(structureCharacteristics);
 		return new ResponseEntity<String>("RiskAssessmentDetails  Updated Successfully", HttpStatus.OK);
+	}
+
+	@GetMapping("/fetchGroundLocations")
+	public List<GroundFlashDensity> fetchLocation() throws RiskAssessmentException {
+		return riskAssessmentService.fetchLocations();
+	}
+
+	@GetMapping("/retriveGroundFlashDensity/{location}")
+	public ResponseEntity<GroundFlashDensity> retriveGroundFlashDensity(@PathVariable String location)
+			throws RiskAssessmentException {
+		logger.info("called RetriveGroundFlashDensity function location: {}", location);
+		return new ResponseEntity<GroundFlashDensity>(riskAssessmentService.retriveGroundFlashDensity(location),
+				HttpStatus.OK);
 	}
 
 }
