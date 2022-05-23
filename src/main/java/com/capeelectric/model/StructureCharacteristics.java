@@ -90,6 +90,9 @@ public class StructureCharacteristics implements Serializable {
 
 	@Column(name = "NO_OF_DANG_EVENT_ON_STRUCTURE")
 	private String noOfDangerousEventOnStructure;
+	
+	@Column(name = "NO_OF_DANG_EVENT_NEAR_STRUCTURE")
+	private String noOfDangerousEventNearStructure;
 
 	@Column(name = "PROTECTION_PART_BUILDING")
 	private String protectionPartOFBuilding;
@@ -487,5 +490,15 @@ public class StructureCharacteristics implements Serializable {
 	public void setLosses(List<Losses> losses) {
 		this.losses = losses;
 	}
+
+	public String getNoOfDangerousEventNearStructure() {
+		return noOfDangerousEventNearStructure;
+	}
+
+	public void setNoOfDangerousEventNearStructure(String noOfDangerousEventNearStructure) {
+		this.noOfDangerousEventNearStructure = noOfDangerousEventNearStructure;
+	}
+	
+	
 	
 }
