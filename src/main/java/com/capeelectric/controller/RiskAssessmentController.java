@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capeelectric.exception.RiskAssessmentException;
-import com.capeelectric.model.GroundFlashDensity;
 import com.capeelectric.model.StructureCharacteristics;
 import com.capeelectric.service.RiskAssessmentService;
 
@@ -54,19 +53,6 @@ public class RiskAssessmentController {
 				structureCharacteristics.getUserName());
 		riskAssessmentService.updateRiskAssessmentDetails(structureCharacteristics);
 		return new ResponseEntity<String>("RiskAssessmentDetails  Updated Successfully", HttpStatus.OK);
-	}
-
-	@GetMapping("/fetchGroundLocations")
-	public List<GroundFlashDensity> fetchLocation() throws RiskAssessmentException {
-		return riskAssessmentService.fetchLocations();
-	}
-
-	@GetMapping("/retriveGroundFlashDensity/{location}")
-	public ResponseEntity<GroundFlashDensity> retriveGroundFlashDensity(@PathVariable String location)
-			throws RiskAssessmentException {
-		logger.info("called RetriveGroundFlashDensity function location: {}", location);
-		return new ResponseEntity<GroundFlashDensity>(riskAssessmentService.retriveGroundFlashDensity(location),
-				HttpStatus.OK);
 	}
 
 }

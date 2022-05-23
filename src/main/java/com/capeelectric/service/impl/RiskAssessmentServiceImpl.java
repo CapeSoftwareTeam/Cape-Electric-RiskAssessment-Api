@@ -27,9 +27,6 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 	private RiskAssessmentRepository riskAssessmentRepository;
 
 	@Autowired
-	private GroundFlashDensityRepositary groundFlashDensityRepositary;
-
-	@Autowired
 	private CustomerDetailsRepository customerDetailsRepository;
 
 	@Override
@@ -101,28 +98,6 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 		} else {
 			logger.error("Invalid Inputs");
 			throw new RiskAssessmentException("Invalid inputs");
-		}
-	}
-
-	public List<GroundFlashDensity> fetchLocations() {
-		List<GroundFlashDensity> locations = (List<GroundFlashDensity>) groundFlashDensityRepositary.findAll();
-		locations.sort((o1, o2) -> o1.getLocation().compareTo(o2.getLocation()));
-		return locations;
-	}
-
-	@Override
-	public GroundFlashDensity retriveGroundFlashDensity(String location) throws RiskAssessmentException {
-		if (location != null && !location.isEmpty()) {
-			GroundFlashDensity groundFlashDensityRepo = groundFlashDensityRepositary.findByGroundDensity(location);
-			if (groundFlashDensityRepo != null) {
-				return groundFlashDensityRepo;
-			} else {
-				logger.error("Given location doesn't exist in GroundFlashDensity List");
-				throw new RiskAssessmentException("Given location doesn't exist in GroundFlashDensity List");
-			}
-		} else {
-			logger.error("Invalid Inputs");
-			throw new RiskAssessmentException("Invalid Inputs");
 		}
 	}
 
