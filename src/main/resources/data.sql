@@ -129,6 +129,66 @@ use lv_safety_verification;
 					);
 					
 					
+			 CREATE TABLE protection_table(
+				    PROTECTION_ID INT AUTO_INCREMENT,
+				    STRUCTURE_CHARACTERISTIC_ID INT,
+				    PRO_PEB INT,
+				    PRO_PMS INT,
+				    PRO_PM INT,
+			        PRO_PA INT,
+			        PRO_PC INT,
+			        PRO_PU INT,
+			        PRO_PV INT,
+			        PRO_PW INT,
+			        PRO_PZ INT,
+			        R_PRO_RA1 INT,
+			        R_PRO_RB1 INT,
+			        R_PRO_RC1 INT,
+			        R_PRO_RM1 INT,
+			        R_PRO_RU1 INT,
+			        R_PRO_RV1 INT,
+			        R_PRO_RW1 INT,
+			        R_PRO_RZ1 INT,
+			        R_PRO_RD1 INT,
+			        R_PRO_RI1 INT,
+			        R_PRO_R1 INT,
+			        R_PRO_RB2 INT,
+					
+			        CONSTRAINT PK_PROTECTION_ID PRIMARY KEY(PROTECTION_ID),
+					CONSTRAINT FK_PROTECTION_STRUCTURE_CHARACTERISTIC_ID FOREIGN KEY (STRUCTURE_CHARACTERISTIC_ID) REFERENCES structure_characterisics_table(STRUCTURE_CHARACTERISTIC_ID) ON DELETE CASCADE    
+					);
+					
+			CREATE TABLE riskprotection_table (
+				    RISK_PROTECTION_ID INT AUTO_INCREMENT,
+				    STRUCTURE_CHARACTERISTIC_ID INT,
+				    R_PRO_RC2 INT,
+				    R_PRO_RM2 INT,
+				    R_PRO_RV2 INT,
+				    R_PRO_RW2 INT,
+				    R_PRO_RZ2 INT,
+				    R_PRO_RD2 INT,
+				    R_PRO_RI2 INT,
+				    R_PRO_R2 INT,
+				    R_PRO_RB3 INT,
+				    R_PRO_RV3 INT,
+				    R_PRO_RD3 INT,
+				    R_PRO_R3 INT,
+				    R_PRO_RA4 INT,
+				    R_PRO_RB4 INT,
+				    R_PRO_RC4 INT,
+				    R_PRO_RM4 INT,
+				    R_PRO_RU4 INT,
+				    R_PRO_RV4 INT,
+				    R_PRO_RW4 INT,
+				    R_PRO_RZ4 INT,
+				    R_PRO_RD4 INT,
+				    R_PRO_RI4 INT,
+				    R_PRO_R4 INT,
+				    
+					CONSTRAINT PK_RISK_PROTECTION_ID PRIMARY KEY(RISK_PROTECTION_ID),
+					CONSTRAINT FK_RISK_PROTECTION_STRUCTURE_CHARACTERISTIC_ID FOREIGN KEY (STRUCTURE_CHARACTERISTIC_ID) REFERENCES structure_characterisics_table(STRUCTURE_CHARACTERISTIC_ID) ON DELETE CASCADE    
+					);		 
+					
 					
 	-----------> GROUND FLASH dENSITY DETAILS <----------
 						
