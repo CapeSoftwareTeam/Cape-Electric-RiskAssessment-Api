@@ -22,7 +22,6 @@ import com.capeelectric.service.impl.GroundFlashDensityLocationServiceImpl;
 @ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
 public class GroundFlashDensityLocationServiceTest {
-	private static final Logger logger = LoggerFactory.getLogger(GroundFlashDensityLocationServiceTest.class);
 
 	@InjectMocks
 	private GroundFlashDensityLocationServiceImpl groundFlashDensityLocationServiceImpl;
@@ -31,7 +30,7 @@ public class GroundFlashDensityLocationServiceTest {
 	private GroundFlashDensityRepositary groundFlashDensityRepositary;
 
 	@Test
-	public void testfetchStatesByCountryCode() throws Exception {
+	public void testFetchLocations() throws Exception {
 		List<GroundFlashDensity> actualGroundFlashList = new ArrayList<>();
 		GroundFlashDensity groundFlash = new GroundFlashDensity();
 		groundFlash.setLocation("Others");
