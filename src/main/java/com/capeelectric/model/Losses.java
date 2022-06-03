@@ -45,13 +45,13 @@ public class Losses implements Serializable {
 
 	// Loss Of Service To Public
 	@Column(name = "SP_PHYSICAL_DAMAGE")
-	private String SerToPubPhysicalDamage;
+	private String serToPubPhysicalDamage;
 
 	@Column(name = "SP_FAILURE_INTERNAL_SYSTEM")
 	private String serToPubfailureOfInternalSystem;
 
 	@Column(name = "SP_PHYSICAL_DAMAGE_L1")
-	private String SerToPubPhysicalDamageL1;
+	private String serToPubPhysicalDamageL1;
 
 	@Column(name = "SP_FAILURE_INTERNAL_SYSTEM_L1")
 	private String serToPubfailureOfInternalSystemL1;
@@ -139,14 +139,6 @@ public class Losses implements Serializable {
 		this.humanLossOfPhysicalDamageL1 = humanLossOfPhysicalDamageL1;
 	}
 
-	public String getSerToPubPhysicalDamage() {
-		return SerToPubPhysicalDamage;
-	}
-
-	public void setSerToPubPhysicalDamage(String serToPubPhysicalDamage) {
-		SerToPubPhysicalDamage = serToPubPhysicalDamage;
-	}
-
 	public String getSerToPubfailureOfInternalSystem() {
 		return serToPubfailureOfInternalSystem;
 	}
@@ -211,13 +203,6 @@ public class Losses implements Serializable {
 		this.humanLossOffailureOfInternalSystemL1 = humanLossOffailureOfInternalSystemL1;
 	}
 
-	public String getSerToPubPhysicalDamageL1() {
-		return SerToPubPhysicalDamageL1;
-	}
-
-	public void setSerToPubPhysicalDamageL1(String serToPubPhysicalDamageL1) {
-		SerToPubPhysicalDamageL1 = serToPubPhysicalDamageL1;
-	}
 
 	public String getSerToPubfailureOfInternalSystemL1() {
 		return serToPubfailureOfInternalSystemL1;
@@ -261,6 +246,22 @@ public class Losses implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getSerToPubPhysicalDamageL1() {
+		return serToPubPhysicalDamageL1;
+	}
+
+	public void setSerToPubPhysicalDamageL1(String serToPubPhysicalDamageL1) {
+		this.serToPubPhysicalDamageL1 = serToPubPhysicalDamageL1;
+	}
+
+	public String getSerToPubPhysicalDamage() {
+		return serToPubPhysicalDamage;
+	}
+
+	public void setSerToPubPhysicalDamage(String serToPubPhysicalDamage) {
+		this.serToPubPhysicalDamage = serToPubPhysicalDamage;
 	}
 
 }
