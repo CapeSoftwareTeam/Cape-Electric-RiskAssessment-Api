@@ -37,7 +37,7 @@ public class RiskFinalReportServiceImpl implements FinalReportService {
 
 			// Customer Details Fetch
 			logger.debug("fetching process started for Customer Details");
-			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByUserNameAndRiskId(userName, riskId);
+			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByRiskId(riskId);
 			logger.debug("Customer Details fetching ended");
 			if (customerDetailsRepo.isPresent() && customerDetailsRepo != null) {
 				riskFinalReport.setCustomerDetails(customerDetailsRepo.get());
