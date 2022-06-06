@@ -158,7 +158,16 @@ public class StructureCharacteristics implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Losses> losses;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Protection> protection;
 
+	@JsonManagedReference
+	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<RiskProtection> riskProtection;
+
+	
 	public Integer getStructureCharacteristicsId() {
 		return structureCharacteristicsId;
 	}
@@ -498,7 +507,21 @@ public class StructureCharacteristics implements Serializable {
 	public void setNoOfDangerousEventNearStructure(String noOfDangerousEventNearStructure) {
 		this.noOfDangerousEventNearStructure = noOfDangerousEventNearStructure;
 	}
-	
-	
+
+	public List<Protection> getProtection() {
+		return protection;
+	}
+
+	public void setProtection(List<Protection> protection) {
+		this.protection = protection;
+	}
+
+	public List<RiskProtection> getRiskProtection() {
+		return riskProtection;
+	}
+
+	public void setRiskProtection(List<RiskProtection> riskProtection) {
+		this.riskProtection = riskProtection;
+	}
 	
 }
