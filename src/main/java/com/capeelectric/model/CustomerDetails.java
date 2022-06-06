@@ -55,6 +55,12 @@ public class CustomerDetails {
 
 	@Column(name = "VERIFIED_BY")
 	private String verifiedBy;
+	
+	@Column(name = "ALL_STEPS_COMPLETED")
+	private String allStepsCompleted;
+	
+	@Column(name = "STATUS")
+	private String status;
 
 	@Column(name = "CREATED_BY")
 	private String createdBy;
@@ -190,6 +196,22 @@ public class CustomerDetails {
 
 	public void setUpdatedDate(LocalDateTime updatedDate) {
 		this.updatedDate = updatedDate;
+	}
+
+	public String getAllStepsCompleted() {
+		return allStepsCompleted;
+	}
+
+	public void setAllStepsCompleted(String allStepsCompleted) {
+		this.allStepsCompleted = allStepsCompleted;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

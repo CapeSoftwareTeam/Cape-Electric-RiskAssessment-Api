@@ -16,6 +16,8 @@ use lv_safety_verification;
 				    EMAIL VARCHAR(255),
 				    PREPARED_BY VARCHAR(255),
 				    VERIFIED_BY VARCHAR(255),
+				    ALL_STEPS_COMPLETED VARCHAR(25),
+	                STATUS VARCHAR(25),
 				    CREATED_BY VARCHAR(255),
 				    CREATED_DATE datetime,
 			        UPDATED_BY VARCHAR(255),

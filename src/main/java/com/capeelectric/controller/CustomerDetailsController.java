@@ -51,4 +51,14 @@ public class CustomerDetailsController {
 		customerDetailsService.updateCustomerDetails(customerDetails);
 		return new ResponseEntity<String>("CustomerDetails  Updated Successfully", HttpStatus.OK);
 	}
+	
+	@PutMapping("/updateRiskAssessmentCustomerDetailsStatus")
+	public ResponseEntity<String> updateRiskAssessmentCustomerDetailsStatus(@RequestBody CustomerDetails customerDetails)
+			throws CustomerDetailsException {
+		logger.info("called updateRiskAssessmentDetailsStatus function UserName : {}, RiskId : {}", customerDetails.getUserName(),
+				customerDetails.getRiskId());
+		customerDetailsService.updateRiskAssessmentCustomerDetailsStatus(customerDetails);
+		logger.info("Ended updateRiskAssessmentDetailsStatus function");
+		return new ResponseEntity<String>("Risk_Assessment Details has been successfully deleted", HttpStatus.OK);
+	}
 }

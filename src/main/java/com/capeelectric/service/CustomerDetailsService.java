@@ -13,5 +13,7 @@ public interface CustomerDetailsService {
 	public List<CustomerDetails> retrieveCustomerDetails(String userName, Integer riskId) throws CustomerDetailsException;
 
 	public void updateCustomerDetails(CustomerDetails customerDetails) throws CustomerDetailsException;
+	
+	public void updateRiskAssessmentCustomerDetailsStatus(CustomerDetails customerDetails) throws CustomerDetailsException;
 
 }

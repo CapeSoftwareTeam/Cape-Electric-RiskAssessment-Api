@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import com.capeelectric.exception.CustomerDetailsException;
 import com.capeelectric.model.CustomerDetails;
 import com.capeelectric.repository.CustomerDetailsRepository;
 import com.capeelectric.service.CustomerDetailsService;
+import com.capeelectric.util.UserFullName;
 
 @Service
 public class CustomerDetailsServiceImpl implements CustomerDetailsService {
@@ -21,6 +24,11 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 	@Autowired
 	private CustomerDetailsRepository customerDetailsRepository;
+	
+	@Autowired
+	private UserFullName userFullName;
+	
+	private CustomerDetails customerData;
 
 	@Override
 	public CustomerDetails saveCustomerDetails(CustomerDetails customerDetails) throws CustomerDetailsException {
@@ -40,7 +48,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 	public List<CustomerDetails> retrieveCustomerDetails(String userName, Integer riskId)
 			throws CustomerDetailsException {
 		if (userName != null && !userName.isEmpty() && riskId != null) {
-			List<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByRiskId(riskId);
+			List<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByUserNameAndRiskId(userName,riskId);
 			if (customerDetailsRepo != null && !customerDetailsRepo.isEmpty()) {
 				return customerDetailsRepo;
 			} else {
@@ -56,8 +64,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 	@Override
 	public void updateCustomerDetails(CustomerDetails customerDetails) throws CustomerDetailsException {
 		if (customerDetails != null && customerDetails.getUserName() != null && customerDetails.getRiskId() != null) {
-			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository
-					.findByUserNameAndRiskId(customerDetails.getUserName(), customerDetails.getRiskId());
+			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByRiskId(customerDetails.getRiskId());
 			if (customerDetailsRepo.isPresent()
 					&& customerDetailsRepo.get().getRiskId().equals(customerDetails.getRiskId())) {
 				customerDetails.setUpdatedDate(LocalDateTime.now());
@@ -72,6 +79,35 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 			logger.error("Invalid Inputs");
 			throw new CustomerDetailsException("Invalid Inputs");
 		}
+	}
+	
+	@Transactional
+	@Override
+	public void updateRiskAssessmentCustomerDetailsStatus(CustomerDetails customerDetails) throws CustomerDetailsException {
+		logger.info("Called updateRiskAssessmentCustomerDetailsStatus function");
+
+		if (customerDetails != null && customerDetails.getRiskId() != null && customerDetails.getRiskId() != 0) {
+			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository
+					.findByRiskId(customerDetails.getRiskId());
+			if (customerDetailsRepo.isPresent()
+					&& customerDetailsRepo.get().getRiskId().equals(customerDetails.getRiskId())) {
+				customerData = customerDetailsRepo.get();
+				customerData.setStatus("InActive");
+				customerData.setUpdatedDate(LocalDateTime.now());
+				customerData.setUpdatedBy(userFullName.findByUserName(customerDetails.getUserName()));
+				customerDetailsRepository.save(customerData);
+				logger.debug("Risk_Assessment Details successfully Updated in DB with InActive Status");
+
+			} else {
+				logger.error("Given Risk_Assessment Id is Invalid");
+				throw new CustomerDetailsException("Given BRisk_Assessment Id is Invalid");
+			}
+
+		} else {
+			logger.error("Invalid Inputs");
+			throw new CustomerDetailsException("Invalid inputs");
+		}
+		logger.info("Ended updateRiskAssessmentCustomerDetailsStatus function");
 
 	}
 
