@@ -22,20 +22,18 @@ import com.capeelectric.repository.CustomerDetailsRepository;
 import com.capeelectric.repository.RiskAssessmentRepository;
 import com.capeelectric.service.impl.RiskAssessmentServiceImpl;
 
-
 @ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
 public class RiskAssessmentServiceTest {
-	
+
 	@InjectMocks
 	private RiskAssessmentServiceImpl riskAssessmentServiceImpl;
 
 	@MockBean
-	private RiskAssessmentRepository  riskAssessmentRepository;
+	private RiskAssessmentRepository riskAssessmentRepository;
 
 	@MockBean
 	private CustomerDetailsRepository customerDetailsRepository;
-
 
 	private StructureCharacteristics structureCharacteristics;
 
@@ -52,12 +50,11 @@ public class RiskAssessmentServiceTest {
 		customerDetails.setRiskId(1);
 		customerDetails.setUserName("LVsystem@gmail.com");
 	}
-	
+
 	@Test
 	public void testAddRiskAssessmentDetails() throws RiskAssessmentException {
 		when(riskAssessmentRepository.findByRiskId(10)).thenReturn(Optional.of(structureCharacteristics));
-		when(customerDetailsRepository.findByUserNameAndRiskId("LVsystem@gmail.com", 1))
-				.thenReturn(Optional.of(customerDetails));
+		when(customerDetailsRepository.findByRiskId(1)).thenReturn(Optional.of(customerDetails));
 		riskAssessmentServiceImpl.addRiskAssessmentDetails(structureCharacteristics);
 
 		structureCharacteristics.setRiskId(1);
@@ -65,12 +62,12 @@ public class RiskAssessmentServiceTest {
 		RiskAssessmentException assertThrows_1 = Assertions.assertThrows(RiskAssessmentException.class,
 				() -> riskAssessmentServiceImpl.addRiskAssessmentDetails(structureCharacteristics));
 		assertEquals(assertThrows_1.getMessage(), "Given RiskAssessment Details Already Exists");
-		
+
 		structureCharacteristics.setRiskId(10);
 		RiskAssessmentException assertThrows_2 = Assertions.assertThrows(RiskAssessmentException.class,
 				() -> riskAssessmentServiceImpl.addRiskAssessmentDetails(structureCharacteristics));
 		assertEquals(assertThrows_2.getMessage(), "Given Risk Id is is Not Registered in Customer Details");
-		
+
 		structureCharacteristics.setRiskId(1);
 		structureCharacteristics.setUserName(null);
 		RiskAssessmentException assertThrows_3 = Assertions.assertThrows(RiskAssessmentException.class,
@@ -78,7 +75,7 @@ public class RiskAssessmentServiceTest {
 		assertEquals(assertThrows_3.getMessage(), "Invalid Inputs");
 
 	}
-	
+
 	@Test
 	public void testRetrieveRiskAssessmentDetails() throws RiskAssessmentException {
 		List<StructureCharacteristics> arrayList = new ArrayList<StructureCharacteristics>();
@@ -113,7 +110,5 @@ public class RiskAssessmentServiceTest {
 		assertEquals(assertThrows_2.getMessage(), "Given Risk Id is Invalid");
 
 	}
-
-	
 
 }

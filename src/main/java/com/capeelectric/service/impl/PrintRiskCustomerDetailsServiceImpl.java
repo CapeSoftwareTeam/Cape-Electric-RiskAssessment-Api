@@ -2,6 +2,7 @@ package com.capeelectric.service.impl;
 
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,8 @@ public class PrintRiskCustomerDetailsServiceImpl implements PrintRiskCustomerDet
 
 				PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("02 Customer Details.pdf"));
 
-				List<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByRiskId(riskId);
-				CustomerDetails customerDetails = customerDetailsRepo.get(0);
+				Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByRiskId(riskId);
+				CustomerDetails customerDetails = customerDetailsRepo.get();
 //				ClientDetails clientDetailsRepo1 = clientDetailsRepo.get();
 
 				Font font11B = new Font(BaseFont.createFont(), 11, Font.NORMAL | Font.BOLD, BaseColor.BLACK);

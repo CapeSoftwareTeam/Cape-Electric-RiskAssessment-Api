@@ -58,7 +58,7 @@ public class CustomerDetailsServiceTest {
 		List<CustomerDetails> arrayList = new ArrayList<CustomerDetails>();
 		arrayList.add(customerDetails);
 
-		when(customerDetailsRepository.findByRiskId(1)).thenReturn(arrayList);
+		when(customerDetailsRepository.findByUserNameAndRiskId("LVsystem@gmail.com", 1)).thenReturn(arrayList);
 		customerDetailsServiceImpl.retrieveCustomerDetails("LVsystem@gmail.com", 1);
 
 		CustomerDetailsException assertThrows_1 = Assertions.assertThrows(CustomerDetailsException.class,
@@ -74,8 +74,9 @@ public class CustomerDetailsServiceTest {
 	@Test
 	public void testUpdateCustomerDetails() throws CustomerDetailsException {
 
-		when(customerDetailsRepository.findByUserNameAndRiskId("LVsystem@gmail.com", 1))
-				.thenReturn(Optional.of(customerDetails));
+		customerDetails.setUserName("LVsystem@gmail.com");
+		customerDetails.setRiskId(1);
+		when(customerDetailsRepository.findByRiskId(1)).thenReturn(Optional.of(customerDetails));
 		customerDetailsServiceImpl.updateCustomerDetails(customerDetails);
 
 		CustomerDetailsException assertThrows_1 = Assertions.assertThrows(CustomerDetailsException.class,

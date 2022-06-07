@@ -36,8 +36,7 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 			Optional<StructureCharacteristics> riskAssessmentDataRepo = riskAssessmentRepository
 					.findByRiskId(structureCharacteristics.getRiskId());
 
-			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByUserNameAndRiskId(
-					structureCharacteristics.getUserName(), structureCharacteristics.getRiskId());
+			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByRiskId(structureCharacteristics.getRiskId());
 			if (customerDetailsRepo.isPresent()
 					&& customerDetailsRepo.get().getRiskId().equals(structureCharacteristics.getRiskId())) {
 				if (!riskAssessmentDataRepo.isPresent()) {
