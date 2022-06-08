@@ -166,6 +166,10 @@ public class StructureCharacteristics implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<RiskProtection> riskProtection;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<CalculatedRisk> calculatedRisk;
 
 	
 	public Integer getStructureCharacteristicsId() {
