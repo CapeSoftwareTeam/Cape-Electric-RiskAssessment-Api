@@ -30,7 +30,7 @@ public class ReturnPDFService {
 	@Value("${access.key.secret}")
 	private String accessKeySecret;
 
-	public ByteArrayOutputStream printFinalPDF(String userName, Integer riskId, String projectName) throws Exception {
+	public ByteArrayOutputStream printFinalPDF(String userName, Integer riskId, String keyName) throws Exception {
 
 		if (userName != null && !userName.isEmpty() && riskId != null && riskId != 0) {
 
@@ -44,9 +44,10 @@ public class ReturnPDFService {
 				// Thread.sleep(5000);
 
 				// Downloading the PDF File in AWS S3 Bucket with folderName + fileNameInS3
+
 				S3Object fullObject;
-				fullObject = s3Client.getObject(new GetObjectRequest(s3BucketName,
-						"RiskAssessment_Pdf Name_".concat(projectName) + "/" + (projectName + ".pdf")));
+				fullObject = s3Client.getObject(
+						new GetObjectRequest(s3BucketName, "RiskAssessment_Project Name_".concat(keyName) + "/" + keyName+".pdf"));
 
 				logger.info("Downloading file done from AWS s3");
 				InputStream is = fullObject.getObjectContent();
