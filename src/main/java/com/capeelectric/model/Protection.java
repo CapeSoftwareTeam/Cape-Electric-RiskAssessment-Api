@@ -90,6 +90,16 @@ public class Protection implements Serializable {
 	@Column(name = "R_PRO_RB2")
 	private Integer riskProtectionRB2;
 	
+	
+	
+	@Column(name = "CULTURAL_RB")
+	private Integer culturalRB;
+	
+	@Column(name = "CULTURAL_RV")
+	private Integer culturalRV;
+	
+	
+	
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "STRUCTURE_CHARACTERISTIC_ID")
@@ -282,6 +292,20 @@ public class Protection implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
+
+	public Integer getCulturalRB() {
+		return culturalRB;
+	}
+
+	public void setCulturalRB(Integer culturalRB) {
+		this.culturalRB = culturalRB;
+	}
+
+	public Integer getCulturalRV() {
+		return culturalRV;
+	}
+
+	public void setCulturalRV(Integer culturalRV) {
+		this.culturalRV = culturalRV;
+	}
 }

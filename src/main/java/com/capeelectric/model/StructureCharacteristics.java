@@ -90,7 +90,7 @@ public class StructureCharacteristics implements Serializable {
 
 	@Column(name = "NO_OF_DANG_EVENT_ON_STRUCTURE")
 	private String noOfDangerousEventOnStructure;
-	
+
 	@Column(name = "NO_OF_DANG_EVENT_NEAR_STRUCTURE")
 	private String noOfDangerousEventNearStructure;
 
@@ -154,11 +154,11 @@ public class StructureCharacteristics implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<StructureAttributes> structureAttributes;
-	
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Losses> losses;
-	
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Protection> protection;
@@ -166,12 +166,11 @@ public class StructureCharacteristics implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<RiskProtection> riskProtection;
-	
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "structureCharacteristics", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<CalculatedRisk> calculatedRisk;
 
-	
 	public Integer getStructureCharacteristicsId() {
 		return structureCharacteristicsId;
 	}
@@ -527,5 +526,13 @@ public class StructureCharacteristics implements Serializable {
 	public void setRiskProtection(List<RiskProtection> riskProtection) {
 		this.riskProtection = riskProtection;
 	}
-	
+
+	public List<CalculatedRisk> getCalculatedRisk() {
+		return calculatedRisk;
+	}
+
+	public void setCalculatedRisk(List<CalculatedRisk> calculatedRisk) {
+		this.calculatedRisk = calculatedRisk;
+	}
+
 }

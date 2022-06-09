@@ -39,26 +39,11 @@ public class RiskProtection implements Serializable {
 	@Column(name = "R_PRO_RZ2")
 	private Integer riskProtectionRZ2;
 
-	@Column(name = "R_PRO_RD2")
-	private Integer riskProtectionRD2;
-
-	@Column(name = "R_PRO_RI2")
-	private Integer riskProtectionRI2;
-
-	@Column(name = "R_PRO_R2")
-	private Integer riskProtectionR2;
-
 	@Column(name = "R_PRO_RB3")
 	private Integer riskProtectionRB3;
 
 	@Column(name = "R_PRO_RV3")
 	private Integer riskProtectionRV3;
-
-	@Column(name = "R_PRO_RD3")
-	private Integer riskProtectionRD3;
-
-	@Column(name = "R_PRO_R3")
-	private Integer riskProtectionR3;
 
 	@Column(name = "R_PRO_RA4")
 	private Integer riskProtectionRA4;
@@ -84,14 +69,29 @@ public class RiskProtection implements Serializable {
 	@Column(name = "R_PRO_RZ4")
 	private Integer riskProtectionRZ4;
 
-	@Column(name = "R_PRO_RD4")
-	private Integer riskProtectionRD4;
+	@Column(name = "ECO_VALUE_RA")
+	private Integer econamicValueRA;
 
-	@Column(name = "R_PRO_RI4")
-	private Integer riskProtectionRI4;
+	@Column(name = "ECO_VALUE_RB")
+	private Integer econamicValueRB;
 
-	@Column(name = "R_PRO_R4")
-	private Integer riskProtectionR4;
+	@Column(name = "ECO_VALUE_RC")
+	private Integer econamicValueRC;
+
+	@Column(name = "ECO_VALUE_RM")
+	private Integer econamicValueRM;
+
+	@Column(name = "ECO_VALUE_RU")
+	private Integer econamicValueRU;
+
+	@Column(name = "ECO_VALUE_RV")
+	private Integer econamicValueRV;
+
+	@Column(name = "ECO_VALUE_RW")
+	private Integer econamicValueRW;
+
+	@Column(name = "ECO_VALUE_RZ")
+	private Integer econamicValueRZ;
 
 	@JsonBackReference
 	@ManyToOne
@@ -146,30 +146,6 @@ public class RiskProtection implements Serializable {
 		this.riskProtectionRZ2 = riskProtectionRZ2;
 	}
 
-	public Integer getRiskProtectionRD2() {
-		return riskProtectionRD2;
-	}
-
-	public void setRiskProtectionRD2(Integer riskProtectionRD2) {
-		this.riskProtectionRD2 = riskProtectionRD2;
-	}
-
-	public Integer getRiskProtectionRI2() {
-		return riskProtectionRI2;
-	}
-
-	public void setRiskProtectionRI2(Integer riskProtectionRI2) {
-		this.riskProtectionRI2 = riskProtectionRI2;
-	}
-
-	public Integer getRiskProtectionR2() {
-		return riskProtectionR2;
-	}
-
-	public void setRiskProtectionR2(Integer riskProtectionR2) {
-		this.riskProtectionR2 = riskProtectionR2;
-	}
-
 	public Integer getRiskProtectionRB3() {
 		return riskProtectionRB3;
 	}
@@ -184,22 +160,6 @@ public class RiskProtection implements Serializable {
 
 	public void setRiskProtectionRV3(Integer riskProtectionRV3) {
 		this.riskProtectionRV3 = riskProtectionRV3;
-	}
-
-	public Integer getRiskProtectionRD3() {
-		return riskProtectionRD3;
-	}
-
-	public void setRiskProtectionRD3(Integer riskProtectionRD3) {
-		this.riskProtectionRD3 = riskProtectionRD3;
-	}
-
-	public Integer getRiskProtectionR3() {
-		return riskProtectionR3;
-	}
-
-	public void setRiskProtectionR3(Integer riskProtectionR3) {
-		this.riskProtectionR3 = riskProtectionR3;
 	}
 
 	public Integer getRiskProtectionRA4() {
@@ -266,30 +226,6 @@ public class RiskProtection implements Serializable {
 		this.riskProtectionRZ4 = riskProtectionRZ4;
 	}
 
-	public Integer getRiskProtectionRD4() {
-		return riskProtectionRD4;
-	}
-
-	public void setRiskProtectionRD4(Integer riskProtectionRD4) {
-		this.riskProtectionRD4 = riskProtectionRD4;
-	}
-
-	public Integer getRiskProtectionRI4() {
-		return riskProtectionRI4;
-	}
-
-	public void setRiskProtectionRI4(Integer riskProtectionRI4) {
-		this.riskProtectionRI4 = riskProtectionRI4;
-	}
-
-	public Integer getRiskProtectionR4() {
-		return riskProtectionR4;
-	}
-
-	public void setRiskProtectionR4(Integer riskProtectionR4) {
-		this.riskProtectionR4 = riskProtectionR4;
-	}
-
 	public StructureCharacteristics getStructureCharacteristics() {
 		return structureCharacteristics;
 	}
@@ -302,4 +238,67 @@ public class RiskProtection implements Serializable {
 		return serialVersionUID;
 	}
 
+	public Integer getEconamicValueRA() {
+		return econamicValueRA;
+	}
+
+	public void setEconamicValueRA(Integer econamicValueRA) {
+		this.econamicValueRA = econamicValueRA;
+	}
+
+	public Integer getEconamicValueRB() {
+		return econamicValueRB;
+	}
+
+	public void setEconamicValueRB(Integer econamicValueRB) {
+		this.econamicValueRB = econamicValueRB;
+	}
+
+	public Integer getEconamicValueRC() {
+		return econamicValueRC;
+	}
+
+	public void setEconamicValueRC(Integer econamicValueRC) {
+		this.econamicValueRC = econamicValueRC;
+	}
+
+	public Integer getEconamicValueRM() {
+		return econamicValueRM;
+	}
+
+	public void setEconamicValueRM(Integer econamicValueRM) {
+		this.econamicValueRM = econamicValueRM;
+	}
+
+	public Integer getEconamicValueRU() {
+		return econamicValueRU;
+	}
+
+	public void setEconamicValueRU(Integer econamicValueRU) {
+		this.econamicValueRU = econamicValueRU;
+	}
+
+	public Integer getEconamicValueRV() {
+		return econamicValueRV;
+	}
+
+	public void setEconamicValueRV(Integer econamicValueRV) {
+		this.econamicValueRV = econamicValueRV;
+	}
+
+	public Integer getEconamicValueRW() {
+		return econamicValueRW;
+	}
+
+	public void setEconamicValueRW(Integer econamicValueRW) {
+		this.econamicValueRW = econamicValueRW;
+	}
+
+	public Integer getEconamicValueRZ() {
+		return econamicValueRZ;
+	}
+
+	public void setEconamicValueRZ(Integer econamicValueRZ) {
+		this.econamicValueRZ = econamicValueRZ;
+	}
 }
