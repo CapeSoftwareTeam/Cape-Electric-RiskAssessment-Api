@@ -58,6 +58,7 @@ public class ReturnPDFService {
 					outputStream.write(buffer, 0, len);
 				}
 				return outputStream;
+				
 			} catch (IOException ioException) {
 				logger.error("IOException: " + ioException.getMessage());
 			} catch (AmazonServiceException serviceException) {

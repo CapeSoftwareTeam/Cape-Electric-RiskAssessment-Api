@@ -111,12 +111,13 @@ public class PrintFinalPDFServiceImpl implements PrintFinalPDFService {
 
 					// Uploading the PDF File in AWS S3 Bucket with folderName + fileNameInS3
 
-						if (projectName.length() > 0) {
-							PutObjectRequest request = new PutObjectRequest(s3BucketName,
-									"RiskAssessment_Project Name_".concat(projectName) + "/" + (projectName+".pdf"), new File(projectName+".pdf"));
-							s3Client.putObject(request);
-							logger.info("Uploading file done in AWS s3");
-						
+					if (projectName.length() > 0) {
+						PutObjectRequest request = new PutObjectRequest(s3BucketName,
+								"RiskAssessment_Project Name_".concat(projectName) + "/" + (projectName + ".pdf"),
+								new File(projectName + ".pdf"));
+						s3Client.putObject(request);
+						logger.info("Uploading file done in AWS s3");
+
 					} else {
 						logger.error("There is no site available");
 						throw new Exception("There is no site available");

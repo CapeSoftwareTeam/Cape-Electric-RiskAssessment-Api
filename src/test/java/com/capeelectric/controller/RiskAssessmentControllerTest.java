@@ -44,7 +44,7 @@ public class RiskAssessmentControllerTest {
 	}
 	
 	@Test
-	public void testSaveRiskAssessmentDetails() throws RiskAssessmentException {
+	public void testSaveRiskAssessmentDetails() throws RiskAssessmentException, Exception {
 		logger.info("testsaveRiskAssessmentDetails Function Started");
 		ResponseEntity<String> addRiskAssessment = riskAssessmentController.saveRiskAssessmentDetails(structureCharacteristics);
 		assertEquals(addRiskAssessment.getStatusCode(), HttpStatus.CREATED);
@@ -67,7 +67,7 @@ public class RiskAssessmentControllerTest {
 	}
 
 	@Test
-	public void testUpdateRiskAssessmentDetails() throws RiskAssessmentException {
+	public void testUpdateRiskAssessmentDetails() throws RiskAssessmentException, Exception {
 
 		logger.info("testUpdateRiskAssessmentDetails Function Started");
 		ResponseEntity<String> expectedResponseEntity = new ResponseEntity<String>(HttpStatus.OK);

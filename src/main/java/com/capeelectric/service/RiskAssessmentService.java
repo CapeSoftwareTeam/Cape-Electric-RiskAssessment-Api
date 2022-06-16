@@ -8,12 +8,12 @@ import com.capeelectric.model.StructureCharacteristics;
 public interface RiskAssessmentService {
 
 	public void addRiskAssessmentDetails(StructureCharacteristics structureCharacteristics)
-			throws RiskAssessmentException;
+			throws RiskAssessmentException, Exception;
 
 	public List<StructureCharacteristics> retrieveRiskAssessmentDetails(String userName, Integer riskId)
 			throws RiskAssessmentException;
 
 	public void updateRiskAssessmentDetails(StructureCharacteristics structureCharacteristics)
-			throws RiskAssessmentException;
+			throws RiskAssessmentException, Exception;
 
 }

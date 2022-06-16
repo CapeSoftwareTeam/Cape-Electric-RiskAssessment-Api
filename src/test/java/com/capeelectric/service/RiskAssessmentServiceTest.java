@@ -52,7 +52,7 @@ public class RiskAssessmentServiceTest {
 	}
 
 	@Test
-	public void testAddRiskAssessmentDetails() throws RiskAssessmentException {
+	public void testAddRiskAssessmentDetails() throws RiskAssessmentException, Exception {
 		when(riskAssessmentRepository.findByRiskId(10)).thenReturn(Optional.of(structureCharacteristics));
 		when(customerDetailsRepository.findByRiskId(1)).thenReturn(Optional.of(customerDetails));
 		riskAssessmentServiceImpl.addRiskAssessmentDetails(structureCharacteristics);
@@ -95,7 +95,7 @@ public class RiskAssessmentServiceTest {
 	}
 
 	@Test
-	public void testUpdateRiskAssessmentDetails() throws RiskAssessmentException {
+	public void testUpdateRiskAssessmentDetails() throws RiskAssessmentException, Exception {
 
 		when(riskAssessmentRepository.findByRiskId(1)).thenReturn(Optional.of(structureCharacteristics));
 		riskAssessmentServiceImpl.updateRiskAssessmentDetails(structureCharacteristics);
