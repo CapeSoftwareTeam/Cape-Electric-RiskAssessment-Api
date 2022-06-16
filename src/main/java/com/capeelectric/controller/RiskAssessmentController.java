@@ -30,7 +30,7 @@ public class RiskAssessmentController {
 
 	@PostMapping("/saveRiskAssessmentDetails")
 	public ResponseEntity<String> saveRiskAssessmentDetails(
-			@RequestBody StructureCharacteristics structureCharacteristics) throws RiskAssessmentException {
+			@RequestBody StructureCharacteristics structureCharacteristics) throws RiskAssessmentException, Exception {
 		logger.debug("started addRiskAssessmentDetails function userName: {},riskId : {}",
 				structureCharacteristics.getUserName(), structureCharacteristics.getRiskId());
 		riskAssessmentService.addRiskAssessmentDetails(structureCharacteristics);
@@ -48,7 +48,7 @@ public class RiskAssessmentController {
 
 	@PutMapping("/updateRiskAssessmentDetails")
 	public ResponseEntity<String> updateRiskAssessmentDetails(
-			@RequestBody StructureCharacteristics structureCharacteristics) throws RiskAssessmentException {
+			@RequestBody StructureCharacteristics structureCharacteristics) throws RiskAssessmentException, Exception {
 		logger.info("called updateRiskAssessmentDetails function UserName : {},getRiskId : {}",
 				structureCharacteristics.getUserName());
 		riskAssessmentService.updateRiskAssessmentDetails(structureCharacteristics);
