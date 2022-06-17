@@ -110,5 +110,22 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 		logger.info("Ended updateRiskAssessmentCustomerDetailsStatus function");
 
 	}
+	
+	@Override
+	public List<CustomerDetails> retrieveCustomerAllDetails(String userName)
+			throws CustomerDetailsException {
+		if (userName != null && !userName.isEmpty()) {
+			List<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByUserName(userName);
+			if (customerDetailsRepo != null && !customerDetailsRepo.isEmpty()) {
+				return customerDetailsRepo;
+			} else {
+				logger.error("CustomerDetails Fetching failed");
+				throw new CustomerDetailsException("CustomerDetails Fetching failed");
+			}
+		} else {
+			logger.error("Invalid Inputs");
+			throw new CustomerDetailsException("Invalid Inputs");
+		}
+	}
 
 }

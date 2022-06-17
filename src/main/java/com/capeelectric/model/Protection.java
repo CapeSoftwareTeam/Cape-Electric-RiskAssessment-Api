@@ -26,77 +26,77 @@ public class Protection implements Serializable {
 
 // Loss of Human Life
 	@Column(name = "PRO_PEB")
-	private Integer protectionPEB;
+	private String protectionPEB;
 	
 	@Column(name = "PRO_PMS")
-	private Integer protectionPMS;
+	private String protectionPMS;
 	
 	@Column(name = "PRO_PM")
-	private Integer protectionPM;
+	private String protectionPM;
 	
 	@Column(name = "PRO_PA")
-	private Integer protectionPA;
+	private String protectionPA;
 	
 	@Column(name = "PRO_PC")
-	private Integer protectionPC;
+	private String protectionPC;
 	
 	@Column(name = "PRO_PU")
-	private Integer protectionPU;
+	private String protectionPU;
 	
 	@Column(name = "PRO_PV")
-	private Integer protectionPV;
+	private String protectionPV;
 	
 	@Column(name = "PRO_PW")
-	private Integer protectionPW;
+	private String protectionPW;
 	
 	@Column(name = "PRO_PZ")
-	private Integer protectionPZ;
+	private String protectionPZ;
 	
 	
 // RISK OF LOSS OF HUMAN BEINGS (R1)	
 	@Column(name = "R_PRO_RA1")
-	private Integer riskProtectionRA1;
+	private String riskProtectionRA1;
 	
 	@Column(name = "R_PRO_RB1")
-	private Integer riskProtectionRB1;
+	private String riskProtectionRB1;
 	
 	@Column(name = "R_PRO_RC1")
-	private Integer riskProtectionRC1;
+	private String riskProtectionRC1;
 	
 	@Column(name = "R_PRO_RM1")
-	private Integer riskProtectionRM1;
+	private String riskProtectionRM1;
 	
 	@Column(name = "R_PRO_RU1")
-	private Integer riskProtectionRU1;
+	private String riskProtectionRU1;
 	
 	@Column(name = "R_PRO_RV1")
-	private Integer riskProtectionRV1;
+	private String riskProtectionRV1;
 	
 	@Column(name = "R_PRO_RW1")
-	private Integer riskProtectionRW1;
+	private String riskProtectionRW1;
 	
 	@Column(name = "R_PRO_RZ1")
-	private Integer riskProtectionRZ1;
+	private String riskProtectionRZ1;
 	
 	@Column(name = "R_PRO_RD1")
-	private Integer riskProtectionRD1;
+	private String riskProtectionRD1;
 	
 	@Column(name = "R_PRO_RI1")
-	private Integer riskProtectionRI1;
+	private String riskProtectionRI1;
 	
 	@Column(name = "R_PRO_R1")
-	private Integer riskProtectionR1;
+	private String riskProtectionR1;
 	
 	@Column(name = "R_PRO_RB2")
-	private Integer riskProtectionRB2;
+	private String riskProtectionRB2;
 	
 	
 	
 	@Column(name = "CULTURAL_RB")
-	private Integer culturalRB;
+	private String culturalRB;
 	
 	@Column(name = "CULTURAL_RV")
-	private Integer culturalRV;
+	private String culturalRV;
 	
 	
 	
@@ -113,172 +113,188 @@ public class Protection implements Serializable {
 		this.protectionId = protectionId;
 	}
 
-	public Integer getProtectionPEB() {
+	public String getProtectionPEB() {
 		return protectionPEB;
 	}
 
-	public void setProtectionPEB(Integer protectionPEB) {
+	public void setProtectionPEB(String protectionPEB) {
 		this.protectionPEB = protectionPEB;
 	}
 
-	public Integer getProtectionPMS() {
+	public String getProtectionPMS() {
 		return protectionPMS;
 	}
 
-	public void setProtectionPMS(Integer protectionPMS) {
+	public void setProtectionPMS(String protectionPMS) {
 		this.protectionPMS = protectionPMS;
 	}
 
-	public Integer getProtectionPM() {
+	public String getProtectionPM() {
 		return protectionPM;
 	}
 
-	public void setProtectionPM(Integer protectionPM) {
+	public void setProtectionPM(String protectionPM) {
 		this.protectionPM = protectionPM;
 	}
 
-	public Integer getProtectionPA() {
+	public String getProtectionPA() {
 		return protectionPA;
 	}
 
-	public void setProtectionPA(Integer protectionPA) {
+	public void setProtectionPA(String protectionPA) {
 		this.protectionPA = protectionPA;
 	}
 
-	public Integer getProtectionPC() {
+	public String getProtectionPC() {
 		return protectionPC;
 	}
 
-	public void setProtectionPC(Integer protectionPC) {
+	public void setProtectionPC(String protectionPC) {
 		this.protectionPC = protectionPC;
 	}
 
-	public Integer getProtectionPU() {
+	public String getProtectionPU() {
 		return protectionPU;
 	}
 
-	public void setProtectionPU(Integer protectionPU) {
+	public void setProtectionPU(String protectionPU) {
 		this.protectionPU = protectionPU;
 	}
 
-	public Integer getProtectionPV() {
+	public String getProtectionPV() {
 		return protectionPV;
 	}
 
-	public void setProtectionPV(Integer protectionPV) {
+	public void setProtectionPV(String protectionPV) {
 		this.protectionPV = protectionPV;
 	}
 
-	public Integer getProtectionPW() {
+	public String getProtectionPW() {
 		return protectionPW;
 	}
 
-	public void setProtectionPW(Integer protectionPW) {
+	public void setProtectionPW(String protectionPW) {
 		this.protectionPW = protectionPW;
 	}
 
-	public Integer getProtectionPZ() {
+	public String getProtectionPZ() {
 		return protectionPZ;
 	}
 
-	public void setProtectionPZ(Integer protectionPZ) {
+	public void setProtectionPZ(String protectionPZ) {
 		this.protectionPZ = protectionPZ;
 	}
 
-	public Integer getRiskProtectionRA1() {
+	public String getRiskProtectionRA1() {
 		return riskProtectionRA1;
 	}
 
-	public void setRiskProtectionRA1(Integer riskProtectionRA1) {
+	public void setRiskProtectionRA1(String riskProtectionRA1) {
 		this.riskProtectionRA1 = riskProtectionRA1;
 	}
 
-	public Integer getRiskProtectionRB1() {
+	public String getRiskProtectionRB1() {
 		return riskProtectionRB1;
 	}
 
-	public void setRiskProtectionRB1(Integer riskProtectionRB1) {
+	public void setRiskProtectionRB1(String riskProtectionRB1) {
 		this.riskProtectionRB1 = riskProtectionRB1;
 	}
 
-	public Integer getRiskProtectionRC1() {
+	public String getRiskProtectionRC1() {
 		return riskProtectionRC1;
 	}
 
-	public void setRiskProtectionRC1(Integer riskProtectionRC1) {
+	public void setRiskProtectionRC1(String riskProtectionRC1) {
 		this.riskProtectionRC1 = riskProtectionRC1;
 	}
 
-	public Integer getRiskProtectionRM1() {
+	public String getRiskProtectionRM1() {
 		return riskProtectionRM1;
 	}
 
-	public void setRiskProtectionRM1(Integer riskProtectionRM1) {
+	public void setRiskProtectionRM1(String riskProtectionRM1) {
 		this.riskProtectionRM1 = riskProtectionRM1;
 	}
 
-	public Integer getRiskProtectionRU1() {
+	public String getRiskProtectionRU1() {
 		return riskProtectionRU1;
 	}
 
-	public void setRiskProtectionRU1(Integer riskProtectionRU1) {
+	public void setRiskProtectionRU1(String riskProtectionRU1) {
 		this.riskProtectionRU1 = riskProtectionRU1;
 	}
 
-	public Integer getRiskProtectionRV1() {
+	public String getRiskProtectionRV1() {
 		return riskProtectionRV1;
 	}
 
-	public void setRiskProtectionRV1(Integer riskProtectionRV1) {
+	public void setRiskProtectionRV1(String riskProtectionRV1) {
 		this.riskProtectionRV1 = riskProtectionRV1;
 	}
 
-	public Integer getRiskProtectionRW1() {
+	public String getRiskProtectionRW1() {
 		return riskProtectionRW1;
 	}
 
-	public void setRiskProtectionRW1(Integer riskProtectionRW1) {
+	public void setRiskProtectionRW1(String riskProtectionRW1) {
 		this.riskProtectionRW1 = riskProtectionRW1;
 	}
 
-	public Integer getRiskProtectionRZ1() {
+	public String getRiskProtectionRZ1() {
 		return riskProtectionRZ1;
 	}
 
-	public void setRiskProtectionRZ1(Integer riskProtectionRZ1) {
+	public void setRiskProtectionRZ1(String riskProtectionRZ1) {
 		this.riskProtectionRZ1 = riskProtectionRZ1;
 	}
 
-	public Integer getRiskProtectionRD1() {
+	public String getRiskProtectionRD1() {
 		return riskProtectionRD1;
 	}
 
-	public void setRiskProtectionRD1(Integer riskProtectionRD1) {
+	public void setRiskProtectionRD1(String riskProtectionRD1) {
 		this.riskProtectionRD1 = riskProtectionRD1;
 	}
 
-	public Integer getRiskProtectionRI1() {
+	public String getRiskProtectionRI1() {
 		return riskProtectionRI1;
 	}
 
-	public void setRiskProtectionRI1(Integer riskProtectionRI1) {
+	public void setRiskProtectionRI1(String riskProtectionRI1) {
 		this.riskProtectionRI1 = riskProtectionRI1;
 	}
 
-	public Integer getRiskProtectionR1() {
+	public String getRiskProtectionR1() {
 		return riskProtectionR1;
 	}
 
-	public void setRiskProtectionR1(Integer riskProtectionR1) {
+	public void setRiskProtectionR1(String riskProtectionR1) {
 		this.riskProtectionR1 = riskProtectionR1;
 	}
 
-	public Integer getRiskProtectionRB2() {
+	public String getRiskProtectionRB2() {
 		return riskProtectionRB2;
 	}
 
-	public void setRiskProtectionRB2(Integer riskProtectionRB2) {
+	public void setRiskProtectionRB2(String riskProtectionRB2) {
 		this.riskProtectionRB2 = riskProtectionRB2;
+	}
+
+	public String getCulturalRB() {
+		return culturalRB;
+	}
+
+	public void setCulturalRB(String culturalRB) {
+		this.culturalRB = culturalRB;
+	}
+
+	public String getCulturalRV() {
+		return culturalRV;
+	}
+
+	public void setCulturalRV(String culturalRV) {
+		this.culturalRV = culturalRV;
 	}
 
 	public StructureCharacteristics getStructureCharacteristics() {
@@ -288,24 +304,7 @@ public class Protection implements Serializable {
 	public void setStructureCharacteristics(StructureCharacteristics structureCharacteristics) {
 		this.structureCharacteristics = structureCharacteristics;
 	}
+	
+	
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public Integer getCulturalRB() {
-		return culturalRB;
-	}
-
-	public void setCulturalRB(Integer culturalRB) {
-		this.culturalRB = culturalRB;
-	}
-
-	public Integer getCulturalRV() {
-		return culturalRV;
-	}
-
-	public void setCulturalRV(Integer culturalRV) {
-		this.culturalRV = culturalRV;
-	}
 }

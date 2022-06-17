@@ -116,6 +116,7 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 				&& structureCharacteristics.getUserName() != null) {
 			Optional<StructureCharacteristics> riskAssessmentDetailsRepo = riskAssessmentRepository
 					.findByRiskId(structureCharacteristics.getRiskId());
+			
 			if (riskAssessmentDetailsRepo.isPresent()
 					&& riskAssessmentDetailsRepo.get().getRiskId().equals(structureCharacteristics.getRiskId())) {
 				structureCharacteristics.setUpdatedDate(LocalDateTime.now());
