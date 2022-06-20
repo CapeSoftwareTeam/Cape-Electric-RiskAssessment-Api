@@ -1,6 +1,5 @@
 package com.capeelectric.service.impl;
 
-import java.io.ByteArrayOutputStream;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -8,9 +7,6 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.capeelectric.exception.RiskAssessmentException;
@@ -21,8 +17,8 @@ import com.capeelectric.repository.RiskAssessmentRepository;
 import com.capeelectric.service.PrintFinalPDFService;
 import com.capeelectric.service.PrintRiskAssessmentDataDetailsService;
 import com.capeelectric.service.PrintRiskCustomerDetailsService;
-import com.capeelectric.service.ReturnPDFService;
 import com.capeelectric.service.RiskAssessmentService;
+import com.capeelectric.util.UserFullName;
 
 @Service
 public class RiskAssessmentServiceImpl implements RiskAssessmentService {
@@ -44,6 +40,9 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 	@Autowired
 	private PrintFinalPDFService printFinalPDFService;
 
+	@Autowired
+	private UserFullName userFullName;
+	
 	@Override
 	public void addRiskAssessmentDetails(StructureCharacteristics structureCharacteristics)
 			throws RiskAssessmentException, RiskAssessmentException, Exception {
@@ -59,7 +58,10 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 					structureCharacteristics.setCreatedDate(LocalDateTime.now());
 					structureCharacteristics.setCreatedBy(structureCharacteristics.getUserName());
 					riskAssessmentRepository.save(structureCharacteristics);
-
+					logger.debug("Risk Assessment Details Saved Successfully");
+					userFullName.addUpdatedByandDate(customerDetailsRepo.get().getRiskId(), customerDetailsRepo.get().getUpdatedBy());
+					logger.debug("Customer Details UpdatedBy and UpdatedDate by Risk Assessment");
+					
 					CustomerDetails customer = customerDetailsRepo.get();
 
 					logger.debug("PDF printRiskCustomerDetails() function called successfully");
@@ -125,6 +127,10 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 
 				Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository
 						.findByRiskId(structureCharacteristics.getRiskId());
+				logger.debug("Risk Assessment Details Updated Successfully");
+				userFullName.addUpdatedByandDate(customerDetailsRepo.get().getRiskId(), customerDetailsRepo.get().getUpdatedBy());
+				logger.debug("Customer Details UpdatedBy and UpdatedDate by Risk Assessment");
+				
 				CustomerDetails customer = customerDetailsRepo.get();
 
 				logger.debug("PDF printRiskCustomerDetails() function called successfully");
