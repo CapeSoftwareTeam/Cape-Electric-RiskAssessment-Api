@@ -79,7 +79,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //						"/api/v2/retrieveRegistration/**",
 //						"/api/v2/retrieveAllRegistration",
 //						"/api/v2/updatePermission/**",
-						"/api/lps/v1/health")
+						"/api/risk/v2/health")
 				.permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().
 				// all other requests need to be authenticated
 				anyRequest().authenticated().and().
