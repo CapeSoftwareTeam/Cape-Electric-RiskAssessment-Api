@@ -52,10 +52,9 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 				List<StructureAttributes> structureAtt = structureCharacteristicsDetails.getStructureAttributes();
 				StructureAttributes structureAttributes = structureAtt.get(0);
 
-				List<Losses> loss = structureCharacteristicsDetails.getLosses();
-//				Losses losses = loss.get(0);
-
 				List<Protection> protect = structureCharacteristicsDetails.getProtection();
+
+				List<Losses> loss = structureCharacteristicsDetails.getLosses();
 
 				List<RiskProtection> riskprotect = structureCharacteristicsDetails.getRiskProtection();
 
@@ -68,7 +67,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 				Font font10B = new Font(BaseFont.createFont(), 10, Font.NORMAL | Font.BOLD, BaseColor.BLACK);
 
 				Font font11B = new Font(BaseFont.createFont(), 11, Font.NORMAL | Font.BOLD, BaseColor.BLACK);
-				
+
 				Font font11N = new Font(BaseFont.createFont(), 11, Font.NORMAL, BaseColor.BLACK);
 
 				float[] pointColumnHeadLabel = { 100F };
@@ -995,7 +994,6 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 
 					for (Protection protection : protect) {
 
-						
 						PdfPCell cell82 = new PdfPCell(new Paragraph("Class of LPS :", font11N));
 						cell82.setFixedHeight(25f);
 						protectionTable.addCell(cell82);
@@ -1018,8 +1016,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", font11N));
 							cell86.setFixedHeight(25f);
 							protectionTable.addCell(cell86);
-							PdfPCell cell87 = new PdfPCell(
-									new Paragraph(protection.getProtectionPEB().toString(), font11N));
+							PdfPCell cell87 = new PdfPCell(new Paragraph(protection.getProtectionPEB(), font11N));
 							protectionTable.addCell(cell87);
 						} else {
 							PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", font11N));
@@ -1033,8 +1030,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell88 = new PdfPCell(new Paragraph("PMS :", font11N));
 							cell88.setFixedHeight(25f);
 							protectionTable.addCell(cell88);
-							PdfPCell cell89 = new PdfPCell(
-									new Paragraph(protection.getProtectionPMS().toString(), font11N));
+							PdfPCell cell89 = new PdfPCell(new Paragraph(protection.getProtectionPMS(), font11N));
 							protectionTable.addCell(cell89);
 						} else {
 							PdfPCell cell88 = new PdfPCell(new Paragraph("PMS :", font11N));
@@ -1048,8 +1044,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell90 = new PdfPCell(new Paragraph("PM :", font11N));
 							cell90.setFixedHeight(25f);
 							protectionTable.addCell(cell90);
-							PdfPCell cell91 = new PdfPCell(
-									new Paragraph(protection.getProtectionPM().toString(), font11N));
+							PdfPCell cell91 = new PdfPCell(new Paragraph(protection.getProtectionPM(), font11N));
 							protectionTable.addCell(cell91);
 						} else {
 							PdfPCell cell90 = new PdfPCell(new Paragraph("PM :", font11N));
@@ -1063,8 +1058,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell92 = new PdfPCell(new Paragraph("PA :", font11N));
 							cell92.setFixedHeight(25f);
 							protectionTable.addCell(cell92);
-							PdfPCell cell93 = new PdfPCell(
-									new Paragraph(protection.getProtectionPA().toString(), font11N));
+							PdfPCell cell93 = new PdfPCell(new Paragraph(protection.getProtectionPA(), font11N));
 							protectionTable.addCell(cell93);
 						} else {
 							PdfPCell cell92 = new PdfPCell(new Paragraph("PA :", font11N));
@@ -1078,8 +1072,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell94 = new PdfPCell(new Paragraph("PC :", font11N));
 							cell94.setFixedHeight(25f);
 							protectionTable.addCell(cell94);
-							PdfPCell cell95 = new PdfPCell(
-									new Paragraph(protection.getProtectionPC().toString(), font11N));
+							PdfPCell cell95 = new PdfPCell(new Paragraph(protection.getProtectionPC(), font11N));
 							protectionTable.addCell(cell95);
 						} else {
 							PdfPCell cell94 = new PdfPCell(new Paragraph("PC :", font11N));
@@ -1093,8 +1086,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell96 = new PdfPCell(new Paragraph("PU :", font11N));
 							cell96.setFixedHeight(25f);
 							protectionTable.addCell(cell96);
-							PdfPCell cell97 = new PdfPCell(
-									new Paragraph(protection.getProtectionPU().toString(), font11N));
+							PdfPCell cell97 = new PdfPCell(new Paragraph(protection.getProtectionPU(), font11N));
 							protectionTable.addCell(cell97);
 						} else {
 							PdfPCell cell96 = new PdfPCell(new Paragraph("PU :", font11N));
@@ -1108,8 +1100,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell98 = new PdfPCell(new Paragraph("PV :", font11N));
 							cell98.setFixedHeight(25f);
 							protectionTable.addCell(cell98);
-							PdfPCell cell99 = new PdfPCell(
-									new Paragraph(protection.getProtectionPC().toString(), font11N));
+							PdfPCell cell99 = new PdfPCell(new Paragraph(protection.getProtectionPC(), font11N));
 							protectionTable.addCell(cell99);
 						} else {
 							PdfPCell cell98 = new PdfPCell(new Paragraph("PV :", font11N));
@@ -1123,8 +1114,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell100 = new PdfPCell(new Paragraph("PW :", font11N));
 							cell100.setFixedHeight(25f);
 							protectionTable.addCell(cell100);
-							PdfPCell cell101 = new PdfPCell(
-									new Paragraph(protection.getProtectionPW().toString(), font11N));
+							PdfPCell cell101 = new PdfPCell(new Paragraph(protection.getProtectionPW(), font11N));
 							protectionTable.addCell(cell101);
 						} else {
 							PdfPCell cell100 = new PdfPCell(new Paragraph("PW :", font11N));
@@ -1138,8 +1128,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell102 = new PdfPCell(new Paragraph("PZ :", font11N));
 							cell102.setFixedHeight(25f);
 							protectionTable.addCell(cell102);
-							PdfPCell cell103 = new PdfPCell(
-									new Paragraph(protection.getProtectionPZ().toString(), font11N));
+							PdfPCell cell103 = new PdfPCell(new Paragraph(protection.getProtectionPZ(), font11N));
 							protectionTable.addCell(cell103);
 						} else {
 							PdfPCell cell102 = new PdfPCell(new Paragraph("PZ :", font11N));
@@ -1153,8 +1142,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell104 = new PdfPCell(new Paragraph("RA1 :", font11N));
 							cell104.setFixedHeight(25f);
 							protectionTable.addCell(cell104);
-							PdfPCell cell105 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRA1().toString(), font11N));
+							PdfPCell cell105 = new PdfPCell(new Paragraph(protection.getRiskProtectionRA1(), font11N));
 							protectionTable.addCell(cell105);
 						} else {
 							PdfPCell cell104 = new PdfPCell(new Paragraph("RA1 :", font11N));
@@ -1168,8 +1156,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell106 = new PdfPCell(new Paragraph("RB1 :", font11N));
 							cell106.setFixedHeight(25f);
 							protectionTable.addCell(cell106);
-							PdfPCell cell107 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRB1().toString(), font11N));
+							PdfPCell cell107 = new PdfPCell(new Paragraph(protection.getRiskProtectionRB1(), font11N));
 							protectionTable.addCell(cell107);
 						} else {
 							PdfPCell cell106 = new PdfPCell(new Paragraph("RB1 :", font11N));
@@ -1183,8 +1170,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell108 = new PdfPCell(new Paragraph("RC1 :", font11N));
 							cell108.setFixedHeight(25f);
 							protectionTable.addCell(cell108);
-							PdfPCell cell109 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRC1().toString(), font11N));
+							PdfPCell cell109 = new PdfPCell(new Paragraph(protection.getRiskProtectionRC1(), font11N));
 							protectionTable.addCell(cell109);
 						} else {
 							PdfPCell cell108 = new PdfPCell(new Paragraph("RC1 :", font11N));
@@ -1198,8 +1184,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell124 = new PdfPCell(new Paragraph("RM1 :", font11N));
 							cell124.setFixedHeight(25f);
 							protectionTable.addCell(cell124);
-							PdfPCell cell125 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRM1().toString(), font11N));
+							PdfPCell cell125 = new PdfPCell(new Paragraph(protection.getRiskProtectionRM1(), font11N));
 							protectionTable.addCell(cell125);
 						} else {
 							PdfPCell cell124 = new PdfPCell(new Paragraph("RM1 :", font11N));
@@ -1213,8 +1198,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell128 = new PdfPCell(new Paragraph("RU1 :", font11N));
 							cell128.setFixedHeight(25f);
 							protectionTable.addCell(cell128);
-							PdfPCell cell129 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRU1().toString(), font11N));
+							PdfPCell cell129 = new PdfPCell(new Paragraph(protection.getRiskProtectionRU1(), font11N));
 							protectionTable.addCell(cell129);
 						} else {
 							PdfPCell cell128 = new PdfPCell(new Paragraph("RU1 :", font11N));
@@ -1228,8 +1212,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell130 = new PdfPCell(new Paragraph("RV1 :", font11N));
 							cell130.setFixedHeight(25f);
 							protectionTable.addCell(cell130);
-							PdfPCell cell131 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRV1().toString(), font11N));
+							PdfPCell cell131 = new PdfPCell(new Paragraph(protection.getRiskProtectionRV1(), font11N));
 							protectionTable.addCell(cell131);
 						} else {
 							PdfPCell cell130 = new PdfPCell(new Paragraph("RV1 :", font11N));
@@ -1243,8 +1226,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell140 = new PdfPCell(new Paragraph("RW1 :", font11N));
 							cell140.setFixedHeight(25f);
 							protectionTable.addCell(cell140);
-							PdfPCell cell141 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRW1().toString(), font11N));
+							PdfPCell cell141 = new PdfPCell(new Paragraph(protection.getRiskProtectionRW1(), font11N));
 							protectionTable.addCell(cell141);
 						} else {
 							PdfPCell cell140 = new PdfPCell(new Paragraph("RW1 :", font11N));
@@ -1258,8 +1240,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell142 = new PdfPCell(new Paragraph("RZ1 :", font11N));
 							cell142.setFixedHeight(25f);
 							protectionTable.addCell(cell142);
-							PdfPCell cell143 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRZ1().toString(), font11N));
+							PdfPCell cell143 = new PdfPCell(new Paragraph(protection.getRiskProtectionRZ1(), font11N));
 							protectionTable.addCell(cell143);
 						} else {
 							PdfPCell cell142 = new PdfPCell(new Paragraph("RZ1 :", font11N));
@@ -1273,8 +1254,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell144 = new PdfPCell(new Paragraph("RV1 :", font11N));
 							cell144.setFixedHeight(25f);
 							protectionTable.addCell(cell144);
-							PdfPCell cell146 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRV1().toString(), font11N));
+							PdfPCell cell146 = new PdfPCell(new Paragraph(protection.getRiskProtectionRV1(), font11N));
 							protectionTable.addCell(cell146);
 						} else {
 							PdfPCell cell144 = new PdfPCell(new Paragraph("RV1 :", font11N));
@@ -1288,8 +1268,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell147 = new PdfPCell(new Paragraph("RD1 :", font11N));
 							cell147.setFixedHeight(25f);
 							protectionTable.addCell(cell147);
-							PdfPCell cell148 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRD1().toString(), font11N));
+							PdfPCell cell148 = new PdfPCell(new Paragraph(protection.getRiskProtectionRD1(), font11N));
 							protectionTable.addCell(cell148);
 						} else {
 							PdfPCell cell147 = new PdfPCell(new Paragraph("RD1 :", font11N));
@@ -1303,8 +1282,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell149 = new PdfPCell(new Paragraph("RI1 :", font11N));
 							cell149.setFixedHeight(25f);
 							protectionTable.addCell(cell149);
-							PdfPCell cell150 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRI1().toString(), font11N));
+							PdfPCell cell150 = new PdfPCell(new Paragraph(protection.getRiskProtectionRI1(), font11N));
 							protectionTable.addCell(cell150);
 						} else {
 							PdfPCell cell149 = new PdfPCell(new Paragraph("RI1 :", font11N));
@@ -1318,8 +1296,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell151 = new PdfPCell(new Paragraph("R1 :", font11N));
 							cell151.setFixedHeight(25f);
 							protectionTable.addCell(cell151);
-							PdfPCell cell152 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionR1().toString(), font11N));
+							PdfPCell cell152 = new PdfPCell(new Paragraph(protection.getRiskProtectionR1(), font11N));
 							protectionTable.addCell(cell152);
 						} else {
 							PdfPCell cell151 = new PdfPCell(new Paragraph("R1 :", font11N));
@@ -1334,8 +1311,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell153 = new PdfPCell(new Paragraph("RI1 :", font11N));
 							cell153.setFixedHeight(25f);
 							protectionTable.addCell(cell153);
-							PdfPCell cell154 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRI1().toString(), font11N));
+							PdfPCell cell154 = new PdfPCell(new Paragraph(protection.getRiskProtectionRI1(), font11N));
 							protectionTable.addCell(cell154);
 						} else {
 							PdfPCell cell153 = new PdfPCell(new Paragraph("RI1 :", font11N));
@@ -1349,8 +1325,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 							PdfPCell cell156 = new PdfPCell(new Paragraph("RB2 :", font11N));
 							cell156.setFixedHeight(25f);
 							protectionTable.addCell(cell156);
-							PdfPCell cell157 = new PdfPCell(
-									new Paragraph(protection.getRiskProtectionRB2().toString(), font11N));
+							PdfPCell cell157 = new PdfPCell(new Paragraph(protection.getRiskProtectionRB2(), font11N));
 							protectionTable.addCell(cell157);
 						} else {
 							PdfPCell cell156 = new PdfPCell(new Paragraph("RB2 :", font11N));
@@ -1367,7 +1342,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 								cell158.setFixedHeight(25f);
 								protectionTable.addCell(cell158);
 								PdfPCell cell159 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRC2().toString(), font11N));
+										new Paragraph(riskprotection.getRiskProtectionRC2(), font11N));
 								protectionTable.addCell(cell159);
 							} else {
 								PdfPCell cell158 = new PdfPCell(new Paragraph("RC2 :", font11N));
@@ -1382,7 +1357,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 								cell160.setFixedHeight(25f);
 								protectionTable.addCell(cell160);
 								PdfPCell cell161 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRM2().toString(), font11N));
+										new Paragraph(riskprotection.getRiskProtectionRM2(), font11N));
 								protectionTable.addCell(cell161);
 							} else {
 								PdfPCell cell160 = new PdfPCell(new Paragraph("RM2 :", font11N));
@@ -1397,7 +1372,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 								cell162.setFixedHeight(25f);
 								protectionTable.addCell(cell162);
 								PdfPCell cell163 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRV2().toString(), font11N));
+										new Paragraph(riskprotection.getRiskProtectionRV2(), font11N));
 								protectionTable.addCell(cell163);
 							} else {
 								PdfPCell cell162 = new PdfPCell(new Paragraph("RV2 :", font11N));
@@ -1412,7 +1387,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 								cell164.setFixedHeight(25f);
 								protectionTable.addCell(cell164);
 								PdfPCell cell165 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRW2().toString(), font11N));
+										new Paragraph(riskprotection.getRiskProtectionRW2(), font11N));
 								protectionTable.addCell(cell165);
 							} else {
 								PdfPCell cell164 = new PdfPCell(new Paragraph("RW2 :", font11N));
@@ -1427,7 +1402,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 								cell166.setFixedHeight(25f);
 								protectionTable.addCell(cell166);
 								PdfPCell cell167 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRZ2().toString(), font11N));
+										new Paragraph(riskprotection.getRiskProtectionRZ2(), font11N));
 								protectionTable.addCell(cell167);
 							} else {
 								PdfPCell cell166 = new PdfPCell(new Paragraph("RZ2 :", font11N));
@@ -1444,7 +1419,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell168.setFixedHeight(25f);
 									protectionTable.addCell(cell168);
 									PdfPCell cell169 = new PdfPCell(
-											new Paragraph(calculatedRisk.getRiskProtectionRD2().toString(), font11N));
+											new Paragraph(calculatedRisk.getRiskProtectionRD2(), font11N));
 									protectionTable.addCell(cell169);
 								} else {
 									PdfPCell cell168 = new PdfPCell(new Paragraph("RD2 :", font11N));
@@ -1459,7 +1434,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell170.setFixedHeight(25f);
 									protectionTable.addCell(cell170);
 									PdfPCell cell171 = new PdfPCell(
-											new Paragraph(calculatedRisk.getRiskProtectionRI2().toString(), font11N));
+											new Paragraph(calculatedRisk.getRiskProtectionRI2(), font11N));
 									protectionTable.addCell(cell171);
 								} else {
 									PdfPCell cell170 = new PdfPCell(new Paragraph("RI2 :", font11N));
@@ -1474,7 +1449,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell172.setFixedHeight(25f);
 									protectionTable.addCell(cell172);
 									PdfPCell cell173 = new PdfPCell(
-											new Paragraph(calculatedRisk.getRiskProtectionR2().toString(), font11N));
+											new Paragraph(calculatedRisk.getRiskProtectionR2(), font11N));
 									protectionTable.addCell(cell173);
 								} else {
 									PdfPCell cell172 = new PdfPCell(new Paragraph("R2 :", font11N));
@@ -1489,7 +1464,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell174.setFixedHeight(25f);
 									protectionTable.addCell(cell174);
 									PdfPCell cell175 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRB3().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRB3(), font11N));
 									protectionTable.addCell(cell175);
 								} else {
 									PdfPCell cell174 = new PdfPCell(new Paragraph("RB3 :", font11N));
@@ -1504,7 +1479,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell176.setFixedHeight(25f);
 									protectionTable.addCell(cell176);
 									PdfPCell cell177 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRV3().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRV3(), font11N));
 									protectionTable.addCell(cell177);
 								} else {
 									PdfPCell cell176 = new PdfPCell(new Paragraph("RV3 :", font11N));
@@ -1519,7 +1494,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell178.setFixedHeight(25f);
 									protectionTable.addCell(cell178);
 									PdfPCell cell179 = new PdfPCell(
-											new Paragraph(calculatedRisk.getRiskProtectionRD3().toString(), font11N));
+											new Paragraph(calculatedRisk.getRiskProtectionRD3(), font11N));
 									protectionTable.addCell(cell179);
 								} else {
 									PdfPCell cell178 = new PdfPCell(new Paragraph("RD3 :", font11N));
@@ -1534,7 +1509,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell180.setFixedHeight(25f);
 									protectionTable.addCell(cell180);
 									PdfPCell cell181 = new PdfPCell(
-											new Paragraph(calculatedRisk.getRiskProtectionR3().toString(), font11N));
+											new Paragraph(calculatedRisk.getRiskProtectionR3(), font11N));
 									protectionTable.addCell(cell181);
 								} else {
 									PdfPCell cell180 = new PdfPCell(new Paragraph("R3 :", font11N));
@@ -1549,7 +1524,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell183.setFixedHeight(25f);
 									protectionTable.addCell(cell183);
 									PdfPCell cell184 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRA4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRA4(), font11N));
 									protectionTable.addCell(cell184);
 								} else {
 									PdfPCell cell183 = new PdfPCell(new Paragraph("RA4 :", font11N));
@@ -1564,7 +1539,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell185.setFixedHeight(25f);
 									protectionTable.addCell(cell185);
 									PdfPCell cell186 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRB4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRB4(), font11N));
 									protectionTable.addCell(cell186);
 								} else {
 									PdfPCell cell185 = new PdfPCell(new Paragraph("RB4 :", font11N));
@@ -1579,7 +1554,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell187.setFixedHeight(25f);
 									protectionTable.addCell(cell187);
 									PdfPCell cell188 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRC4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRC4(), font11N));
 									protectionTable.addCell(cell188);
 								} else {
 									PdfPCell cell187 = new PdfPCell(new Paragraph("RC4 :", font11N));
@@ -1594,7 +1569,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell189.setFixedHeight(25f);
 									protectionTable.addCell(cell189);
 									PdfPCell cell190 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRM4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRM4(), font11N));
 									protectionTable.addCell(cell190);
 								} else {
 									PdfPCell cell189 = new PdfPCell(new Paragraph("RM4 :", font11N));
@@ -1609,7 +1584,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell191.setFixedHeight(25f);
 									protectionTable.addCell(cell191);
 									PdfPCell cell192 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRU4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRU4(), font11N));
 									protectionTable.addCell(cell192);
 								} else {
 									PdfPCell cell191 = new PdfPCell(new Paragraph("RU4 :", font11N));
@@ -1624,7 +1599,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell193.setFixedHeight(25f);
 									protectionTable.addCell(cell193);
 									PdfPCell cell194 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRV4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRV4(), font11N));
 									protectionTable.addCell(cell194);
 								} else {
 									PdfPCell cell193 = new PdfPCell(new Paragraph("RV4 :", font11N));
@@ -1639,7 +1614,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell195.setFixedHeight(25f);
 									protectionTable.addCell(cell195);
 									PdfPCell cell196 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRW4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRW4(), font11N));
 									protectionTable.addCell(cell196);
 								} else {
 									PdfPCell cell195 = new PdfPCell(new Paragraph("RW4 :", font11N));
@@ -1654,7 +1629,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell197.setFixedHeight(25f);
 									protectionTable.addCell(cell197);
 									PdfPCell cell198 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRZ4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRZ4(), font11N));
 									protectionTable.addCell(cell198);
 								} else {
 									PdfPCell cell197 = new PdfPCell(new Paragraph("RZ4 :", font11N));
@@ -1669,7 +1644,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell199.setFixedHeight(25f);
 									protectionTable.addCell(cell199);
 									PdfPCell cell210 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRZ4().toString(), font11N));
+											new Paragraph(riskprotection.getRiskProtectionRZ4(), font11N));
 									protectionTable.addCell(cell210);
 								} else {
 									PdfPCell cell199 = new PdfPCell(new Paragraph("RZ4 :", font11N));
@@ -1684,7 +1659,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell211.setFixedHeight(25f);
 									protectionTable.addCell(cell211);
 									PdfPCell cell213 = new PdfPCell(
-											new Paragraph(calculatedRisk.getRiskProtectionRI4().toString(), font11N));
+											new Paragraph(calculatedRisk.getRiskProtectionRI4(), font11N));
 									protectionTable.addCell(cell213);
 								} else {
 									PdfPCell cell211 = new PdfPCell(new Paragraph("RI4 :", font11N));
@@ -1699,7 +1674,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									cell214.setFixedHeight(25f);
 									protectionTable.addCell(cell214);
 									PdfPCell cell215 = new PdfPCell(
-											new Paragraph(calculatedRisk.getRiskProtectionR4().toString(), font11N));
+											new Paragraph(calculatedRisk.getRiskProtectionR4(), font11N));
 									protectionTable.addCell(cell215);
 								} else {
 									PdfPCell cell214 = new PdfPCell(new Paragraph("R4 :", font11N));
@@ -1713,27 +1688,28 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 					}
 					document.add(protectionTable);
 				}
-				
+
 				document.newPage();
-				
+
 				Paragraph paragraph1 = new Paragraph("5. CONCLUSION", font11B);
 				paragraph1.setAlignment(Element.ALIGN_LEFT);
 				document.add(paragraph1);
-				
+
 				PdfPTable conclusionHead = new PdfPTable(pointColumnHeadLabel);
 				conclusionHead.setWidthPercentage(100); // Width 100%
 				conclusionHead.setSpacingBefore(25f); // Space before table
 //				conclusionHead.setSpacingAfter(5f); // Space after table
 
-				PdfPCell conclusionLabel = new PdfPCell(new Paragraph("Based on the Data provided, following table depicts the comparison between Tolerable risk"
-						 + "\r\n\r\nand calculated risk with protection.", font11N));
+				PdfPCell conclusionLabel = new PdfPCell(new Paragraph(
+						"Based on the Data provided, following table depicts the comparison between Tolerable risk"
+								+ "\r\n\r\nand calculated risk with protection.",
+						font11N));
 				conclusionLabel.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclusionLabel.setBorder(PdfPCell.NO_BORDER);
 				conclusionHead.addCell(conclusionLabel);
 				document.add(conclusionHead);
-				
-				
-				float[] pointColumnWidths2 = { 25F, 20F, 25F, 25F, 25F,};
+
+				float[] pointColumnWidths2 = { 25F, 20F, 25F, 25F, 25F, };
 
 				PdfPTable conclisionTable = new PdfPTable(pointColumnWidths2); // 3 columns.
 				conclisionTable.setWidthPercentage(100); // Width 100%
@@ -1745,153 +1721,152 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 				cell250.setFixedHeight(40f);
 				cell250.setHorizontalAlignment(Element.ALIGN_CENTER);
 				conclisionTable.addCell(cell250);
-				
-				PdfPCell cell251 = new PdfPCell(new Paragraph("\r\nTolerable \r\n"
-						+ "Risk", font10B));
+
+				PdfPCell cell251 = new PdfPCell(new Paragraph("\r\nTolerable \r\n" + "Risk", font10B));
 				cell251.setHorizontalAlignment(Element.ALIGN_CENTER);
 				conclisionTable.addCell(cell251);
-				
-				PdfPCell cell252 = new PdfPCell(new Paragraph("\r\nDirect Strike \r\n"
-						+ "Risk RD", font10B));
+
+				PdfPCell cell252 = new PdfPCell(new Paragraph("\r\nDirect Strike \r\n" + "Risk RD", font10B));
 				cell252.setHorizontalAlignment(Element.ALIGN_CENTER);
 				conclisionTable.addCell(cell252);
-				
-				PdfPCell cell253 = new PdfPCell(new Paragraph("\r\nIndirect Strike\r\n"
-						+ "Risk RI", font10B));
+
+				PdfPCell cell253 = new PdfPCell(new Paragraph("\r\nIndirect Strike\r\n" + "Risk RI", font10B));
 				cell253.setHorizontalAlignment(Element.ALIGN_CENTER);
 				conclisionTable.addCell(cell253);
-				
-				PdfPCell cell254 = new PdfPCell(new Paragraph("\r\nCalculated Risk \r\n"
-						+ "(R = RD + RI)", font10B));
+
+				PdfPCell cell254 = new PdfPCell(new Paragraph("\r\nCalculated Risk \r\n" + "(R = RD + RI)", font10B));
 				cell254.setHorizontalAlignment(Element.ALIGN_CENTER);
 				conclisionTable.addCell(cell254);
-				
+
 				PdfPCell cell255 = new PdfPCell(new Paragraph("\r\nLoss of human life ", font11N));
 				cell255.setFixedHeight(40f);
 				cell255.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell255);
-				
+
 				PdfPCell cell256 = new PdfPCell(new Paragraph("", font10B));
 				cell256.setFixedHeight(40f);
 				cell256.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell256);
-				
+
 				PdfPCell cell257 = new PdfPCell(new Paragraph("", font10B));
 				cell257.setFixedHeight(40f);
 				cell257.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell257);
-				
+
 				PdfPCell cell258 = new PdfPCell(new Paragraph("", font10B));
 				cell258.setFixedHeight(40f);
 				cell258.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell258);
-				
+
 				PdfPCell cell259 = new PdfPCell(new Paragraph("", font10B));
 				cell259.setFixedHeight(40f);
 				cell259.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell259);
-				
+
 				PdfPCell cell260 = new PdfPCell(new Paragraph("\r\nLoss of public services ", font11N));
 				cell260.setFixedHeight(40f);
 				cell260.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell260);
-				
+
 				PdfPCell cell261 = new PdfPCell(new Paragraph("", font10B));
 				cell261.setFixedHeight(40f);
 				cell261.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell261);
-				
+
 				PdfPCell cell262 = new PdfPCell(new Paragraph("", font10B));
 				cell262.setFixedHeight(40f);
 				cell262.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell262);
-				
+
 				PdfPCell cell263 = new PdfPCell(new Paragraph("", font10B));
 				cell263.setFixedHeight(40f);
 				cell263.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell263);
-				
+
 				PdfPCell cell264 = new PdfPCell(new Paragraph("", font10B));
 				cell264.setFixedHeight(40f);
 				cell264.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell264);
-				
+
 				PdfPCell cell265 = new PdfPCell(new Paragraph("\r\nLoss of cultural heritage ", font11N));
 				cell265.setFixedHeight(40f);
 				cell265.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell265);
-				
+
 				PdfPCell cell266 = new PdfPCell(new Paragraph("", font10B));
 				cell266.setFixedHeight(40f);
 				cell266.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell266);
-				
+
 				PdfPCell cell267 = new PdfPCell(new Paragraph("", font10B));
 				cell267.setFixedHeight(40f);
 				cell267.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell267);
-				
+
 				PdfPCell cell268 = new PdfPCell(new Paragraph("", font10B));
 				cell268.setFixedHeight(40f);
 				cell268.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell268);
-				
+
 				PdfPCell cell269 = new PdfPCell(new Paragraph("", font10B));
 				cell269.setFixedHeight(40f);
 				cell269.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell269);
-				
+
 				PdfPCell cell270 = new PdfPCell(new Paragraph("\r\nEconomic loss ", font11N));
 				cell270.setFixedHeight(40f);
 				cell270.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell270);
-				
+
 				PdfPCell cell271 = new PdfPCell(new Paragraph("", font10B));
 				cell271.setFixedHeight(40f);
 				cell271.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell271);
-				
+
 				PdfPCell cell272 = new PdfPCell(new Paragraph("", font10B));
 				cell272.setFixedHeight(40f);
 				cell272.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell272);
-				
+
 				PdfPCell cell273 = new PdfPCell(new Paragraph("", font10B));
 				cell273.setFixedHeight(40f);
 				cell273.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell273);
-				
+
 				PdfPCell cell274 = new PdfPCell(new Paragraph("", font10B));
 				cell274.setFixedHeight(40f);
 				cell274.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclisionTable.addCell(cell274);
 				document.add(conclisionTable);
-				
-				
+
 				PdfPTable conclusionConTab = new PdfPTable(pointColumnHeadLabel);
 				conclusionConTab.setWidthPercentage(100); // Width 100%
 				conclusionConTab.setSpacingBefore(25f); // Space before table
 //				conclusionConTab.setSpacingAfter(5f); // Space after table
 
-				PdfPCell conclusionCon1 = new PdfPCell(new Paragraph("The above Risk Assessment is completely based on IS/IEC 62305-2 : 2010-12 : Risk \r\n\r\nManagement.", font11N));
+				PdfPCell conclusionCon1 = new PdfPCell(new Paragraph(
+						"The above Risk Assessment is completely based on IS/IEC 62305-2 : 2010-12 : Risk \r\n\r\nManagement.",
+						font11N));
 				conclusionCon1.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclusionCon1.setBorder(PdfPCell.NO_BORDER);
 				conclusionConTab.addCell(conclusionCon1);
-			
 
-				PdfPCell conclusionCon2 = new PdfPCell(new Paragraph("\r\n\r\nDamages and losses caused due to direct or indirect strike of lightning strike are assessed.\r\n\r\n\r\n"
-						+ "				As per the calculation, by providing ", font11N));
+				PdfPCell conclusionCon2 = new PdfPCell(new Paragraph(
+						"\r\n\r\nDamages and losses caused due to direct or indirect strike of lightning strike are assessed.\r\n\r\n\r\n"
+								+ "				As per the calculation, by providing ",
+						font11N));
 				conclusionCon2.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclusionCon2.setBorder(PdfPCell.NO_BORDER);
 				conclusionConTab.addCell(conclusionCon2);
-				
-				PdfPCell conclusionCon3 = new PdfPCell(new Paragraph("\r\n\r\nClass III LPS and Protec T1HS 300 3 + 1 R & Protec T2H 300 3 + 1 r\n" + "\r\n\r\ncomplete risk are less than the tolerable limit and protection is achieved .", font11N));
+
+				PdfPCell conclusionCon3 = new PdfPCell(new Paragraph(
+						"\r\n\r\nClass III LPS and Protec T1HS 300 3 + 1 R & Protec T2H 300 3 + 1 r\n"
+								+ "\r\n\r\ncomplete risk are less than the tolerable limit and protection is achieved .",
+						font11N));
 				conclusionCon3.setHorizontalAlignment(Element.ALIGN_LEFT);
 				conclusionCon3.setBorder(PdfPCell.NO_BORDER);
 				conclusionConTab.addCell(conclusionCon3);
 				document.add(conclusionConTab);
-				
-				
 
 				document.close();
 				writer.close();

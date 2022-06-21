@@ -55,7 +55,7 @@ public class RiskProtection implements Serializable {
 	private String riskProtectionRC4;
 
 	@Column(name = "R_PRO_RM4")
-	private Integer riskProtectionRM4;
+	private String riskProtectionRM4;
 
 	@Column(name = "R_PRO_RU4")
 	private String riskProtectionRU4;
@@ -186,11 +186,11 @@ public class RiskProtection implements Serializable {
 		this.riskProtectionRC4 = riskProtectionRC4;
 	}
 
-	public Integer getRiskProtectionRM4() {
+	public String getRiskProtectionRM4() {
 		return riskProtectionRM4;
 	}
 
-	public void setRiskProtectionRM4(Integer riskProtectionRM4) {
+	public void setRiskProtectionRM4(String riskProtectionRM4) {
 		this.riskProtectionRM4 = riskProtectionRM4;
 	}
 
