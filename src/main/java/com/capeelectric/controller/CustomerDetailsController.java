@@ -62,10 +62,10 @@ public class CustomerDetailsController {
 		return new ResponseEntity<String>("Risk_Assessment Details has been successfully deleted", HttpStatus.OK);
 	}
 	
-	@GetMapping("/retrieveAllCustomers/{userName}")
-	public ResponseEntity<List<CustomerDetails>> retrieveCustomerAllDetails(@PathVariable String userName) throws CustomerDetailsException {
-		logger.info("called retrieveCustomerAllDetails function UserName: {}", userName);
-		return new ResponseEntity<List<CustomerDetails>>(customerDetailsService.retrieveCustomerAllDetails(userName),
-				HttpStatus.OK);
+	@GetMapping("/retrieveAllCustomerDetails")
+	public ResponseEntity<List<CustomerDetails>> retriveAllCustomerDetailss() throws CustomerDetailsException {
+		logger.info("started fetching the retrieveAllCustomerDetails");
+		return new ResponseEntity<List<CustomerDetails>>(customerDetailsService.retriveAllCustomerDetails(),HttpStatus.OK);
 	}
+
 }

@@ -24,31 +24,47 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 	@Autowired
 	private CustomerDetailsRepository customerDetailsRepository;
-	
+
 	@Autowired
 	private UserFullName userFullName;
-	
+
 	private CustomerDetails customerData;
 
 	@Override
 	public CustomerDetails saveCustomerDetails(CustomerDetails customerDetails) throws CustomerDetailsException {
+
 		if (customerDetails != null && customerDetails.getUserName() != null) {
-			customerDetails.setCreatedDate(LocalDateTime.now());
-			customerDetails.setCreatedBy(customerDetails.getUserName());
-			customerDetails.setUpdatedBy(customerDetails.getUserName());
-			customerDetails.setUpdatedDate(LocalDateTime.now());
-			return customerDetailsRepository.save(customerDetails);
+
+			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository
+					.findByUserName(customerDetails.getUserName());
+			logger.debug("Customer Details Repo data available");
+
+			if (!customerDetailsRepo.isPresent()) {
+				customerDetails.setStatus("Active");
+				customerDetails.setCreatedDate(LocalDateTime.now());
+				customerDetails.setUpdatedDate(LocalDateTime.now());
+				customerDetails.setCreatedBy(userFullName.findByUserName(customerDetails.getUserName()));
+				customerDetails.setUpdatedBy(userFullName.findByUserName(customerDetails.getUserName()));
+				logger.info("Ended addCustomersDetails function");
+				return customerDetailsRepository.save(customerDetails);
+			} else {
+				logger.error("User Name " + customerDetails.getUserName() + " already exists");
+				throw new CustomerDetailsException("User Name " + customerDetails.getUserName() + " already exists");
+			}
+
 		} else {
 			logger.error("Invalid Inputs");
 			throw new CustomerDetailsException("Invalid Inputs");
 		}
+
 	}
 
 	@Override
 	public List<CustomerDetails> retrieveCustomerDetails(String userName, Integer riskId)
 			throws CustomerDetailsException {
 		if (userName != null && !userName.isEmpty() && riskId != null) {
-			List<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByUserNameAndRiskId(userName,riskId);
+			List<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByUserNameAndRiskId(userName,
+					riskId);
 			if (customerDetailsRepo != null && !customerDetailsRepo.isEmpty()) {
 				return customerDetailsRepo;
 			} else {
@@ -64,7 +80,8 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 	@Override
 	public void updateCustomerDetails(CustomerDetails customerDetails) throws CustomerDetailsException {
 		if (customerDetails != null && customerDetails.getUserName() != null && customerDetails.getRiskId() != null) {
-			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByRiskId(customerDetails.getRiskId());
+			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository
+					.findByRiskId(customerDetails.getRiskId());
 			if (customerDetailsRepo.isPresent()
 					&& customerDetailsRepo.get().getRiskId().equals(customerDetails.getRiskId())) {
 				customerDetails.setUpdatedDate(LocalDateTime.now());
@@ -80,10 +97,11 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 			throw new CustomerDetailsException("Invalid Inputs");
 		}
 	}
-	
+
 	@Transactional
 	@Override
-	public void updateRiskAssessmentCustomerDetailsStatus(CustomerDetails customerDetails) throws CustomerDetailsException {
+	public void updateRiskAssessmentCustomerDetailsStatus(CustomerDetails customerDetails)
+			throws CustomerDetailsException {
 		logger.info("Called updateRiskAssessmentCustomerDetailsStatus function");
 
 		if (customerDetails != null && customerDetails.getRiskId() != null && customerDetails.getRiskId() != 0) {
@@ -110,22 +128,10 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 		logger.info("Ended updateRiskAssessmentCustomerDetailsStatus function");
 
 	}
-	
-	@Override
-	public List<CustomerDetails> retrieveCustomerAllDetails(String userName)
-			throws CustomerDetailsException {
-		if (userName != null && !userName.isEmpty()) {
-			List<CustomerDetails> customerDetailsRepo = customerDetailsRepository.findByUserName(userName);
-			if (customerDetailsRepo != null && !customerDetailsRepo.isEmpty()) {
-				return customerDetailsRepo;
-			} else {
-				logger.error("CustomerDetails Fetching failed");
-				throw new CustomerDetailsException("CustomerDetails Fetching failed");
-			}
-		} else {
-			logger.error("Invalid Inputs");
-			throw new CustomerDetailsException("Invalid Inputs");
-		}
-	}
 
+	@Override
+	public List<CustomerDetails> retriveAllCustomerDetails() throws CustomerDetailsException {
+		logger.debug("Retrieve All Customer Details");
+		return (List<CustomerDetails>) customerDetailsRepository.findAll();
+	}
 }

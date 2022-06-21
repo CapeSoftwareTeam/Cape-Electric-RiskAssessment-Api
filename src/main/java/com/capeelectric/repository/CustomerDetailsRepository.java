@@ -10,12 +10,11 @@ import com.capeelectric.model.CustomerDetails;
 
 @Repository
 public interface CustomerDetailsRepository extends CrudRepository<CustomerDetails, Integer> {
-	
-	List<CustomerDetails> findByUserName(String userName);
+
+	Optional<CustomerDetails> findByUserName(String userName);
 
 	Optional<CustomerDetails> findByRiskId(Integer riskId);
 
 	List<CustomerDetails> findByUserNameAndRiskId(String userName, Integer riskId);
-
 
 }
