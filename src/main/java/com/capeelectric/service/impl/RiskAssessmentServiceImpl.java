@@ -62,19 +62,7 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 					userFullName.addUpdatedByandDate(customerDetailsRepo.get().getRiskId(), customerDetailsRepo.get().getUpdatedBy());
 					logger.debug("Customer Details UpdatedBy and UpdatedDate by Risk Assessment");
 					
-					CustomerDetails customer = customerDetailsRepo.get();
-
-					logger.debug("PDF printRiskCustomerDetails() function called successfully");
-					printRiskCustomerDetailsService.printRiskCustomerDetails(structureCharacteristics.getUserName(),
-							structureCharacteristics.getRiskId());
-
-					logger.debug("PDF printRiskAssessmentDataDetails() function called successfully");
-					printRiskAssessmentDataDetailsService.printRiskAssessmentDataDetails(
-							structureCharacteristics.getUserName(), structureCharacteristics.getRiskId());
-
-					logger.debug("PDF printFinalPDF() function called successfully");
-					printFinalPDFService.printFinalPDF(structureCharacteristics.getUserName(),
-							structureCharacteristics.getRiskId(), customer.getProjectName());
+					
 
 				} else {
 					logger.error("Given RiskAssessment Details Already Exists");
@@ -125,25 +113,14 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 				structureCharacteristics.setUpdatedBy(structureCharacteristics.getUserName());
 				riskAssessmentRepository.save(structureCharacteristics);
 
+
 				Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository
 						.findByRiskId(structureCharacteristics.getRiskId());
 				logger.debug("Risk Assessment Details Updated Successfully");
 				userFullName.addUpdatedByandDate(customerDetailsRepo.get().getRiskId(), customerDetailsRepo.get().getUpdatedBy());
 				logger.debug("Customer Details UpdatedBy and UpdatedDate by Risk Assessment");
 				
-				CustomerDetails customer = customerDetailsRepo.get();
-
-				logger.debug("PDF printRiskCustomerDetails() function called successfully");
-				printRiskCustomerDetailsService.printRiskCustomerDetails(structureCharacteristics.getUserName(),
-						structureCharacteristics.getRiskId());
-
-				logger.debug("PDF printRiskAssessmentDataDetails() function called successfully");
-				printRiskAssessmentDataDetailsService.printRiskAssessmentDataDetails(
-						structureCharacteristics.getUserName(), structureCharacteristics.getRiskId());
-
-				logger.debug("PDF printFinalPDF() function called successfully");
-				printFinalPDFService.printFinalPDF(structureCharacteristics.getUserName(),
-						structureCharacteristics.getRiskId(), customer.getProjectName());
+	
 
 			} else {
 				logger.error("Given Risk Id is Invalid");
