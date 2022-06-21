@@ -35,11 +35,11 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 		if (customerDetails != null && customerDetails.getUserName() != null) {
 
-			Optional<CustomerDetails> customerDetailsRepo = customerDetailsRepository
+			List<CustomerDetails> customerDetailsRepo = customerDetailsRepository
 					.findByUserName(customerDetails.getUserName());
 			logger.debug("Customer Details Repo data available");
 
-			if (!customerDetailsRepo.isPresent()) {
+			if (customerDetailsRepo.isEmpty()) {
 				customerDetails.setStatus("Active");
 				customerDetails.setCreatedDate(LocalDateTime.now());
 				customerDetails.setUpdatedDate(LocalDateTime.now());
