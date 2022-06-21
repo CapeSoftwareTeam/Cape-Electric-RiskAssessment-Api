@@ -13,6 +13,8 @@ public interface CustomerDetailsRepository extends CrudRepository<CustomerDetail
 
 	List<CustomerDetails> findByUserName(String userName);
 	
+	List<CustomerDetails> findByOrganisationName(String organization);
+	
 	Optional<CustomerDetails> findByRiskId(Integer riskId);
 
 	List<CustomerDetails> findByUserNameAndRiskId(String userName, Integer riskId);

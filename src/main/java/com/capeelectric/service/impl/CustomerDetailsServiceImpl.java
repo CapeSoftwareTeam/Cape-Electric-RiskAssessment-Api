@@ -36,7 +36,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 		if (customerDetails != null && customerDetails.getUserName() != null) {
 
 			List<CustomerDetails> customerDetailsRepo = customerDetailsRepository
-					.findByUserName(customerDetails.getUserName());
+					.findByOrganisationName(customerDetails.getOrganisationName());
 			logger.debug("Customer Details Repo data available");
 
 			if (customerDetailsRepo.isEmpty()) {
@@ -48,8 +48,10 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 				logger.info("Ended addCustomersDetails function");
 				return customerDetailsRepository.save(customerDetails);
 			} else {
-				logger.error("User Name " + customerDetails.getUserName() + " already exists");
-				throw new CustomerDetailsException("User Name " + customerDetails.getUserName() + " already exists");
+				logger.error("Organization " + customerDetails.getOrganisationName()
+						+ " is already created for this User Name " + customerDetails.getUserName());
+				throw new CustomerDetailsException("Organization " + customerDetails.getOrganisationName()
+				+ " is already created for this User Name " + customerDetails.getUserName());
 			}
 
 		} else {
