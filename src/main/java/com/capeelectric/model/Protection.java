@@ -27,79 +27,65 @@ public class Protection implements Serializable {
 // Loss of Human Life
 	@Column(name = "PRO_PEB")
 	private String protectionPEB;
-	
+
 	@Column(name = "PRO_PMS")
 	private String protectionPMS;
-	
+
 	@Column(name = "PRO_PM")
 	private String protectionPM;
-	
+
 	@Column(name = "PRO_PA")
 	private String protectionPA;
-	
+
 	@Column(name = "PRO_PC")
 	private String protectionPC;
-	
+
 	@Column(name = "PRO_PU")
 	private String protectionPU;
-	
+
 	@Column(name = "PRO_PV")
 	private String protectionPV;
-	
+
 	@Column(name = "PRO_PW")
 	private String protectionPW;
-	
+
 	@Column(name = "PRO_PZ")
 	private String protectionPZ;
-	
-	
+
 // RISK OF LOSS OF HUMAN BEINGS (R1)	
 	@Column(name = "R_PRO_RA1")
 	private String riskProtectionRA1;
-	
+
 	@Column(name = "R_PRO_RB1")
 	private String riskProtectionRB1;
-	
+
 	@Column(name = "R_PRO_RC1")
 	private String riskProtectionRC1;
-	
+
 	@Column(name = "R_PRO_RM1")
 	private String riskProtectionRM1;
-	
+
 	@Column(name = "R_PRO_RU1")
 	private String riskProtectionRU1;
-	
+
 	@Column(name = "R_PRO_RV1")
 	private String riskProtectionRV1;
-	
+
 	@Column(name = "R_PRO_RW1")
 	private String riskProtectionRW1;
-	
+
 	@Column(name = "R_PRO_RZ1")
 	private String riskProtectionRZ1;
-	
-	@Column(name = "R_PRO_RD1")
-	private String riskProtectionRD1;
-	
-	@Column(name = "R_PRO_RI1")
-	private String riskProtectionRI1;
-	
-	@Column(name = "R_PRO_R1")
-	private String riskProtectionR1;
-	
+
 	@Column(name = "R_PRO_RB2")
 	private String riskProtectionRB2;
-	
-	
-	
+
 	@Column(name = "CULTURAL_RB")
-	private String culturalRB;
-	
+	private String culturalRB;   //RB3
+
 	@Column(name = "CULTURAL_RV")
-	private String culturalRV;
-	
-	
-	
+	private String culturalRV;    //RV3
+
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "STRUCTURE_CHARACTERISTIC_ID")
@@ -249,30 +235,6 @@ public class Protection implements Serializable {
 		this.riskProtectionRZ1 = riskProtectionRZ1;
 	}
 
-	public String getRiskProtectionRD1() {
-		return riskProtectionRD1;
-	}
-
-	public void setRiskProtectionRD1(String riskProtectionRD1) {
-		this.riskProtectionRD1 = riskProtectionRD1;
-	}
-
-	public String getRiskProtectionRI1() {
-		return riskProtectionRI1;
-	}
-
-	public void setRiskProtectionRI1(String riskProtectionRI1) {
-		this.riskProtectionRI1 = riskProtectionRI1;
-	}
-
-	public String getRiskProtectionR1() {
-		return riskProtectionR1;
-	}
-
-	public void setRiskProtectionR1(String riskProtectionR1) {
-		this.riskProtectionR1 = riskProtectionR1;
-	}
-
 	public String getRiskProtectionRB2() {
 		return riskProtectionRB2;
 	}
@@ -304,7 +266,5 @@ public class Protection implements Serializable {
 	public void setStructureCharacteristics(StructureCharacteristics structureCharacteristics) {
 		this.structureCharacteristics = structureCharacteristics;
 	}
-	
-	
 
 }

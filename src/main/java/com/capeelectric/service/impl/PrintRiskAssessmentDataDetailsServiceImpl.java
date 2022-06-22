@@ -993,426 +993,436 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 					protectionTable.getDefaultCell().setBorder(0);
 
 					for (Protection protection : protect) {
+						for (RiskProtection riskprotection : riskprotect) {
+							for (CalculatedRisk calculatedRisk : calculated) {
 
-						PdfPCell cell82 = new PdfPCell(new Paragraph("Class of LPS :", font11N));
-						cell82.setFixedHeight(25f);
-						protectionTable.addCell(cell82);
-						PdfPCell cell83 = new PdfPCell(new Paragraph(losses.getClassOfLPS(), font11N));
+								PdfPCell cell82 = new PdfPCell(new Paragraph("Class of LPS :", font11N));
+								cell82.setFixedHeight(25f);
+								protectionTable.addCell(cell82);
+								PdfPCell cell83 = new PdfPCell(new Paragraph(losses.getClassOfLPS(), font11N));
 //				    	cell83.setGrayFill(0.92f);
 //						cell1.setBorder(PdfPCell.NO_BORDER);
-						protectionTable.addCell(cell83);
+								protectionTable.addCell(cell83);
 
-						PdfPCell cell84 = new PdfPCell(new Paragraph("Class of SPD :", font11N));
+								PdfPCell cell84 = new PdfPCell(new Paragraph("Class of SPD :", font11N));
 //						cell.setBorder(PdfPCell.NO_BORDER);
 //				   		cell84.setGrayFill(0.92f);
-						cell84.setFixedHeight(25f);
-						protectionTable.addCell(cell84);
-						PdfPCell cell85 = new PdfPCell(new Paragraph(losses.getClassOfSPD(), font11N));
+								cell84.setFixedHeight(25f);
+								protectionTable.addCell(cell84);
+								PdfPCell cell85 = new PdfPCell(new Paragraph(losses.getClassOfSPD(), font11N));
 //				    	cell85.setGrayFill(0.92f);
 //						cell1.setBorder(PdfPCell.NO_BORDER);
-						protectionTable.addCell(cell85);
+								protectionTable.addCell(cell85);
 
-						if (protection.getProtectionPEB() != null) {
-							PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", font11N));
-							cell86.setFixedHeight(25f);
-							protectionTable.addCell(cell86);
-							PdfPCell cell87 = new PdfPCell(new Paragraph(protection.getProtectionPEB(), font11N));
-							protectionTable.addCell(cell87);
-						} else {
-							PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", font11N));
-							cell86.setFixedHeight(25f);
-							protectionTable.addCell(cell86);
-							PdfPCell cell87 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell87);
-						}
+								if (protection.getProtectionPEB() != null) {
+									PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", font11N));
+									cell86.setFixedHeight(25f);
+									protectionTable.addCell(cell86);
+									PdfPCell cell87 = new PdfPCell(
+											new Paragraph(protection.getProtectionPEB(), font11N));
+									protectionTable.addCell(cell87);
+								} else {
+									PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", font11N));
+									cell86.setFixedHeight(25f);
+									protectionTable.addCell(cell86);
+									PdfPCell cell87 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell87);
+								}
 
-						if (protection.getProtectionPMS() != null) {
-							PdfPCell cell88 = new PdfPCell(new Paragraph("PMS :", font11N));
-							cell88.setFixedHeight(25f);
-							protectionTable.addCell(cell88);
-							PdfPCell cell89 = new PdfPCell(new Paragraph(protection.getProtectionPMS(), font11N));
-							protectionTable.addCell(cell89);
-						} else {
-							PdfPCell cell88 = new PdfPCell(new Paragraph("PMS :", font11N));
-							cell88.setFixedHeight(25f);
-							protectionTable.addCell(cell88);
-							PdfPCell cell89 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell89);
-						}
+								if (protection.getProtectionPMS() != null) {
+									PdfPCell cell88 = new PdfPCell(new Paragraph("PMS :", font11N));
+									cell88.setFixedHeight(25f);
+									protectionTable.addCell(cell88);
+									PdfPCell cell89 = new PdfPCell(
+											new Paragraph(protection.getProtectionPMS(), font11N));
+									protectionTable.addCell(cell89);
+								} else {
+									PdfPCell cell88 = new PdfPCell(new Paragraph("PMS :", font11N));
+									cell88.setFixedHeight(25f);
+									protectionTable.addCell(cell88);
+									PdfPCell cell89 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell89);
+								}
 
-						if (protection.getProtectionPM() != null) {
-							PdfPCell cell90 = new PdfPCell(new Paragraph("PM :", font11N));
-							cell90.setFixedHeight(25f);
-							protectionTable.addCell(cell90);
-							PdfPCell cell91 = new PdfPCell(new Paragraph(protection.getProtectionPM(), font11N));
-							protectionTable.addCell(cell91);
-						} else {
-							PdfPCell cell90 = new PdfPCell(new Paragraph("PM :", font11N));
-							cell90.setFixedHeight(25f);
-							protectionTable.addCell(cell90);
-							PdfPCell cell91 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell91);
-						}
+								if (protection.getProtectionPM() != null) {
+									PdfPCell cell90 = new PdfPCell(new Paragraph("PM :", font11N));
+									cell90.setFixedHeight(25f);
+									protectionTable.addCell(cell90);
+									PdfPCell cell91 = new PdfPCell(
+											new Paragraph(protection.getProtectionPM(), font11N));
+									protectionTable.addCell(cell91);
+								} else {
+									PdfPCell cell90 = new PdfPCell(new Paragraph("PM :", font11N));
+									cell90.setFixedHeight(25f);
+									protectionTable.addCell(cell90);
+									PdfPCell cell91 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell91);
+								}
 
-						if (protection.getProtectionPA() != null) {
-							PdfPCell cell92 = new PdfPCell(new Paragraph("PA :", font11N));
-							cell92.setFixedHeight(25f);
-							protectionTable.addCell(cell92);
-							PdfPCell cell93 = new PdfPCell(new Paragraph(protection.getProtectionPA(), font11N));
-							protectionTable.addCell(cell93);
-						} else {
-							PdfPCell cell92 = new PdfPCell(new Paragraph("PA :", font11N));
-							cell92.setFixedHeight(25f);
-							protectionTable.addCell(cell92);
-							PdfPCell cell93 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell93);
-						}
+								if (protection.getProtectionPA() != null) {
+									PdfPCell cell92 = new PdfPCell(new Paragraph("PA :", font11N));
+									cell92.setFixedHeight(25f);
+									protectionTable.addCell(cell92);
+									PdfPCell cell93 = new PdfPCell(
+											new Paragraph(protection.getProtectionPA(), font11N));
+									protectionTable.addCell(cell93);
+								} else {
+									PdfPCell cell92 = new PdfPCell(new Paragraph("PA :", font11N));
+									cell92.setFixedHeight(25f);
+									protectionTable.addCell(cell92);
+									PdfPCell cell93 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell93);
+								}
 
-						if (protection.getProtectionPC() != null) {
-							PdfPCell cell94 = new PdfPCell(new Paragraph("PC :", font11N));
-							cell94.setFixedHeight(25f);
-							protectionTable.addCell(cell94);
-							PdfPCell cell95 = new PdfPCell(new Paragraph(protection.getProtectionPC(), font11N));
-							protectionTable.addCell(cell95);
-						} else {
-							PdfPCell cell94 = new PdfPCell(new Paragraph("PC :", font11N));
-							cell94.setFixedHeight(25f);
-							protectionTable.addCell(cell94);
-							PdfPCell cell95 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell95);
-						}
+								if (protection.getProtectionPC() != null) {
+									PdfPCell cell94 = new PdfPCell(new Paragraph("PC :", font11N));
+									cell94.setFixedHeight(25f);
+									protectionTable.addCell(cell94);
+									PdfPCell cell95 = new PdfPCell(
+											new Paragraph(protection.getProtectionPC(), font11N));
+									protectionTable.addCell(cell95);
+								} else {
+									PdfPCell cell94 = new PdfPCell(new Paragraph("PC :", font11N));
+									cell94.setFixedHeight(25f);
+									protectionTable.addCell(cell94);
+									PdfPCell cell95 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell95);
+								}
 
-						if (protection.getProtectionPU() != null) {
-							PdfPCell cell96 = new PdfPCell(new Paragraph("PU :", font11N));
-							cell96.setFixedHeight(25f);
-							protectionTable.addCell(cell96);
-							PdfPCell cell97 = new PdfPCell(new Paragraph(protection.getProtectionPU(), font11N));
-							protectionTable.addCell(cell97);
-						} else {
-							PdfPCell cell96 = new PdfPCell(new Paragraph("PU :", font11N));
-							cell96.setFixedHeight(25f);
-							protectionTable.addCell(cell96);
-							PdfPCell cell97 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell97);
-						}
+								if (protection.getProtectionPU() != null) {
+									PdfPCell cell96 = new PdfPCell(new Paragraph("PU :", font11N));
+									cell96.setFixedHeight(25f);
+									protectionTable.addCell(cell96);
+									PdfPCell cell97 = new PdfPCell(
+											new Paragraph(protection.getProtectionPU(), font11N));
+									protectionTable.addCell(cell97);
+								} else {
+									PdfPCell cell96 = new PdfPCell(new Paragraph("PU :", font11N));
+									cell96.setFixedHeight(25f);
+									protectionTable.addCell(cell96);
+									PdfPCell cell97 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell97);
+								}
 
-						if (protection.getProtectionPV() != null) {
-							PdfPCell cell98 = new PdfPCell(new Paragraph("PV :", font11N));
-							cell98.setFixedHeight(25f);
-							protectionTable.addCell(cell98);
-							PdfPCell cell99 = new PdfPCell(new Paragraph(protection.getProtectionPC(), font11N));
-							protectionTable.addCell(cell99);
-						} else {
-							PdfPCell cell98 = new PdfPCell(new Paragraph("PV :", font11N));
-							cell98.setFixedHeight(25f);
-							protectionTable.addCell(cell98);
-							PdfPCell cell99 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell99);
-						}
+								if (protection.getProtectionPV() != null) {
+									PdfPCell cell98 = new PdfPCell(new Paragraph("PV :", font11N));
+									cell98.setFixedHeight(25f);
+									protectionTable.addCell(cell98);
+									PdfPCell cell99 = new PdfPCell(
+											new Paragraph(protection.getProtectionPC(), font11N));
+									protectionTable.addCell(cell99);
+								} else {
+									PdfPCell cell98 = new PdfPCell(new Paragraph("PV :", font11N));
+									cell98.setFixedHeight(25f);
+									protectionTable.addCell(cell98);
+									PdfPCell cell99 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell99);
+								}
 
-						if (protection.getProtectionPW() != null) {
-							PdfPCell cell100 = new PdfPCell(new Paragraph("PW :", font11N));
-							cell100.setFixedHeight(25f);
-							protectionTable.addCell(cell100);
-							PdfPCell cell101 = new PdfPCell(new Paragraph(protection.getProtectionPW(), font11N));
-							protectionTable.addCell(cell101);
-						} else {
-							PdfPCell cell100 = new PdfPCell(new Paragraph("PW :", font11N));
-							cell100.setFixedHeight(25f);
-							protectionTable.addCell(cell100);
-							PdfPCell cell101 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell101);
-						}
+								if (protection.getProtectionPW() != null) {
+									PdfPCell cell100 = new PdfPCell(new Paragraph("PW :", font11N));
+									cell100.setFixedHeight(25f);
+									protectionTable.addCell(cell100);
+									PdfPCell cell101 = new PdfPCell(
+											new Paragraph(protection.getProtectionPW(), font11N));
+									protectionTable.addCell(cell101);
+								} else {
+									PdfPCell cell100 = new PdfPCell(new Paragraph("PW :", font11N));
+									cell100.setFixedHeight(25f);
+									protectionTable.addCell(cell100);
+									PdfPCell cell101 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell101);
+								}
 
-						if (protection.getProtectionPZ() != null) {
-							PdfPCell cell102 = new PdfPCell(new Paragraph("PZ :", font11N));
-							cell102.setFixedHeight(25f);
-							protectionTable.addCell(cell102);
-							PdfPCell cell103 = new PdfPCell(new Paragraph(protection.getProtectionPZ(), font11N));
-							protectionTable.addCell(cell103);
-						} else {
-							PdfPCell cell102 = new PdfPCell(new Paragraph("PZ :", font11N));
-							cell102.setFixedHeight(25f);
-							protectionTable.addCell(cell102);
-							PdfPCell cell103 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell103);
-						}
+								if (protection.getProtectionPZ() != null) {
+									PdfPCell cell102 = new PdfPCell(new Paragraph("PZ :", font11N));
+									cell102.setFixedHeight(25f);
+									protectionTable.addCell(cell102);
+									PdfPCell cell103 = new PdfPCell(
+											new Paragraph(protection.getProtectionPZ(), font11N));
+									protectionTable.addCell(cell103);
+								} else {
+									PdfPCell cell102 = new PdfPCell(new Paragraph("PZ :", font11N));
+									cell102.setFixedHeight(25f);
+									protectionTable.addCell(cell102);
+									PdfPCell cell103 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell103);
+								}
 
-						if (protection.getRiskProtectionRA1() != null) {
-							PdfPCell cell104 = new PdfPCell(new Paragraph("RA1 :", font11N));
-							cell104.setFixedHeight(25f);
-							protectionTable.addCell(cell104);
-							PdfPCell cell105 = new PdfPCell(new Paragraph(protection.getRiskProtectionRA1(), font11N));
-							protectionTable.addCell(cell105);
-						} else {
-							PdfPCell cell104 = new PdfPCell(new Paragraph("RA1 :", font11N));
-							cell104.setFixedHeight(25f);
-							protectionTable.addCell(cell104);
-							PdfPCell cell105 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell105);
-						}
+								if (protection.getRiskProtectionRA1() != null) {
+									PdfPCell cell104 = new PdfPCell(new Paragraph("RA1 :", font11N));
+									cell104.setFixedHeight(25f);
+									protectionTable.addCell(cell104);
+									PdfPCell cell105 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRA1(), font11N));
+									protectionTable.addCell(cell105);
+								} else {
+									PdfPCell cell104 = new PdfPCell(new Paragraph("RA1 :", font11N));
+									cell104.setFixedHeight(25f);
+									protectionTable.addCell(cell104);
+									PdfPCell cell105 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell105);
+								}
 
-						if (protection.getRiskProtectionRB1() != null) {
-							PdfPCell cell106 = new PdfPCell(new Paragraph("RB1 :", font11N));
-							cell106.setFixedHeight(25f);
-							protectionTable.addCell(cell106);
-							PdfPCell cell107 = new PdfPCell(new Paragraph(protection.getRiskProtectionRB1(), font11N));
-							protectionTable.addCell(cell107);
-						} else {
-							PdfPCell cell106 = new PdfPCell(new Paragraph("RB1 :", font11N));
-							cell106.setFixedHeight(25f);
-							protectionTable.addCell(cell106);
-							PdfPCell cell107 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell107);
-						}
+								if (protection.getRiskProtectionRB1() != null) {
+									PdfPCell cell106 = new PdfPCell(new Paragraph("RB1 :", font11N));
+									cell106.setFixedHeight(25f);
+									protectionTable.addCell(cell106);
+									PdfPCell cell107 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRB1(), font11N));
+									protectionTable.addCell(cell107);
+								} else {
+									PdfPCell cell106 = new PdfPCell(new Paragraph("RB1 :", font11N));
+									cell106.setFixedHeight(25f);
+									protectionTable.addCell(cell106);
+									PdfPCell cell107 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell107);
+								}
 
-						if (protection.getRiskProtectionRC1() != null) {
-							PdfPCell cell108 = new PdfPCell(new Paragraph("RC1 :", font11N));
-							cell108.setFixedHeight(25f);
-							protectionTable.addCell(cell108);
-							PdfPCell cell109 = new PdfPCell(new Paragraph(protection.getRiskProtectionRC1(), font11N));
-							protectionTable.addCell(cell109);
-						} else {
-							PdfPCell cell108 = new PdfPCell(new Paragraph("RC1 :", font11N));
-							cell108.setFixedHeight(25f);
-							protectionTable.addCell(cell108);
-							PdfPCell cell109 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell109);
-						}
+								if (protection.getRiskProtectionRC1() != null) {
+									PdfPCell cell108 = new PdfPCell(new Paragraph("RC1 :", font11N));
+									cell108.setFixedHeight(25f);
+									protectionTable.addCell(cell108);
+									PdfPCell cell109 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRC1(), font11N));
+									protectionTable.addCell(cell109);
+								} else {
+									PdfPCell cell108 = new PdfPCell(new Paragraph("RC1 :", font11N));
+									cell108.setFixedHeight(25f);
+									protectionTable.addCell(cell108);
+									PdfPCell cell109 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell109);
+								}
 
-						if (protection.getRiskProtectionRM1() != null) {
-							PdfPCell cell124 = new PdfPCell(new Paragraph("RM1 :", font11N));
-							cell124.setFixedHeight(25f);
-							protectionTable.addCell(cell124);
-							PdfPCell cell125 = new PdfPCell(new Paragraph(protection.getRiskProtectionRM1(), font11N));
-							protectionTable.addCell(cell125);
-						} else {
-							PdfPCell cell124 = new PdfPCell(new Paragraph("RM1 :", font11N));
-							cell124.setFixedHeight(25f);
-							protectionTable.addCell(cell124);
-							PdfPCell cell125 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell125);
-						}
+								if (protection.getRiskProtectionRM1() != null) {
+									PdfPCell cell124 = new PdfPCell(new Paragraph("RM1 :", font11N));
+									cell124.setFixedHeight(25f);
+									protectionTable.addCell(cell124);
+									PdfPCell cell125 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRM1(), font11N));
+									protectionTable.addCell(cell125);
+								} else {
+									PdfPCell cell124 = new PdfPCell(new Paragraph("RM1 :", font11N));
+									cell124.setFixedHeight(25f);
+									protectionTable.addCell(cell124);
+									PdfPCell cell125 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell125);
+								}
 
-						if (protection.getRiskProtectionRU1() != null) {
-							PdfPCell cell128 = new PdfPCell(new Paragraph("RU1 :", font11N));
-							cell128.setFixedHeight(25f);
-							protectionTable.addCell(cell128);
-							PdfPCell cell129 = new PdfPCell(new Paragraph(protection.getRiskProtectionRU1(), font11N));
-							protectionTable.addCell(cell129);
-						} else {
-							PdfPCell cell128 = new PdfPCell(new Paragraph("RU1 :", font11N));
-							cell128.setFixedHeight(25f);
-							protectionTable.addCell(cell128);
-							PdfPCell cell129 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell129);
-						}
+								if (protection.getRiskProtectionRU1() != null) {
+									PdfPCell cell128 = new PdfPCell(new Paragraph("RU1 :", font11N));
+									cell128.setFixedHeight(25f);
+									protectionTable.addCell(cell128);
+									PdfPCell cell129 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRU1(), font11N));
+									protectionTable.addCell(cell129);
+								} else {
+									PdfPCell cell128 = new PdfPCell(new Paragraph("RU1 :", font11N));
+									cell128.setFixedHeight(25f);
+									protectionTable.addCell(cell128);
+									PdfPCell cell129 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell129);
+								}
 
-						if (protection.getRiskProtectionRV1() != null) {
-							PdfPCell cell130 = new PdfPCell(new Paragraph("RV1 :", font11N));
-							cell130.setFixedHeight(25f);
-							protectionTable.addCell(cell130);
-							PdfPCell cell131 = new PdfPCell(new Paragraph(protection.getRiskProtectionRV1(), font11N));
-							protectionTable.addCell(cell131);
-						} else {
-							PdfPCell cell130 = new PdfPCell(new Paragraph("RV1 :", font11N));
-							cell130.setFixedHeight(25f);
-							protectionTable.addCell(cell130);
-							PdfPCell cell131 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell131);
-						}
+								if (protection.getRiskProtectionRV1() != null) {
+									PdfPCell cell130 = new PdfPCell(new Paragraph("RV1 :", font11N));
+									cell130.setFixedHeight(25f);
+									protectionTable.addCell(cell130);
+									PdfPCell cell131 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRV1(), font11N));
+									protectionTable.addCell(cell131);
+								} else {
+									PdfPCell cell130 = new PdfPCell(new Paragraph("RV1 :", font11N));
+									cell130.setFixedHeight(25f);
+									protectionTable.addCell(cell130);
+									PdfPCell cell131 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell131);
+								}
 
-						if (protection.getRiskProtectionRW1() != null) {
-							PdfPCell cell140 = new PdfPCell(new Paragraph("RW1 :", font11N));
-							cell140.setFixedHeight(25f);
-							protectionTable.addCell(cell140);
-							PdfPCell cell141 = new PdfPCell(new Paragraph(protection.getRiskProtectionRW1(), font11N));
-							protectionTable.addCell(cell141);
-						} else {
-							PdfPCell cell140 = new PdfPCell(new Paragraph("RW1 :", font11N));
-							cell140.setFixedHeight(25f);
-							protectionTable.addCell(cell140);
-							PdfPCell cell141 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell141);
-						}
+								if (protection.getRiskProtectionRW1() != null) {
+									PdfPCell cell140 = new PdfPCell(new Paragraph("RW1 :", font11N));
+									cell140.setFixedHeight(25f);
+									protectionTable.addCell(cell140);
+									PdfPCell cell141 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRW1(), font11N));
+									protectionTable.addCell(cell141);
+								} else {
+									PdfPCell cell140 = new PdfPCell(new Paragraph("RW1 :", font11N));
+									cell140.setFixedHeight(25f);
+									protectionTable.addCell(cell140);
+									PdfPCell cell141 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell141);
+								}
 
-						if (protection.getRiskProtectionRZ1() != null) {
-							PdfPCell cell142 = new PdfPCell(new Paragraph("RZ1 :", font11N));
-							cell142.setFixedHeight(25f);
-							protectionTable.addCell(cell142);
-							PdfPCell cell143 = new PdfPCell(new Paragraph(protection.getRiskProtectionRZ1(), font11N));
-							protectionTable.addCell(cell143);
-						} else {
-							PdfPCell cell142 = new PdfPCell(new Paragraph("RZ1 :", font11N));
-							cell142.setFixedHeight(25f);
-							protectionTable.addCell(cell142);
-							PdfPCell cell143 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell143);
-						}
+								if (protection.getRiskProtectionRZ1() != null) {
+									PdfPCell cell142 = new PdfPCell(new Paragraph("RZ1 :", font11N));
+									cell142.setFixedHeight(25f);
+									protectionTable.addCell(cell142);
+									PdfPCell cell143 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRZ1(), font11N));
+									protectionTable.addCell(cell143);
+								} else {
+									PdfPCell cell142 = new PdfPCell(new Paragraph("RZ1 :", font11N));
+									cell142.setFixedHeight(25f);
+									protectionTable.addCell(cell142);
+									PdfPCell cell143 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell143);
+								}
 
-						if (protection.getRiskProtectionRV1() != null) {
-							PdfPCell cell144 = new PdfPCell(new Paragraph("RV1 :", font11N));
-							cell144.setFixedHeight(25f);
-							protectionTable.addCell(cell144);
-							PdfPCell cell146 = new PdfPCell(new Paragraph(protection.getRiskProtectionRV1(), font11N));
-							protectionTable.addCell(cell146);
-						} else {
-							PdfPCell cell144 = new PdfPCell(new Paragraph("RV1 :", font11N));
-							cell144.setFixedHeight(25f);
-							protectionTable.addCell(cell144);
-							PdfPCell cell146 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell146);
-						}
+								if (protection.getRiskProtectionRV1() != null) {
+									PdfPCell cell144 = new PdfPCell(new Paragraph("RV1 :", font11N));
+									cell144.setFixedHeight(25f);
+									protectionTable.addCell(cell144);
+									PdfPCell cell146 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRV1(), font11N));
+									protectionTable.addCell(cell146);
+								} else {
+									PdfPCell cell144 = new PdfPCell(new Paragraph("RV1 :", font11N));
+									cell144.setFixedHeight(25f);
+									protectionTable.addCell(cell144);
+									PdfPCell cell146 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell146);
+								}
 
-						if (protection.getRiskProtectionRD1() != null) {
-							PdfPCell cell147 = new PdfPCell(new Paragraph("RD1 :", font11N));
-							cell147.setFixedHeight(25f);
-							protectionTable.addCell(cell147);
-							PdfPCell cell148 = new PdfPCell(new Paragraph(protection.getRiskProtectionRD1(), font11N));
-							protectionTable.addCell(cell148);
-						} else {
-							PdfPCell cell147 = new PdfPCell(new Paragraph("RD1 :", font11N));
-							cell147.setFixedHeight(25f);
-							protectionTable.addCell(cell147);
-							PdfPCell cell148 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell148);
-						}
+								if (calculatedRisk.getRiskProtectionRD1() != null) {
+									PdfPCell cell147 = new PdfPCell(new Paragraph("RD1 :", font11N));
+									cell147.setFixedHeight(25f);
+									protectionTable.addCell(cell147);
+									PdfPCell cell148 = new PdfPCell(
+											new Paragraph(calculatedRisk.getRiskProtectionRD1(), font11N));
+									protectionTable.addCell(cell148);
+								} else {
+									PdfPCell cell147 = new PdfPCell(new Paragraph("RD1 :", font11N));
+									cell147.setFixedHeight(25f);
+									protectionTable.addCell(cell147);
+									PdfPCell cell148 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell148);
+								}
 
-						if (protection.getRiskProtectionRI1() != null) {
-							PdfPCell cell149 = new PdfPCell(new Paragraph("RI1 :", font11N));
-							cell149.setFixedHeight(25f);
-							protectionTable.addCell(cell149);
-							PdfPCell cell150 = new PdfPCell(new Paragraph(protection.getRiskProtectionRI1(), font11N));
-							protectionTable.addCell(cell150);
-						} else {
-							PdfPCell cell149 = new PdfPCell(new Paragraph("RI1 :", font11N));
-							cell149.setFixedHeight(25f);
-							protectionTable.addCell(cell149);
-							PdfPCell cell150 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell150);
-						}
+								if (calculatedRisk.getRiskProtectionRI1() != null) {
+									PdfPCell cell149 = new PdfPCell(new Paragraph("RI1 :", font11N));
+									cell149.setFixedHeight(25f);
+									protectionTable.addCell(cell149);
+									PdfPCell cell150 = new PdfPCell(
+											new Paragraph(calculatedRisk.getRiskProtectionRI1(), font11N));
+									protectionTable.addCell(cell150);
+								} else {
+									PdfPCell cell149 = new PdfPCell(new Paragraph("RI1 :", font11N));
+									cell149.setFixedHeight(25f);
+									protectionTable.addCell(cell149);
+									PdfPCell cell150 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell150);
+								}
 
-						if (protection.getRiskProtectionR1() != null) {
-							PdfPCell cell151 = new PdfPCell(new Paragraph("R1 :", font11N));
-							cell151.setFixedHeight(25f);
-							protectionTable.addCell(cell151);
-							PdfPCell cell152 = new PdfPCell(new Paragraph(protection.getRiskProtectionR1(), font11N));
-							protectionTable.addCell(cell152);
-						} else {
-							PdfPCell cell151 = new PdfPCell(new Paragraph("R1 :", font11N));
-							cell151.setFixedHeight(25f);
-							protectionTable.addCell(cell151);
-							PdfPCell cell152 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell152);
+								if (calculatedRisk.getRiskProtectionR1() != null) {
+									PdfPCell cell151 = new PdfPCell(new Paragraph("R1 :", font11N));
+									cell151.setFixedHeight(25f);
+									protectionTable.addCell(cell151);
+									PdfPCell cell152 = new PdfPCell(
+											new Paragraph(calculatedRisk.getRiskProtectionR1(), font11N));
+									protectionTable.addCell(cell152);
+								} else {
+									PdfPCell cell151 = new PdfPCell(new Paragraph("R1 :", font11N));
+									cell151.setFixedHeight(25f);
+									protectionTable.addCell(cell151);
+									PdfPCell cell152 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell152);
 
-						}
+								}
 
-						if (protection.getRiskProtectionRI1() != null) {
-							PdfPCell cell153 = new PdfPCell(new Paragraph("RI1 :", font11N));
-							cell153.setFixedHeight(25f);
-							protectionTable.addCell(cell153);
-							PdfPCell cell154 = new PdfPCell(new Paragraph(protection.getRiskProtectionRI1(), font11N));
-							protectionTable.addCell(cell154);
-						} else {
-							PdfPCell cell153 = new PdfPCell(new Paragraph("RI1 :", font11N));
-							cell153.setFixedHeight(25f);
-							protectionTable.addCell(cell153);
-							PdfPCell cell154 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell154);
-						}
+								if (protection.getRiskProtectionRB2() != null) {
+									PdfPCell cell156 = new PdfPCell(new Paragraph("RB2 :", font11N));
+									cell156.setFixedHeight(25f);
+									protectionTable.addCell(cell156);
+									PdfPCell cell157 = new PdfPCell(
+											new Paragraph(protection.getRiskProtectionRB2(), font11N));
+									protectionTable.addCell(cell157);
+								} else {
+									PdfPCell cell156 = new PdfPCell(new Paragraph("RB2 :", font11N));
+									cell156.setFixedHeight(25f);
+									protectionTable.addCell(cell156);
+									PdfPCell cell157 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell157);
+								}
 
-						if (protection.getRiskProtectionRB2() != null) {
-							PdfPCell cell156 = new PdfPCell(new Paragraph("RB2 :", font11N));
-							cell156.setFixedHeight(25f);
-							protectionTable.addCell(cell156);
-							PdfPCell cell157 = new PdfPCell(new Paragraph(protection.getRiskProtectionRB2(), font11N));
-							protectionTable.addCell(cell157);
-						} else {
-							PdfPCell cell156 = new PdfPCell(new Paragraph("RB2 :", font11N));
-							cell156.setFixedHeight(25f);
-							protectionTable.addCell(cell156);
-							PdfPCell cell157 = new PdfPCell(new Paragraph("", font11N));
-							protectionTable.addCell(cell157);
-						}
+//	RiskProtection Section
 
-						for (RiskProtection riskprotection : riskprotect) {
+								if (riskprotection.getRiskProtectionRC2() != null) {
+									PdfPCell cell158 = new PdfPCell(new Paragraph("RC2 :", font11N));
+									cell158.setFixedHeight(25f);
+									protectionTable.addCell(cell158);
+									PdfPCell cell159 = new PdfPCell(
+											new Paragraph(riskprotection.getRiskProtectionRC2(), font11N));
+									protectionTable.addCell(cell159);
+								} else {
+									PdfPCell cell158 = new PdfPCell(new Paragraph("RC2 :", font11N));
+									cell158.setFixedHeight(25f);
+									protectionTable.addCell(cell158);
+									PdfPCell cell159 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell159);
+								}
 
-							if (riskprotection.getRiskProtectionRC2() != null) {
-								PdfPCell cell158 = new PdfPCell(new Paragraph("RC2 :", font11N));
-								cell158.setFixedHeight(25f);
-								protectionTable.addCell(cell158);
-								PdfPCell cell159 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRC2(), font11N));
-								protectionTable.addCell(cell159);
-							} else {
-								PdfPCell cell158 = new PdfPCell(new Paragraph("RC2 :", font11N));
-								cell158.setFixedHeight(25f);
-								protectionTable.addCell(cell158);
-								PdfPCell cell159 = new PdfPCell(new Paragraph("", font11N));
-								protectionTable.addCell(cell159);
-							}
+								if (riskprotection.getRiskProtectionRM2() != null) {
+									PdfPCell cell160 = new PdfPCell(new Paragraph("RM2 :", font11N));
+									cell160.setFixedHeight(25f);
+									protectionTable.addCell(cell160);
+									PdfPCell cell161 = new PdfPCell(
+											new Paragraph(riskprotection.getRiskProtectionRM2(), font11N));
+									protectionTable.addCell(cell161);
+								} else {
+									PdfPCell cell160 = new PdfPCell(new Paragraph("RM2 :", font11N));
+									cell160.setFixedHeight(25f);
+									protectionTable.addCell(cell160);
+									PdfPCell cell161 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell161);
+								}
 
-							if (riskprotection.getRiskProtectionRM2() != null) {
-								PdfPCell cell160 = new PdfPCell(new Paragraph("RM2 :", font11N));
-								cell160.setFixedHeight(25f);
-								protectionTable.addCell(cell160);
-								PdfPCell cell161 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRM2(), font11N));
-								protectionTable.addCell(cell161);
-							} else {
-								PdfPCell cell160 = new PdfPCell(new Paragraph("RM2 :", font11N));
-								cell160.setFixedHeight(25f);
-								protectionTable.addCell(cell160);
-								PdfPCell cell161 = new PdfPCell(new Paragraph("", font11N));
-								protectionTable.addCell(cell161);
-							}
+								if (riskprotection.getRiskProtectionRV2() != null) {
+									PdfPCell cell162 = new PdfPCell(new Paragraph("RV2 :", font11N));
+									cell162.setFixedHeight(25f);
+									protectionTable.addCell(cell162);
+									PdfPCell cell163 = new PdfPCell(
+											new Paragraph(riskprotection.getRiskProtectionRV2(), font11N));
+									protectionTable.addCell(cell163);
+								} else {
+									PdfPCell cell162 = new PdfPCell(new Paragraph("RV2 :", font11N));
+									cell162.setFixedHeight(25f);
+									protectionTable.addCell(cell162);
+									PdfPCell cell163 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell163);
+								}
 
-							if (riskprotection.getRiskProtectionRV2() != null) {
-								PdfPCell cell162 = new PdfPCell(new Paragraph("RV2 :", font11N));
-								cell162.setFixedHeight(25f);
-								protectionTable.addCell(cell162);
-								PdfPCell cell163 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRV2(), font11N));
-								protectionTable.addCell(cell163);
-							} else {
-								PdfPCell cell162 = new PdfPCell(new Paragraph("RV2 :", font11N));
-								cell162.setFixedHeight(25f);
-								protectionTable.addCell(cell162);
-								PdfPCell cell163 = new PdfPCell(new Paragraph("", font11N));
-								protectionTable.addCell(cell163);
-							}
+								if (riskprotection.getRiskProtectionRW2() != null) {
+									PdfPCell cell164 = new PdfPCell(new Paragraph("RW2 :", font11N));
+									cell164.setFixedHeight(25f);
+									protectionTable.addCell(cell164);
+									PdfPCell cell165 = new PdfPCell(
+											new Paragraph(riskprotection.getRiskProtectionRW2(), font11N));
+									protectionTable.addCell(cell165);
+								} else {
+									PdfPCell cell164 = new PdfPCell(new Paragraph("RW2 :", font11N));
+									cell164.setFixedHeight(25f);
+									protectionTable.addCell(cell164);
+									PdfPCell cell165 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell165);
+								}
 
-							if (riskprotection.getRiskProtectionRW2() != null) {
-								PdfPCell cell164 = new PdfPCell(new Paragraph("RW2 :", font11N));
-								cell164.setFixedHeight(25f);
-								protectionTable.addCell(cell164);
-								PdfPCell cell165 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRW2(), font11N));
-								protectionTable.addCell(cell165);
-							} else {
-								PdfPCell cell164 = new PdfPCell(new Paragraph("RW2 :", font11N));
-								cell164.setFixedHeight(25f);
-								protectionTable.addCell(cell164);
-								PdfPCell cell165 = new PdfPCell(new Paragraph("", font11N));
-								protectionTable.addCell(cell165);
-							}
+								if (riskprotection.getRiskProtectionRZ2() != null) {
+									PdfPCell cell166 = new PdfPCell(new Paragraph("RZ2 :", font11N));
+									cell166.setFixedHeight(25f);
+									protectionTable.addCell(cell166);
+									PdfPCell cell167 = new PdfPCell(
+											new Paragraph(riskprotection.getRiskProtectionRZ2(), font11N));
+									protectionTable.addCell(cell167);
+								} else {
+									PdfPCell cell166 = new PdfPCell(new Paragraph("RZ2 :", font11N));
+									cell166.setFixedHeight(25f);
+									protectionTable.addCell(cell166);
+									PdfPCell cell167 = new PdfPCell(new Paragraph("", font11N));
+									protectionTable.addCell(cell167);
+								}
 
-							if (riskprotection.getRiskProtectionRZ2() != null) {
-								PdfPCell cell166 = new PdfPCell(new Paragraph("RZ2 :", font11N));
-								cell166.setFixedHeight(25f);
-								protectionTable.addCell(cell166);
-								PdfPCell cell167 = new PdfPCell(
-										new Paragraph(riskprotection.getRiskProtectionRZ2(), font11N));
-								protectionTable.addCell(cell167);
-							} else {
-								PdfPCell cell166 = new PdfPCell(new Paragraph("RZ2 :", font11N));
-								cell166.setFixedHeight(25f);
-								protectionTable.addCell(cell166);
-								PdfPCell cell167 = new PdfPCell(new Paragraph("", font11N));
-								protectionTable.addCell(cell167);
-							}
-
-							for (CalculatedRisk calculatedRisk : calculated) {
+//	 Calculated Section 						
 
 								if (calculatedRisk.getRiskProtectionRD2() != null) {
 									PdfPCell cell168 = new PdfPCell(new Paragraph("RD2 :", font11N));
@@ -1459,12 +1469,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell173);
 								}
 
-								if (riskprotection.getRiskProtectionRB3() != null) {
+								if (protection.getCulturalRB() != null) {
 									PdfPCell cell174 = new PdfPCell(new Paragraph("RB3 :", font11N));
 									cell174.setFixedHeight(25f);
 									protectionTable.addCell(cell174);
 									PdfPCell cell175 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRB3(), font11N));
+											new Paragraph(protection.getCulturalRB(), font11N));
 									protectionTable.addCell(cell175);
 								} else {
 									PdfPCell cell174 = new PdfPCell(new Paragraph("RB3 :", font11N));
@@ -1474,12 +1484,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell175);
 								}
 
-								if (riskprotection.getRiskProtectionRV3() != null) {
+								if (protection.getCulturalRV() != null) {
 									PdfPCell cell176 = new PdfPCell(new Paragraph("RV3 :", font11N));
 									cell176.setFixedHeight(25f);
 									protectionTable.addCell(cell176);
 									PdfPCell cell177 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRV3(), font11N));
+											new Paragraph(protection.getCulturalRV(), font11N));
 									protectionTable.addCell(cell177);
 								} else {
 									PdfPCell cell176 = new PdfPCell(new Paragraph("RV3 :", font11N));
@@ -1519,12 +1529,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell181);
 								}
 
-								if (riskprotection.getRiskProtectionRA4() != null) {
+								if (riskprotection.getEconamicValueRA() != null) {
 									PdfPCell cell183 = new PdfPCell(new Paragraph("RA4 :", font11N));
 									cell183.setFixedHeight(25f);
 									protectionTable.addCell(cell183);
 									PdfPCell cell184 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRA4(), font11N));
+											new Paragraph(riskprotection.getEconamicValueRA(), font11N));
 									protectionTable.addCell(cell184);
 								} else {
 									PdfPCell cell183 = new PdfPCell(new Paragraph("RA4 :", font11N));
@@ -1534,12 +1544,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell184);
 								}
 
-								if (riskprotection.getRiskProtectionRB4() != null) {
+								if (riskprotection.getEconamicValueRB() != null) {
 									PdfPCell cell185 = new PdfPCell(new Paragraph("RB4 :", font11N));
 									cell185.setFixedHeight(25f);
 									protectionTable.addCell(cell185);
 									PdfPCell cell186 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRB4(), font11N));
+											new Paragraph(riskprotection.getEconamicValueRB(), font11N));
 									protectionTable.addCell(cell186);
 								} else {
 									PdfPCell cell185 = new PdfPCell(new Paragraph("RB4 :", font11N));
@@ -1549,12 +1559,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell186);
 								}
 
-								if (riskprotection.getRiskProtectionRC4() != null) {
+								if (riskprotection.getEconamicValueRC() != null) {
 									PdfPCell cell187 = new PdfPCell(new Paragraph("RC4 :", font11N));
 									cell187.setFixedHeight(25f);
 									protectionTable.addCell(cell187);
 									PdfPCell cell188 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRC4(), font11N));
+											new Paragraph(riskprotection.getEconamicValueRC(), font11N));
 									protectionTable.addCell(cell188);
 								} else {
 									PdfPCell cell187 = new PdfPCell(new Paragraph("RC4 :", font11N));
@@ -1564,12 +1574,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell188);
 								}
 
-								if (riskprotection.getRiskProtectionRM4() != null) {
+								if (riskprotection.getEconamicValueRM() != null) {
 									PdfPCell cell189 = new PdfPCell(new Paragraph("RM4 :", font11N));
 									cell189.setFixedHeight(25f);
 									protectionTable.addCell(cell189);
 									PdfPCell cell190 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRM4(), font11N));
+											new Paragraph(riskprotection.getEconamicValueRM(), font11N));
 									protectionTable.addCell(cell190);
 								} else {
 									PdfPCell cell189 = new PdfPCell(new Paragraph("RM4 :", font11N));
@@ -1579,12 +1589,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell190);
 								}
 
-								if (riskprotection.getRiskProtectionRU4() != null) {
+								if (riskprotection.getEconamicValueRU() != null) {
 									PdfPCell cell191 = new PdfPCell(new Paragraph("RU4 :", font11N));
 									cell191.setFixedHeight(25f);
 									protectionTable.addCell(cell191);
 									PdfPCell cell192 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRU4(), font11N));
+											new Paragraph(riskprotection.getEconamicValueRU(), font11N));
 									protectionTable.addCell(cell192);
 								} else {
 									PdfPCell cell191 = new PdfPCell(new Paragraph("RU4 :", font11N));
@@ -1594,12 +1604,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell192);
 								}
 
-								if (riskprotection.getRiskProtectionRV4() != null) {
+								if (riskprotection.getEconamicValueRV() != null) {
 									PdfPCell cell193 = new PdfPCell(new Paragraph("RV4 :", font11N));
 									cell193.setFixedHeight(25f);
 									protectionTable.addCell(cell193);
 									PdfPCell cell194 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRV4(), font11N));
+											new Paragraph(riskprotection.getEconamicValueRV(), font11N));
 									protectionTable.addCell(cell194);
 								} else {
 									PdfPCell cell193 = new PdfPCell(new Paragraph("RV4 :", font11N));
@@ -1609,12 +1619,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell194);
 								}
 
-								if (riskprotection.getRiskProtectionRW4() != null) {
+								if (riskprotection.getEconamicValueRW() != null) {
 									PdfPCell cell195 = new PdfPCell(new Paragraph("RW4 :", font11N));
 									cell195.setFixedHeight(25f);
 									protectionTable.addCell(cell195);
 									PdfPCell cell196 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRW4(), font11N));
+											new Paragraph(riskprotection.getEconamicValueRW(), font11N));
 									protectionTable.addCell(cell196);
 								} else {
 									PdfPCell cell195 = new PdfPCell(new Paragraph("RW4 :", font11N));
@@ -1624,12 +1634,12 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell196);
 								}
 
-								if (riskprotection.getRiskProtectionRZ4() != null) {
+								if (riskprotection.getEconamicValueRZ() != null) {
 									PdfPCell cell197 = new PdfPCell(new Paragraph("RZ4 :", font11N));
 									cell197.setFixedHeight(25f);
 									protectionTable.addCell(cell197);
 									PdfPCell cell198 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRZ4(), font11N));
+											new Paragraph(riskprotection.getEconamicValueRZ(), font11N));
 									protectionTable.addCell(cell198);
 								} else {
 									PdfPCell cell197 = new PdfPCell(new Paragraph("RZ4 :", font11N));
@@ -1639,15 +1649,15 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									protectionTable.addCell(cell198);
 								}
 
-								if (riskprotection.getRiskProtectionRZ4() != null) {
-									PdfPCell cell199 = new PdfPCell(new Paragraph("RZ4 :", font11N));
+								if (calculatedRisk.getRiskProtectionRD4() != null) {
+									PdfPCell cell199 = new PdfPCell(new Paragraph("RD4 :", font11N));
 									cell199.setFixedHeight(25f);
 									protectionTable.addCell(cell199);
 									PdfPCell cell210 = new PdfPCell(
-											new Paragraph(riskprotection.getRiskProtectionRZ4(), font11N));
+											new Paragraph(calculatedRisk.getRiskProtectionRD4(), font11N));
 									protectionTable.addCell(cell210);
 								} else {
-									PdfPCell cell199 = new PdfPCell(new Paragraph("RZ4 :", font11N));
+									PdfPCell cell199 = new PdfPCell(new Paragraph("RD4 :", font11N));
 									cell199.setFixedHeight(25f);
 									protectionTable.addCell(cell199);
 									PdfPCell cell210 = new PdfPCell(new Paragraph("", font11N));

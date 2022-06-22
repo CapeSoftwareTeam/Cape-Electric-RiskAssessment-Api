@@ -39,59 +39,29 @@ public class RiskProtection implements Serializable {
 	@Column(name = "R_PRO_RZ2")
 	private String riskProtectionRZ2;
 
-	@Column(name = "R_PRO_RB3")
-	private String riskProtectionRB3;
-
-	@Column(name = "R_PRO_RV3")
-	private String riskProtectionRV3;
-
-	@Column(name = "R_PRO_RA4")
-	private String riskProtectionRA4;
-
-	@Column(name = "R_PRO_RB4")
-	private String riskProtectionRB4;
-
-	@Column(name = "R_PRO_RC4")
-	private String riskProtectionRC4;
-
-	@Column(name = "R_PRO_RM4")
-	private String riskProtectionRM4;
-
-	@Column(name = "R_PRO_RU4")
-	private String riskProtectionRU4;
-
-	@Column(name = "R_PRO_RV4")
-	private String riskProtectionRV4;
-
-	@Column(name = "R_PRO_RW4")
-	private String riskProtectionRW4;
-
-	@Column(name = "R_PRO_RZ4")
-	private String riskProtectionRZ4;
-
 	@Column(name = "ECO_VALUE_RA")
-	private String econamicValueRA;
+	private String econamicValueRA;  //RA4
 
 	@Column(name = "ECO_VALUE_RB")
-	private String econamicValueRB;
+	private String econamicValueRB;  //RB4
 
 	@Column(name = "ECO_VALUE_RC")
-	private String econamicValueRC;
+	private String econamicValueRC;  //RC4
 
 	@Column(name = "ECO_VALUE_RM")
-	private String econamicValueRM;
+	private String econamicValueRM;  //RM4
 
 	@Column(name = "ECO_VALUE_RU")
-	private String econamicValueRU;
+	private String econamicValueRU;   //RU4
 
 	@Column(name = "ECO_VALUE_RV")
-	private String econamicValueRV;
+	private String econamicValueRV;   //RV4
 
 	@Column(name = "ECO_VALUE_RW")
-	private String econamicValueRW;
+	private String econamicValueRW;   //RW4
 
 	@Column(name = "ECO_VALUE_RZ")
-	private String econamicValueRZ;
+	private String econamicValueRZ;   //RZ4
 
 	@JsonBackReference
 	@ManyToOne
@@ -146,87 +116,6 @@ public class RiskProtection implements Serializable {
 		this.riskProtectionRZ2 = riskProtectionRZ2;
 	}
 
-	public String getRiskProtectionRB3() {
-		return riskProtectionRB3;
-	}
-
-	public void setRiskProtectionRB3(String riskProtectionRB3) {
-		this.riskProtectionRB3 = riskProtectionRB3;
-	}
-
-	public String getRiskProtectionRV3() {
-		return riskProtectionRV3;
-	}
-
-	public void setRiskProtectionRV3(String riskProtectionRV3) {
-		this.riskProtectionRV3 = riskProtectionRV3;
-	}
-
-	public String getRiskProtectionRA4() {
-		return riskProtectionRA4;
-	}
-
-	public void setRiskProtectionRA4(String riskProtectionRA4) {
-		this.riskProtectionRA4 = riskProtectionRA4;
-	}
-
-	public String getRiskProtectionRB4() {
-		return riskProtectionRB4;
-	}
-
-	public void setRiskProtectionRB4(String riskProtectionRB4) {
-		this.riskProtectionRB4 = riskProtectionRB4;
-	}
-
-	public String getRiskProtectionRC4() {
-		return riskProtectionRC4;
-	}
-
-	public void setRiskProtectionRC4(String riskProtectionRC4) {
-		this.riskProtectionRC4 = riskProtectionRC4;
-	}
-
-	public String getRiskProtectionRM4() {
-		return riskProtectionRM4;
-	}
-
-	public void setRiskProtectionRM4(String riskProtectionRM4) {
-		this.riskProtectionRM4 = riskProtectionRM4;
-	}
-
-	public String getRiskProtectionRU4() {
-		return riskProtectionRU4;
-	}
-
-	public void setRiskProtectionRU4(String riskProtectionRU4) {
-		this.riskProtectionRU4 = riskProtectionRU4;
-	}
-
-	public String getRiskProtectionRV4() {
-		return riskProtectionRV4;
-	}
-
-	public void setRiskProtectionRV4(String riskProtectionRV4) {
-		this.riskProtectionRV4 = riskProtectionRV4;
-	}
-
-	public String getRiskProtectionRW4() {
-		return riskProtectionRW4;
-	}
-
-	public void setRiskProtectionRW4(String riskProtectionRW4) {
-		this.riskProtectionRW4 = riskProtectionRW4;
-	}
-
-	public String getRiskProtectionRZ4() {
-		return riskProtectionRZ4;
-	}
-
-	public void setRiskProtectionRZ4(String riskProtectionRZ4) {
-		this.riskProtectionRZ4 = riskProtectionRZ4;
-	}
-
-	
 	public String getEconamicValueRA() {
 		return econamicValueRA;
 	}
