@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capeelectric.exception.RiskAssessmentException;
+import com.capeelectric.service.PrintFinalPDFService;
+import com.capeelectric.service.PrintRiskAssessmentDataDetailsService;
+import com.capeelectric.service.PrintRiskCustomerDetailsService;
 import com.capeelectric.service.ReturnPDFService;
 
 @RestController
@@ -23,6 +27,15 @@ public class FinalPDFController {
 	private static final Logger logger = LoggerFactory.getLogger(FinalPDFController.class);
 
 	private final ReturnPDFService returnPDFService;
+	
+	@Autowired
+	private PrintRiskCustomerDetailsService printRiskCustomerDetailsService;
+	
+	@Autowired
+	private PrintRiskAssessmentDataDetailsService printRiskAssessmentDataDetailsService;
+	
+	@Autowired
+	private PrintFinalPDFService printFinalPDFService;
 
 	@Autowired
 	public FinalPDFController(ReturnPDFService returnPDFService) {
@@ -31,9 +44,11 @@ public class FinalPDFController {
 	
 	@GetMapping("/printFinalPDF/{userName}/{riskId}/{projectName}")
 	@ResponseBody
-	public ResponseEntity<byte[]> printFinalPDF(@PathVariable String userName, @PathVariable Integer riskId,@PathVariable String projectName) throws Exception {
+	public ResponseEntity<byte[]> printFinalPDF(@PathVariable String userName, @PathVariable Integer riskId,@PathVariable String projectName) throws Exception, RiskAssessmentException {
 		logger.info("called printFinalPDF function userName: {},riskId : {}, projectName : {}", userName, riskId, projectName);
-
+		printRiskCustomerDetailsService.printRiskCustomerDetails(userName, riskId);
+		printRiskAssessmentDataDetailsService.printRiskAssessmentDataDetails(userName, riskId);
+		printFinalPDFService.printFinalPDF(userName, riskId, projectName);
 		ByteArrayOutputStream downloadInputStream = returnPDFService.printFinalPDF(userName, riskId, projectName);
 		String keyname = projectName + ".pdf";
 		return ResponseEntity.ok().contentType(contentType(keyname))
