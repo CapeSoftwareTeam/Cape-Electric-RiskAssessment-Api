@@ -21,6 +21,7 @@ import com.capeelectric.model.StructureCharacteristics;
 import com.capeelectric.repository.CustomerDetailsRepository;
 import com.capeelectric.repository.RiskAssessmentRepository;
 import com.capeelectric.service.impl.RiskAssessmentServiceImpl;
+import com.capeelectric.util.UserFullName;
 
 @ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
@@ -34,6 +35,9 @@ public class RiskAssessmentServiceTest {
 
 	@MockBean
 	private CustomerDetailsRepository customerDetailsRepository;
+	
+	@MockBean
+	private UserFullName userFullName;
 
 	private StructureCharacteristics structureCharacteristics;
 
@@ -97,7 +101,10 @@ public class RiskAssessmentServiceTest {
 	@Test
 	public void testUpdateRiskAssessmentDetails() throws RiskAssessmentException, Exception {
 
+		structureCharacteristics.setRiskId(1);
+		structureCharacteristics.setUserName("LVsystem@gmail.com");
 		when(riskAssessmentRepository.findByRiskId(1)).thenReturn(Optional.of(structureCharacteristics));
+		when(customerDetailsRepository.findByRiskId(1)).thenReturn(Optional.of(customerDetails));
 		riskAssessmentServiceImpl.updateRiskAssessmentDetails(structureCharacteristics);
 
 		RiskAssessmentException assertThrows_1 = Assertions.assertThrows(RiskAssessmentException.class,

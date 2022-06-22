@@ -19,6 +19,7 @@ import com.capeelectric.exception.CustomerDetailsException;
 import com.capeelectric.model.CustomerDetails;
 import com.capeelectric.repository.CustomerDetailsRepository;
 import com.capeelectric.service.impl.CustomerDetailsServiceImpl;
+import com.capeelectric.util.UserFullName;
 
 @ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
@@ -29,6 +30,9 @@ public class CustomerDetailsServiceTest {
 
 	@MockBean
 	private CustomerDetailsRepository customerDetailsRepository;
+	
+	@MockBean
+	private UserFullName userFullName;
 
 	private CustomerDetails customerDetails;
 	{
@@ -36,6 +40,7 @@ public class CustomerDetailsServiceTest {
 		customerDetails = new CustomerDetails();
 		customerDetails.setRiskId(1);
 		customerDetails.setUserName("LVsystem@gmail.com");
+		customerDetails.setOrganisationName("cape");
 
 	}
 
@@ -78,7 +83,7 @@ public class CustomerDetailsServiceTest {
 		customerDetails.setRiskId(1);
 		when(customerDetailsRepository.findByRiskId(1)).thenReturn(Optional.of(customerDetails));
 		customerDetailsServiceImpl.updateCustomerDetails(customerDetails);
-
+		
 		CustomerDetailsException assertThrows_1 = Assertions.assertThrows(CustomerDetailsException.class,
 				() -> customerDetailsServiceImpl.updateCustomerDetails(null));
 		assertEquals(assertThrows_1.getMessage(), "Invalid Inputs");
