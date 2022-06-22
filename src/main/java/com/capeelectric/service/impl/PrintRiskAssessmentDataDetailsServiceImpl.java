@@ -1014,12 +1014,11 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 //						cell1.setBorder(PdfPCell.NO_BORDER);
 								protectionTable.addCell(cell85);
 
-								if (protection.getProtectionPEB() != null) {
+								if (losses.getClassOfSPD() != null) {
 									PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", font11N));
 									cell86.setFixedHeight(25f);
 									protectionTable.addCell(cell86);
-									PdfPCell cell87 = new PdfPCell(
-											new Paragraph(protection.getProtectionPEB(), font11N));
+									PdfPCell cell87 = new PdfPCell(new Paragraph(losses.getClassOfSPD(), font11N));
 									protectionTable.addCell(cell87);
 								} else {
 									PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", font11N));
@@ -1473,8 +1472,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									PdfPCell cell174 = new PdfPCell(new Paragraph("RB3 :", font11N));
 									cell174.setFixedHeight(25f);
 									protectionTable.addCell(cell174);
-									PdfPCell cell175 = new PdfPCell(
-											new Paragraph(protection.getCulturalRB(), font11N));
+									PdfPCell cell175 = new PdfPCell(new Paragraph(protection.getCulturalRB(), font11N));
 									protectionTable.addCell(cell175);
 								} else {
 									PdfPCell cell174 = new PdfPCell(new Paragraph("RB3 :", font11N));
@@ -1488,8 +1486,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									PdfPCell cell176 = new PdfPCell(new Paragraph("RV3 :", font11N));
 									cell176.setFixedHeight(25f);
 									protectionTable.addCell(cell176);
-									PdfPCell cell177 = new PdfPCell(
-											new Paragraph(protection.getCulturalRV(), font11N));
+									PdfPCell cell177 = new PdfPCell(new Paragraph(protection.getCulturalRV(), font11N));
 									protectionTable.addCell(cell177);
 								} else {
 									PdfPCell cell176 = new PdfPCell(new Paragraph("RV3 :", font11N));
@@ -1693,191 +1690,199 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									PdfPCell cell215 = new PdfPCell(new Paragraph("", font11N));
 									protectionTable.addCell(cell215);
 								}
+//							}
+//						}
+//					}
+								document.add(protectionTable);
+//				}
+
+								document.newPage();
+
+								Paragraph paragraph1 = new Paragraph("5. CONCLUSION", font11B);
+								paragraph1.setAlignment(Element.ALIGN_LEFT);
+								document.add(paragraph1);
+
+								PdfPTable conclusionHead = new PdfPTable(pointColumnHeadLabel);
+								conclusionHead.setWidthPercentage(100); // Width 100%
+								conclusionHead.setSpacingBefore(25f); // Space before table
+//				conclusionHead.setSpacingAfter(5f); // Space after table
+
+								PdfPCell conclusionLabel = new PdfPCell(new Paragraph(
+										"Based on the Data provided, following table depicts the comparison between Tolerable risk"
+												+ "\r\n\r\nand calculated risk with protection.",
+										font11N));
+								conclusionLabel.setHorizontalAlignment(Element.ALIGN_LEFT);
+								conclusionLabel.setBorder(PdfPCell.NO_BORDER);
+								conclusionHead.addCell(conclusionLabel);
+								document.add(conclusionHead);
+
+								float[] pointColumnWidths2 = { 25F, 20F, 25F, 25F, 25F, };
+
+								PdfPTable conclisionTable = new PdfPTable(pointColumnWidths2); // 3 columns.
+								conclisionTable.setWidthPercentage(100); // Width 100%
+								conclisionTable.setSpacingBefore(20f); // Space before table
+								conclisionTable.setSpacingAfter(20f); // Space after table
+								conclisionTable.getDefaultCell().setBorder(0);
+
+								PdfPCell cell250 = new PdfPCell(new Paragraph("\r\nType of Losses ", font10B));
+								cell250.setFixedHeight(40f);
+								cell250.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell250);
+
+								PdfPCell cell251 = new PdfPCell(new Paragraph("\r\nTolerable \r\n" + "Risk", font10B));
+								cell251.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell251);
+
+								PdfPCell cell252 = new PdfPCell(
+										new Paragraph("\r\nDirect Strike \r\n" + "Risk RD", font10B));
+								cell252.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell252);
+
+								PdfPCell cell253 = new PdfPCell(
+										new Paragraph("\r\nIndirect Strike\r\n" + "Risk RI", font10B));
+								cell253.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell253);
+
+								PdfPCell cell254 = new PdfPCell(
+										new Paragraph("\r\nCalculated Risk \r\n" + "(R = RD + RI)", font10B));
+								cell254.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell254);
+
+								PdfPCell cell255 = new PdfPCell(new Paragraph("\r\nLoss of human life ", font11N));
+								cell255.setFixedHeight(40f);
+								cell255.setHorizontalAlignment(Element.ALIGN_LEFT);
+								conclisionTable.addCell(cell255);
+
+								PdfPCell cell256 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getLossOfHumanLifeRT1(), font10N));
+								cell256.setFixedHeight(40f);
+								cell256.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell256);
+
+								PdfPCell cell257 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionRD1(), font10N));
+								cell257.setFixedHeight(40f);
+								cell257.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell257);
+
+								PdfPCell cell258 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionRI1(), font10N));
+								cell258.setFixedHeight(40f);
+								cell258.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell258);
+
+								PdfPCell cell259 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionR1(), font10N));
+								cell259.setFixedHeight(40f);
+								cell259.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell259);
+
+								PdfPCell cell260 = new PdfPCell(new Paragraph("\r\nLoss of public services ", font11N));
+								cell260.setFixedHeight(40f);
+								cell260.setHorizontalAlignment(Element.ALIGN_LEFT);
+								conclisionTable.addCell(cell260);
+
+								PdfPCell cell261 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getLossOfPublicSerivceRT2(), font10N));
+								cell261.setFixedHeight(40f);
+								cell261.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell261);
+
+								PdfPCell cell262 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionRD2(), font10N));
+								cell262.setFixedHeight(40f);
+								cell262.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell262);
+
+								PdfPCell cell263 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionRI2(), font10N));
+								cell263.setFixedHeight(40f);
+								cell263.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell263);
+
+								PdfPCell cell264 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionR2(), font10N));
+								cell264.setFixedHeight(40f);
+								cell264.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell264);
+
+								PdfPCell cell265 = new PdfPCell(
+										new Paragraph("\r\nLoss of cultural heritage ", font11N));
+								cell265.setFixedHeight(40f);
+								cell265.setHorizontalAlignment(Element.ALIGN_LEFT);
+								conclisionTable.addCell(cell265);
+
+								PdfPCell cell266 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getLossOfCulturalHeritageRT3(), font10N));
+								cell266.setFixedHeight(40f);
+								cell266.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell266);
+
+								PdfPCell cell267 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionRD3(), font10N));
+								cell267.setFixedHeight(40f);
+								cell267.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell267);
+
+								PdfPCell cell268 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionRI3(), font10N));
+								cell268.setFixedHeight(40f);
+								cell268.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell268);
+
+								PdfPCell cell269 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionR3(), font10N));
+								cell269.setFixedHeight(40f);
+								cell269.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell269);
+
+								PdfPCell cell270 = new PdfPCell(new Paragraph("\r\nEconomic loss ", font11N));
+								cell270.setFixedHeight(40f);
+								cell270.setHorizontalAlignment(Element.ALIGN_LEFT);
+								conclisionTable.addCell(cell270);
+
+								PdfPCell cell271 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getEconomicLossRT4(), font10N));
+								cell271.setFixedHeight(40f);
+								cell271.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell271);
+
+								PdfPCell cell272 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionRD4(), font10N));
+								cell272.setFixedHeight(40f);
+								cell272.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell272);
+
+								PdfPCell cell273 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionRI4(), font10N));
+								cell273.setFixedHeight(40f);
+								cell273.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell273);
+
+								PdfPCell cell274 = new PdfPCell(new Paragraph(" \r\n"+calculatedRisk.getRiskProtectionR4(), font10N));
+								cell274.setFixedHeight(40f);
+								cell274.setHorizontalAlignment(Element.ALIGN_CENTER);
+								conclisionTable.addCell(cell274);
+								document.add(conclisionTable);
+
+								PdfPTable conclusionConTab = new PdfPTable(pointColumnHeadLabel);
+								conclusionConTab.setWidthPercentage(100); // Width 100%
+								conclusionConTab.setSpacingBefore(25f); // Space before table
+//				conclusionConTab.setSpacingAfter(5f); // Space after table
+
+								PdfPCell conclusionCon1 = new PdfPCell(new Paragraph(
+										"The above Risk Assessment is completely based on IS/IEC 62305-2 : 2010-12 : Risk \r\n\r\nManagement.",
+										font11N));
+								conclusionCon1.setHorizontalAlignment(Element.ALIGN_LEFT);
+								conclusionCon1.setBorder(PdfPCell.NO_BORDER);
+								conclusionConTab.addCell(conclusionCon1);
+
+								PdfPCell conclusionCon2 = new PdfPCell(new Paragraph(
+										"\r\n\r\nDamages and losses caused due to direct or indirect strike of lightning strike are assessed.\r\n\r\n\r\n"
+												+ "				As per the calculation, by providing ",
+										font11N));
+								conclusionCon2.setHorizontalAlignment(Element.ALIGN_LEFT);
+								conclusionCon2.setBorder(PdfPCell.NO_BORDER);
+								conclusionConTab.addCell(conclusionCon2);
+
+								PdfPCell conclusionCon3 = new PdfPCell(new Paragraph(
+										"\r\n\r\nClass III LPS and Protec T1HS 300 3 + 1 R & Protec T2H 300 3 + 1 r\n"
+												+ "\r\n\r\ncomplete risk are less than the tolerable limit and protection is achieved .",
+										font11N));
+								conclusionCon3.setHorizontalAlignment(Element.ALIGN_LEFT);
+								conclusionCon3.setBorder(PdfPCell.NO_BORDER);
+								conclusionConTab.addCell(conclusionCon3);
+								document.add(conclusionConTab);
+
 							}
 						}
 					}
-					document.add(protectionTable);
 				}
-
-				document.newPage();
-
-				Paragraph paragraph1 = new Paragraph("5. CONCLUSION", font11B);
-				paragraph1.setAlignment(Element.ALIGN_LEFT);
-				document.add(paragraph1);
-
-				PdfPTable conclusionHead = new PdfPTable(pointColumnHeadLabel);
-				conclusionHead.setWidthPercentage(100); // Width 100%
-				conclusionHead.setSpacingBefore(25f); // Space before table
-//				conclusionHead.setSpacingAfter(5f); // Space after table
-
-				PdfPCell conclusionLabel = new PdfPCell(new Paragraph(
-						"Based on the Data provided, following table depicts the comparison between Tolerable risk"
-								+ "\r\n\r\nand calculated risk with protection.",
-						font11N));
-				conclusionLabel.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclusionLabel.setBorder(PdfPCell.NO_BORDER);
-				conclusionHead.addCell(conclusionLabel);
-				document.add(conclusionHead);
-
-				float[] pointColumnWidths2 = { 25F, 20F, 25F, 25F, 25F, };
-
-				PdfPTable conclisionTable = new PdfPTable(pointColumnWidths2); // 3 columns.
-				conclisionTable.setWidthPercentage(100); // Width 100%
-				conclisionTable.setSpacingBefore(20f); // Space before table
-				conclisionTable.setSpacingAfter(20f); // Space after table
-				conclisionTable.getDefaultCell().setBorder(0);
-
-				PdfPCell cell250 = new PdfPCell(new Paragraph("\r\nType of Losses ", font10B));
-				cell250.setFixedHeight(40f);
-				cell250.setHorizontalAlignment(Element.ALIGN_CENTER);
-				conclisionTable.addCell(cell250);
-
-				PdfPCell cell251 = new PdfPCell(new Paragraph("\r\nTolerable \r\n" + "Risk", font10B));
-				cell251.setHorizontalAlignment(Element.ALIGN_CENTER);
-				conclisionTable.addCell(cell251);
-
-				PdfPCell cell252 = new PdfPCell(new Paragraph("\r\nDirect Strike \r\n" + "Risk RD", font10B));
-				cell252.setHorizontalAlignment(Element.ALIGN_CENTER);
-				conclisionTable.addCell(cell252);
-
-				PdfPCell cell253 = new PdfPCell(new Paragraph("\r\nIndirect Strike\r\n" + "Risk RI", font10B));
-				cell253.setHorizontalAlignment(Element.ALIGN_CENTER);
-				conclisionTable.addCell(cell253);
-
-				PdfPCell cell254 = new PdfPCell(new Paragraph("\r\nCalculated Risk \r\n" + "(R = RD + RI)", font10B));
-				cell254.setHorizontalAlignment(Element.ALIGN_CENTER);
-				conclisionTable.addCell(cell254);
-
-				PdfPCell cell255 = new PdfPCell(new Paragraph("\r\nLoss of human life ", font11N));
-				cell255.setFixedHeight(40f);
-				cell255.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell255);
-
-				PdfPCell cell256 = new PdfPCell(new Paragraph("", font10B));
-				cell256.setFixedHeight(40f);
-				cell256.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell256);
-
-				PdfPCell cell257 = new PdfPCell(new Paragraph("", font10B));
-				cell257.setFixedHeight(40f);
-				cell257.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell257);
-
-				PdfPCell cell258 = new PdfPCell(new Paragraph("", font10B));
-				cell258.setFixedHeight(40f);
-				cell258.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell258);
-
-				PdfPCell cell259 = new PdfPCell(new Paragraph("", font10B));
-				cell259.setFixedHeight(40f);
-				cell259.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell259);
-
-				PdfPCell cell260 = new PdfPCell(new Paragraph("\r\nLoss of public services ", font11N));
-				cell260.setFixedHeight(40f);
-				cell260.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell260);
-
-				PdfPCell cell261 = new PdfPCell(new Paragraph("", font10B));
-				cell261.setFixedHeight(40f);
-				cell261.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell261);
-
-				PdfPCell cell262 = new PdfPCell(new Paragraph("", font10B));
-				cell262.setFixedHeight(40f);
-				cell262.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell262);
-
-				PdfPCell cell263 = new PdfPCell(new Paragraph("", font10B));
-				cell263.setFixedHeight(40f);
-				cell263.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell263);
-
-				PdfPCell cell264 = new PdfPCell(new Paragraph("", font10B));
-				cell264.setFixedHeight(40f);
-				cell264.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell264);
-
-				PdfPCell cell265 = new PdfPCell(new Paragraph("\r\nLoss of cultural heritage ", font11N));
-				cell265.setFixedHeight(40f);
-				cell265.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell265);
-
-				PdfPCell cell266 = new PdfPCell(new Paragraph("", font10B));
-				cell266.setFixedHeight(40f);
-				cell266.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell266);
-
-				PdfPCell cell267 = new PdfPCell(new Paragraph("", font10B));
-				cell267.setFixedHeight(40f);
-				cell267.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell267);
-
-				PdfPCell cell268 = new PdfPCell(new Paragraph("", font10B));
-				cell268.setFixedHeight(40f);
-				cell268.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell268);
-
-				PdfPCell cell269 = new PdfPCell(new Paragraph("", font10B));
-				cell269.setFixedHeight(40f);
-				cell269.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell269);
-
-				PdfPCell cell270 = new PdfPCell(new Paragraph("\r\nEconomic loss ", font11N));
-				cell270.setFixedHeight(40f);
-				cell270.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell270);
-
-				PdfPCell cell271 = new PdfPCell(new Paragraph("", font10B));
-				cell271.setFixedHeight(40f);
-				cell271.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell271);
-
-				PdfPCell cell272 = new PdfPCell(new Paragraph("", font10B));
-				cell272.setFixedHeight(40f);
-				cell272.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell272);
-
-				PdfPCell cell273 = new PdfPCell(new Paragraph("", font10B));
-				cell273.setFixedHeight(40f);
-				cell273.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell273);
-
-				PdfPCell cell274 = new PdfPCell(new Paragraph("", font10B));
-				cell274.setFixedHeight(40f);
-				cell274.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclisionTable.addCell(cell274);
-				document.add(conclisionTable);
-
-				PdfPTable conclusionConTab = new PdfPTable(pointColumnHeadLabel);
-				conclusionConTab.setWidthPercentage(100); // Width 100%
-				conclusionConTab.setSpacingBefore(25f); // Space before table
-//				conclusionConTab.setSpacingAfter(5f); // Space after table
-
-				PdfPCell conclusionCon1 = new PdfPCell(new Paragraph(
-						"The above Risk Assessment is completely based on IS/IEC 62305-2 : 2010-12 : Risk \r\n\r\nManagement.",
-						font11N));
-				conclusionCon1.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclusionCon1.setBorder(PdfPCell.NO_BORDER);
-				conclusionConTab.addCell(conclusionCon1);
-
-				PdfPCell conclusionCon2 = new PdfPCell(new Paragraph(
-						"\r\n\r\nDamages and losses caused due to direct or indirect strike of lightning strike are assessed.\r\n\r\n\r\n"
-								+ "				As per the calculation, by providing ",
-						font11N));
-				conclusionCon2.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclusionCon2.setBorder(PdfPCell.NO_BORDER);
-				conclusionConTab.addCell(conclusionCon2);
-
-				PdfPCell conclusionCon3 = new PdfPCell(new Paragraph(
-						"\r\n\r\nClass III LPS and Protec T1HS 300 3 + 1 R & Protec T2H 300 3 + 1 r\n"
-								+ "\r\n\r\ncomplete risk are less than the tolerable limit and protection is achieved .",
-						font11N));
-				conclusionCon3.setHorizontalAlignment(Element.ALIGN_LEFT);
-				conclusionCon3.setBorder(PdfPCell.NO_BORDER);
-				conclusionConTab.addCell(conclusionCon3);
-				document.add(conclusionConTab);
-
 				document.close();
 				writer.close();
 
