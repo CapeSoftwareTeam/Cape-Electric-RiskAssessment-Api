@@ -87,7 +87,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 			if (customerDetailsRepo.isPresent()
 					&& customerDetailsRepo.get().getRiskId().equals(customerDetails.getRiskId())) {
 				customerDetails.setUpdatedDate(LocalDateTime.now());
-				customerDetails.setUpdatedBy(customerDetails.getUserName());
+				customerDetails.setUpdatedBy(userFullName.findByUserName(customerDetails.getUserName()));
 				customerDetailsRepository.save(customerDetails);
 			} else {
 				logger.error("Given RiskAssessment Id is Invalid");
