@@ -14,9 +14,6 @@ import com.capeelectric.model.CustomerDetails;
 import com.capeelectric.model.StructureCharacteristics;
 import com.capeelectric.repository.CustomerDetailsRepository;
 import com.capeelectric.repository.RiskAssessmentRepository;
-import com.capeelectric.service.PrintFinalPDFService;
-import com.capeelectric.service.PrintRiskAssessmentDataDetailsService;
-import com.capeelectric.service.PrintRiskCustomerDetailsService;
 import com.capeelectric.service.RiskAssessmentService;
 import com.capeelectric.util.UserFullName;
 
@@ -30,15 +27,6 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 
 	@Autowired
 	private CustomerDetailsRepository customerDetailsRepository;
-
-	@Autowired
-	private PrintRiskCustomerDetailsService printRiskCustomerDetailsService;
-
-	@Autowired
-	private PrintRiskAssessmentDataDetailsService printRiskAssessmentDataDetailsService;
-
-	@Autowired
-	private PrintFinalPDFService printFinalPDFService;
 
 	@Autowired
 	private UserFullName userFullName;

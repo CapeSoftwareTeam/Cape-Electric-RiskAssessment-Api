@@ -119,8 +119,8 @@ public class PrintFinalPDFServiceImpl implements PrintFinalPDFService {
 						logger.info("Uploading file done in AWS s3");
 
 					} else {
-						logger.error("There is no site available");
-						throw new Exception("There is no site available");
+						logger.error("There is project name available");
+						throw new Exception("There is no project name available");
 
 					}
 				} catch (AmazonS3Exception e) {
