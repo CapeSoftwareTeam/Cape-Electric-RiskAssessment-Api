@@ -124,11 +124,13 @@ public class PrintFinalPDFServiceImpl implements PrintFinalPDFService {
 
 					}
 				} catch (AmazonS3Exception e) {
-					e.printStackTrace();
+					logger.error("Uploading file in AWS got failed please try again with proper data");
+					throw new Exception("Uploading file in AWS got failed please try again with proper data");
 				}
 
 			} catch (Exception e) {
-				System.out.println(e);
+				logger.error("Please provide proper AWS credentials");
+				throw new Exception("Please provide proper AWS credentials");
 			}
 			document.close();
 		} else {

@@ -49,6 +49,10 @@ public class FinalPDFController {
 		printRiskCustomerDetailsService.printRiskCustomerDetails(userName, riskId);
 		printRiskAssessmentDataDetailsService.printRiskAssessmentDataDetails(userName, riskId);
 		printFinalPDFService.printFinalPDF(userName, riskId, projectName);
+		
+		// 5 seconds of time for executing between FileUpload And FileDownload in AWS s3 bucket
+        Thread.sleep(5000);
+		
 		ByteArrayOutputStream downloadInputStream = returnPDFService.printFinalPDF(userName, riskId, projectName);
 		String keyname = projectName + ".pdf";
 		return ResponseEntity.ok().contentType(contentType(keyname))
