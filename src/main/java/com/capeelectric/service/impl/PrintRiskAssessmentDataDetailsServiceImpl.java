@@ -69,6 +69,10 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 				Font font11B = new Font(BaseFont.createFont(), 11, Font.NORMAL | Font.BOLD, BaseColor.BLACK);
 
 				Font font11N = new Font(BaseFont.createFont(), 11, Font.NORMAL, BaseColor.BLACK);
+				
+				Font protectedValues = new Font(BaseFont.createFont(), 10, Font.NORMAL, BaseColor.GREEN);
+				
+				Font unProtectedValues = new Font(BaseFont.createFont(), 10, Font.NORMAL, BaseColor.RED);
 
 				float[] pointColumnHeadLabel = { 100F };
 
@@ -1871,9 +1875,13 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 								conclusionConTab.addCell(conclusionCon2);
 
 								PdfPCell conclusionCon3 = new PdfPCell(new Paragraph(
-										"\r\n\r\nClass III LPS and Protec T1HS 300 3 + 1 R & Protec T2H 300 3 + 1 r\n"
+										"\r\n\r\n"
+										+ losses.getClassOfLPS()
+										+ " and "
+										+ losses.getClassOfSPD()
+										+ "\n"
 												+ "\r\n\r\ncomplete risk are less than the tolerable limit and protection is achieved .",
-										font11N));
+										font11B));
 								conclusionCon3.setHorizontalAlignment(Element.ALIGN_LEFT);
 								conclusionCon3.setBorder(PdfPCell.NO_BORDER);
 								conclusionConTab.addCell(conclusionCon3);
