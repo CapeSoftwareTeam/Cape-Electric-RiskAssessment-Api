@@ -1026,7 +1026,22 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", protectedValues11N));
 									cell86.setFixedHeight(25f);
 									protectionTable.addCell(cell86);
-									PdfPCell cell87 = new PdfPCell(new Paragraph(losses.getClassOfSPD(), font11N));
+									String pebValue = null;
+									switch (losses.getClassOfSPD()) {
+									case "No SPD": 
+										pebValue = "1";
+										break;
+									case "Protec T1H 300 3+1 R":
+										pebValue = "0.05";
+										break;
+									case "Protec T1HS 300 3+1 R":
+										pebValue = "0.01";
+										break;
+									case "Protec T1H 300 3+1 R & Protec T2H 300 3+1":
+										pebValue = "0.005";
+									}
+
+									PdfPCell cell87 = new PdfPCell(new Paragraph(((pebValue != null) ? pebValue : ""), font11N));
 									protectionTable.addCell(cell87);
 								} else {
 									PdfPCell cell86 = new PdfPCell(new Paragraph("PEB :", protectedValues11N));
