@@ -1720,22 +1720,27 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 								conclusionHead.addCell(conclusionLabel);
 								document.add(conclusionHead);
 								
-								if(calculatedRisk.getLossOfHumanLifeRT1().equalsIgnoreCase("1.00E-05")) {
-									calculatedRisk.setLossOfHumanLifeRT1("0.0000100");
+								String lossOfHumanLifeRT1 = calculatedRisk.getLossOfHumanLifeRT1();
+								String lossOfHumanPublicServiceRT2 = calculatedRisk.getLossOfPublicSerivceRT2();
+								String lossOfCulturalHeritageRT3 = calculatedRisk.getLossOfCulturalHeritageRT3();
+								String lossOfEconomicRT4 = calculatedRisk.getEconomicLossRT4();
+								
+								if(lossOfHumanLifeRT1.equalsIgnoreCase("1.00E-05")) {
+									lossOfHumanLifeRT1 = "0.0000100";
 								}
-								if(calculatedRisk.getLossOfPublicSerivceRT2().equalsIgnoreCase("1.00E-03")) {
-									calculatedRisk.setLossOfPublicSerivceRT2("0.001");
+								if(lossOfHumanPublicServiceRT2.equalsIgnoreCase("1.00E-03")) {
+									lossOfHumanPublicServiceRT2 = "0.001";
 								}
-								if(calculatedRisk.getLossOfCulturalHeritageRT3().equalsIgnoreCase("1.00E-04")) {
-									calculatedRisk.setLossOfCulturalHeritageRT3("0.0001");
+								if(lossOfCulturalHeritageRT3.equalsIgnoreCase("1.00E-04")) {
+									lossOfCulturalHeritageRT3 = "0.0001";
 								}
-								if(calculatedRisk.getEconomicLossRT4().equalsIgnoreCase("1.00E-03")) {
-									calculatedRisk.setEconomicLossRT4("0.001");
+								if(lossOfEconomicRT4.equalsIgnoreCase("1.00E-03")) {
+									lossOfEconomicRT4 = "0.001";
 								}
-								boolean rp1 = riskProtectionValuesHumanLife(calculatedRisk);
-								boolean rp2 = riskProtectionForPublicServiceLoss(calculatedRisk);
-								boolean rp3 = riskProtectionForCulturalHeritageLoss(calculatedRisk);
-								boolean rp4 = riskProtectionForEconomicLoss(calculatedRisk);
+								boolean rp1 = riskProtectionValuesHumanLife(calculatedRisk, lossOfHumanLifeRT1);
+								boolean rp2 = riskProtectionForPublicServiceLoss(calculatedRisk, lossOfHumanPublicServiceRT2);
+								boolean rp3 = riskProtectionForCulturalHeritageLoss(calculatedRisk, lossOfCulturalHeritageRT3);
+								boolean rp4 = riskProtectionForEconomicLoss(calculatedRisk, lossOfEconomicRT4);
 
 								float[] pointColumnWidths2 = { 25F, 20F, 25F, 25F, 25F, };
 
@@ -1926,7 +1931,8 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 
 	}
 
-	private boolean riskProtectionForPublicServiceLoss(CalculatedRisk calculatedRisk) {
+	private boolean riskProtectionForPublicServiceLoss(CalculatedRisk calculatedRisk, String lossOfHumanPublicServiceRT2) {
+		String finalValue = "";
 		if(calculatedRisk.getRiskProtectionR2().contains("e") || calculatedRisk.getRiskProtectionR2().contains("E")) {
 
 			String[] r2 = calculatedRisk.getRiskProtectionR2().contains("e") ? calculatedRisk.getRiskProtectionR2().split("e"): calculatedRisk.getRiskProtectionR2().split("E");
@@ -1939,63 +1945,64 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 				conversionValue = -1;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-2":
 				conversionValue = -2;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-3":
 				conversionValue = -3;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-4":
 				conversionValue = -4;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-5":
 				conversionValue = -5;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-6":
 				conversionValue = -6;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-7":
 				conversionValue = -7;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-8":
 				conversionValue = -8;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-9":
 				conversionValue = -9;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR2(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			}
 		}
 		
-		return (Double.valueOf(calculatedRisk.getLossOfPublicSerivceRT2()) > Double.valueOf(calculatedRisk.getRiskProtectionR2()));
+		return (Double.valueOf(lossOfHumanPublicServiceRT2) > Double.valueOf(finalValue));
 	}
 
-	private boolean riskProtectionForCulturalHeritageLoss(CalculatedRisk calculatedRisk) {
+	private boolean riskProtectionForCulturalHeritageLoss(CalculatedRisk calculatedRisk, String lossOfCulturalHeritageRT3) {
+		String finalValue = "";
 		if(calculatedRisk.getRiskProtectionR3().contains("e") || calculatedRisk.getRiskProtectionR3().contains("E")) {
 
 			String[] r3 = calculatedRisk.getRiskProtectionR3().contains("e") ? calculatedRisk.getRiskProtectionR3().split("e"): calculatedRisk.getRiskProtectionR3().split("E");
@@ -2008,62 +2015,63 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 				conversionValue = -1;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-2":
 				conversionValue = -2;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-3":
 				conversionValue = -3;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-4":
 				conversionValue = -4;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-5":
 				conversionValue = -5;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-6":
 				conversionValue = -6;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-7":
 				conversionValue = -7;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-8":
 				conversionValue = -8;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-9":
 				conversionValue = -9;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR3(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			}
 		}
-		return (Double.valueOf(calculatedRisk.getLossOfCulturalHeritageRT3()) > Double.valueOf(calculatedRisk.getRiskProtectionR3()));
+		return (Double.valueOf(lossOfCulturalHeritageRT3) > Double.valueOf(finalValue));
 	}
 
-	private boolean riskProtectionForEconomicLoss(CalculatedRisk calculatedRisk) {
+	private boolean riskProtectionForEconomicLoss(CalculatedRisk calculatedRisk, String lossOfEconomicRT4) {
+		String finalValue = "";
 		if(calculatedRisk.getRiskProtectionR4().contains("e") || calculatedRisk.getRiskProtectionR4().contains("E")) {
 
 			String[] r4 = calculatedRisk.getRiskProtectionR4().contains("e") ? calculatedRisk.getRiskProtectionR4().split("e"): calculatedRisk.getRiskProtectionR4().split("E");
@@ -2076,65 +2084,67 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 				conversionValue = -1;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-2":
 				conversionValue = -2;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-3":
 				conversionValue = -3;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-4":
 				conversionValue = -4;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-5":
 				conversionValue = -5;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-6":
 				conversionValue = -6;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-7":
 				conversionValue = -7;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-8":
 				conversionValue = -8;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-9":
 				conversionValue = -9;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR4(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			}
 		}
 		
-		return (Double.valueOf(calculatedRisk.getEconomicLossRT4()) > Double.valueOf(calculatedRisk.getRiskProtectionR4()));
+		return (Double.valueOf(lossOfEconomicRT4) > Double.valueOf(finalValue));
 	}
 
-	private boolean riskProtectionValuesHumanLife(CalculatedRisk calculatedRisk) {
+	private boolean riskProtectionValuesHumanLife(CalculatedRisk calculatedRisk, String lossOfHumanLifeRT1) {
+		String finalValue = "";
 		if(calculatedRisk.getRiskProtectionR1().contains("e") || calculatedRisk.getRiskProtectionR1().contains("E")) {
 			String[] r1 = calculatedRisk.getRiskProtectionR1().contains("e") ? calculatedRisk.getRiskProtectionR1().split("e"): calculatedRisk.getRiskProtectionR1().split("E");
+			
 			double conversionValue = 0;
 			double convertedValue = 0;
 			String firstValue = r1[0];
@@ -2144,59 +2154,59 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 				conversionValue = -1;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-2":
 				conversionValue = -2;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-3":
 				conversionValue = -3;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-4":
 				conversionValue = -4;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-5":
 				conversionValue = -5;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-6":
 				conversionValue = -6;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-7":
 				conversionValue = -7;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-8":
 				conversionValue = -8;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			case "-9":
 				conversionValue = -9;
 				convertedValue = Double.valueOf(firstValue);
 				convertedValue = convertedValue*(Math.pow(10,conversionValue));
-				calculatedRisk.setRiskProtectionR1(String.valueOf(convertedValue));
+				finalValue = String.valueOf(convertedValue);
 				break;
 			}
 		}
-		return (Double.valueOf(calculatedRisk.getLossOfHumanLifeRT1()) > Double.valueOf(calculatedRisk.getRiskProtectionR1()));
+		return (Double.valueOf(lossOfHumanLifeRT1) > Double.valueOf(finalValue));
 	}
 
 }
