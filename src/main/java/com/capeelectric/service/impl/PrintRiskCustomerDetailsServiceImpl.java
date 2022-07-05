@@ -53,7 +53,7 @@ public class PrintRiskCustomerDetailsServiceImpl implements PrintRiskCustomerDet
 				headertable.setWidthPercentage(100); // Width 100%
 //				headertable.setSpacingBefore(f); // Space before table
 
-				PdfPCell label = new PdfPCell(new Paragraph("RISK ASSESMENT REPORT", font11B));
+				PdfPCell label = new PdfPCell(new Paragraph("RISK ASSESSMENT REPORT", font11B));
 				label.setHorizontalAlignment(Element.ALIGN_CENTER);
 				label.setGrayFill(0.92f);
 				label.setBorder(PdfPCell.NO_BORDER);
@@ -170,7 +170,7 @@ public class PrintRiskCustomerDetailsServiceImpl implements PrintRiskCustomerDet
 				cell26.setFixedHeight(60f);
 				table100.addCell(cell26);
 
-				PdfPCell cell27 = new PdfPCell(new Paragraph("\r\n\r\n" + customerDetails.getPreparedBy(), font10N));
+				PdfPCell cell27 = new PdfPCell(new Paragraph("\r\n\r\n" + customerDetails.getVerifiedBy(), font10N));
 				cell27.setHorizontalAlignment(Element.ALIGN_LEFT);
 				table100.addCell(cell27);
 				document.add(table100);
