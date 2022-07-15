@@ -1037,7 +1037,7 @@ public class PrintRiskAssessmentDataDetailsServiceImpl implements PrintRiskAsses
 									case "Protec T1HS 300 3+1 R":
 										pebValue = "0.01";
 										break;
-									case "Protec T1H 300 3+1 R & Protec T2H 300 3+1":
+									case "Protec T1HS 300 3 + 1 R & Protec T2H 300 3 + 1":
 										pebValue = "0.005";
 									}
 
